@@ -1,0 +1,30 @@
+E:\Sicherung\Sync\Programme\VOkabeltrainer\PicSimulator\PicSimulator\bin\Debug\PicSimulator.exe.config
+E:\Sicherung\Sync\Programme\VOkabeltrainer\PicSimulator\PicSimulator\bin\Debug\PicSimulator.exe
+E:\Sicherung\Sync\Programme\VOkabeltrainer\PicSimulator\PicSimulator\bin\Debug\PicSimulator.pdb
+E:\Sicherung\Sync\Programme\VOkabeltrainer\PicSimulator\PicSimulator\obj\Debug\PicSimulator.csprojResolveAssemblyReference.cache
+E:\Sicherung\Sync\Programme\VOkabeltrainer\PicSimulator\PicSimulator\obj\Debug\PicSimulator.Form1.resources
+E:\Sicherung\Sync\Programme\VOkabeltrainer\PicSimulator\PicSimulator\obj\Debug\PicSimulator.Properties.Resources.resources
+E:\Sicherung\Sync\Programme\VOkabeltrainer\PicSimulator\PicSimulator\obj\Debug\PicSimulator.csproj.GenerateResource.Cache
+E:\Sicherung\Sync\Programme\VOkabeltrainer\PicSimulator\PicSimulator\obj\Debug\PicSimulator.exe
+E:\Sicherung\Sync\Programme\VOkabeltrainer\PicSimulator\PicSimulator\obj\Debug\PicSimulator.pdb
+D:\PicSimulator\PicSimulator\bin\Debug\PicSimulator.exe.config
+D:\PicSimulator\PicSimulator\obj\Debug\PicSimulator.exe
+D:\PicSimulator\PicSimulator\obj\Debug\PicSimulator.pdb
+D:\PicSimulator\PicSimulator\bin\Debug\PicSimulator.exe
+D:\PicSimulator\PicSimulator\bin\Debug\PicSimulator.pdb
+D:\PicSimulator\PicSimulator\obj\Debug\PicSimulator.csprojResolveAssemblyReference.cache
+D:\PicSimulator\PicSimulator\obj\Debug\PicSimulator.Form1.resources
+D:\PicSimulator\PicSimulator\obj\Debug\PicSimulator.Properties.Resources.resources
+D:\PicSimulator\PicSimulator\obj\Debug\PicSimulator.csproj.GenerateResource.Cache
+G:\PicSimulator\PicSimulator\bin\Debug\PicSimulator.exe.config
+G:\PicSimulator\PicSimulator\obj\Debug\PicSimulator.exe
+G:\PicSimulator\PicSimulator\obj\Debug\PicSimulator.pdb
+C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSimulator\PicSimulator\bin\Debug\PicSimulator.exe.config
+C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSimulator\PicSimulator\obj\Debug\PicSimulator.exe
+C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSimulator\PicSimulator\obj\Debug\PicSimulator.pdb
+C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSimulator\PicSimulator\bin\Debug\PicSimulator.exe
+C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSimulator\PicSimulator\bin\Debug\PicSimulator.pdb
+C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSimulator\PicSimulator\obj\Debug\PicSimulator.csprojResolveAssemblyReference.cache
+C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSimulator\PicSimulator\obj\Debug\PicSimulator.Form1.resources
+C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSimulator\PicSimulator\obj\Debug\PicSimulator.Properties.Resources.resources
+C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSimulator\PicSimulator\obj\Debug\PicSimulator.csproj.GenerateResource.Cache
