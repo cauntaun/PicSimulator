@@ -30,46 +30,41 @@ namespace PicSimulator
 
         void ReadLst(string file) //einlesen Lst
         {
-            Regex rgxZahl = new Regex(@"^[0-9][0-9][0-9][0-9][0-9]");
-            Regex rgxBefehl = new Regex(@"^[0-9][0-9][0-9][0-9]");
+            Regex rgxZahl = new Regex(@"^[0-9]$*");
 
             Command Command = new Command();
-            char[] delimiterChar = {' '};
-            string[] speicheradresse = new string[1000];
-            string[] command = new string[1000];
-            
+            char[] delimiterChar = { ' ' };
+            string[] speicheradresse = new string[1000];        //Array der Speicheradressen
+            string[] command = new string[1000];                //Array der Commands
+
             dataGridViewLst.ColumnCount = 3;
             dataGridViewLst.Columns[0].Name = "Speicheradresse";
             dataGridViewLst.Columns[1].Name = "Befehl";
             dataGridViewLst.Columns[2].Name = "Argument";
 
 
-            StreamReader sr = new StreamReader(file);
-            string line;
+            StreamReader sr = new StreamReader(file);       //einlesen des files
+            string line;           //Line für Line wird gespeichert (eingelesen)
 
-            while ((line = sr.ReadLine()) != null)
+            while ((line = sr.ReadLine()) != null)      //solange es noch eine Line in File gibt
             {
-                string[] ausgabe = line.Split(delimiterChar);
-                for (int i = 0; i < ausgabe.Length; i++)
+                if (rgxZahl.IsMatch(line) == true)      //Wenn Zeile mit Zahl beginnt
                 {
-                    if (rgxZahl.IsMatch(ausgabe[i]) == true && ausgabe[i]!="") //Filter Speicheradresse
+                    string[] ausgabe = line.Split(delimiterChar);   //Aufsplittung der Zeile pro Leerzeichen
+                    for (int i = 0; i < (ausgabe.Length - 1); i++)  //Durchloopen der Zeile (ausgabe)
                     {
-                        speicheradresse[i]=ausgabe[i];
-                        Command.setCommand(ausgabe);
-                    }
-
-                    if (rgxBefehl.IsMatch(ausgabe[i]) == true && ausgabe[i] != "") //Filter Command
-                    {
-                        command[i] = ausgabe[i];
-                        Command.setCommand(ausgabe);
+                        if (rgxZahl.IsMatch(ausgabe[i]) == true)    //Wenn gesplittete Line --> asugbae mit Zahl beginnt
+                        {
+                            speicheradresse[i] = ausgabe[i];    //erste Zahl = Speciheradresse
+                            command[i] = ausgabe[i + 1];        //--> zweite Zahl ist Befehl und Argument
+                            dataGridViewLst.Rows.Add(new object[] { speicheradresse[i], command[i] });
+                            break;
+                        }
                     }
                 }
             }
-            for (int i = 0; i < 40; i++)
-            {
-                dataGridViewLst.Rows.Add(new object[] {speicheradresse[i], command[i]});
-            }
         }
+
 
 
         private void dateiLadenToolStrip_Click(object sender, EventArgs e) //Klick auf Menü
