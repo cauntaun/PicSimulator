@@ -31,11 +31,16 @@ namespace PicSimulator
         void ReadLst(string file) //einlesen Lst
         {
             Regex rgxZahl = new Regex(@"^[0-9]$*");
+            Regex delimiterZahlRegex = new Regex(@"^[0-9][0-9]");
+
 
             Command Command = new Command();
             char[] delimiterChar = { ' ' };
+            string delimiterZahl = @"[0-9][0-9]";
+             
             string[] speicheradresse = new string[1000];        //Array der Speicheradressen
             string[] command = new string[1000];                //Array der Commands
+            string[] argument = new string[1000];               //Array Argument
 
             dataGridViewLst.ColumnCount = 3;
             dataGridViewLst.Columns[0].Name = "Speicheradresse";
@@ -56,8 +61,9 @@ namespace PicSimulator
                         if (rgxZahl.IsMatch(ausgabe[i]) == true)    //Wenn gesplittete Line --> asugbae mit Zahl beginnt
                         {
                             speicheradresse[i] = ausgabe[i];    //erste Zahl = Speciheradresse
+                            argument[i] = delimiterZahlRegex.Split(ausgabe[i + 1]);
                             command[i] = ausgabe[i + 1];        //--> zweite Zahl ist Befehl und Argument
-                            dataGridViewLst.Rows.Add(new object[] { speicheradresse[i], command[i] });
+                            dataGridViewLst.Rows.Add(new object[] { speicheradresse[i], command[i], argument[i]});
                             break;
                         }
                     }
