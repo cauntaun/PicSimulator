@@ -34,7 +34,6 @@
             this.aboutToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.hilfeToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewLst = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLst)).BeginInit();
             this.SuspendLayout();
@@ -87,21 +86,11 @@
             this.dataGridViewLst.Size = new System.Drawing.Size(355, 563);
             this.dataGridViewLst.TabIndex = 1;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(511, 77);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 603);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewLst);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -123,7 +112,6 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStrip;
         private System.Windows.Forms.ToolStripMenuItem hilfeToolStrip;
         private System.Windows.Forms.DataGridView dataGridViewLst;
-        private System.Windows.Forms.Label label1;
     }
 }
 
