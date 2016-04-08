@@ -31,3 +31,4 @@ C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSimulator\PicSimulator\obj\D
 N:\Henning\DHBW\Semester_4\PicSimulator\PicSimulator\bin\Debug\PicSimulator.exe.config
 N:\Henning\DHBW\Semester_4\PicSimulator\PicSimulator\obj\Debug\PicSimulator.exe
 N:\Henning\DHBW\Semester_4\PicSimulator\PicSimulator\obj\Debug\PicSimulator.pdb
+C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSimulator\PicSimulator\bin\Debug\PicSimulator.XML

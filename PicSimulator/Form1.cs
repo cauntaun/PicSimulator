@@ -27,17 +27,20 @@ namespace PicSimulator
             dataGridViewLst.Columns.Clear();
         }
 
-
-        void ReadLst(string file) //einlesen Lst
+        /// <summary>
+        /// Einlesen der LST-Datei
+        /// </summary>
+        /// <param name="file">Pfad der LST-Datei</param>
+        void ReadLst(string file)
         {
             Regex rgxZahl = new Regex(@"^[0-9]$*");
 
             Command Command = new Command();
             char[] delimiterChar = { ' ' };
              
-            string[] speicheradresse = new string[1000];        //Array der Speicheradressen
-            string[] command = new string[1000];                //Array der Commands
-            string[] argument = new string[2];                      //Array Argument
+            string[] speicheradresse = new string[1000];
+            string[] command = new string[1000];
+            string[] argument = new string[2];
 
             dataGridViewLst.ColumnCount = 3;
             dataGridViewLst.Columns[0].Name = "Speicheradresse";
@@ -46,11 +49,11 @@ namespace PicSimulator
 
 
             StreamReader sr = new StreamReader(file);       //einlesen des files
-            string line;           //Line für Line wird gespeichert (eingelesen)
+            string line;                                    //jeweils aktuelle Line
 
-            while ((line = sr.ReadLine()) != null)      //solange es noch eine Line in File gibt
+            while ((line = sr.ReadLine()) != null)
             {
-                if (rgxZahl.IsMatch(line) == true)      //Wenn Zeile mit Zahl beginnt
+                if (rgxZahl.IsMatch(line) == true)          //Wenn Zeile mit Zahl beginnt
                 {
                     string[] ausgabe = line.Split(delimiterChar);   //Aufsplittung der Zeile pro Leerzeichen
                     for (int i = 0; i < (ausgabe.Length - 1); i++)  //Durchloopen der Zeile (ausgabe)
@@ -69,7 +72,11 @@ namespace PicSimulator
         }
 
 
-
+        /// <summary>
+        /// Auswahl der LST-Datei
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dateiLadenToolStrip_Click(object sender, EventArgs e) //Klick auf Menü
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -81,7 +88,11 @@ namespace PicSimulator
             ReadLst(ofd.FileName);                          //Übergabe Filepfad an Einlesefunktion
         }
 
-
+        /// <summary>
+        /// Größe des Simulators
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Size = new Size(1020, 800);

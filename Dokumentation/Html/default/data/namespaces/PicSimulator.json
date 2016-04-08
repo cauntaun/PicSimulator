@@ -1,0 +1,1 @@
+{".NET Framework 4.5":{"name":"PicSimulator","assembly":"PicSimulator","description":"","types":[{"id":"PicSimulator.Command","accessibility":"internal","name":"Command","summary":""},{"id":"PicSimulator.Form1","accessibility":"public","name":"Form1","summary":""},{"id":"PicSimulator.Program","accessibility":"internal","name":"Program","summary":""}]}}
