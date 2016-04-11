@@ -13,15 +13,16 @@ namespace PicSimulator
         /// Speichert alle Befehle von gesammten Dokument in deren Reihenfolge
         /// </summary>
         string[] commandAll = new string[1000];
+        /// <summary>
+        /// Speichert alle Argumente von gesammten Dokument in deren Reihenfolge
+        /// </summary>
         string[] argumentAll = new string[1000];
         int counterCommand = 0;
         int counterArgument = 0;
 
-
         public Command()
         {
         }
-
 
         /// <summary>
         /// Einlesen des Befehls
@@ -30,7 +31,8 @@ namespace PicSimulator
         /// <returns>Befehlt (zwei Zeichen)</returns>
         public string setCommand(string command)
         {
-            command = command.Substring(0, 2);              //Einlesen erster zwei Zeichen in String --> Befehl
+            ///Einlesen erster zwei Zeichen in String --> Befehl
+            command = command.Substring(0, 2);              
             commandAll[counterCommand] = command;
             counterCommand++;
 
@@ -45,15 +47,12 @@ namespace PicSimulator
         /// <returns>Argument (zwei Zeichen)</returns>
         public string setArgument(string argument)
         {
-           argument = argument.Substring(2, 2);           //Einlesen der dritten und vierten Zeichen in String --> Argument
+           /// Einlesen des 3. und 4. Zeichen in String --> Argument
+           argument = argument.Substring(2, 2);           
            argumentAll[counterArgument] = argument;
            counterArgument++;
 
            return argument;
         }
-
-
-
-
     }
 }

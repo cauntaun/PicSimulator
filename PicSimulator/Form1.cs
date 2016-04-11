@@ -48,25 +48,33 @@ namespace PicSimulator
             dataGridViewLst.Columns[2].Name = "Argument";
 
 
-            StreamReader sr = new StreamReader(file);       //einlesen des files
-            string line;                                    //jeweils aktuelle Line
+            /// einlesen LST-File mithilfe Filepfad
+            StreamReader sr = new StreamReader(file);
+            /// jeweils aktuelle Zeile
+            string line;
 
             while ((line = sr.ReadLine()) != null)
             {
-                if (rgxZahl.IsMatch(line) == true)          //Wenn Zeile mit Zahl beginnt
+                /// Regex Prüfung ob Zeile (line) mit Zahl beginnt
+                if (rgxZahl.IsMatch(line) == true)
                 {
-                    string[] ausgabe = line.Split(delimiterChar);   //Aufsplittung der Zeile pro Leerzeichen
-                    for (int i = 0; i < (ausgabe.Length - 1); i++)  //Durchloopen der Zeile (ausgabe)
-                    {
-                        if (rgxZahl.IsMatch(ausgabe[i]) == true)    //Wenn gesplittete Line --> asugbae mit Zahl beginnt
+                   /// Aufsplittung der Zeile (line) an Leerzeichen
+                   string[] ausgabe = line.Split(delimiterChar);
+                   /// Durchloopen von ausgabe (Zeile)
+                   for (int i = 0; i < (ausgabe.Length - 1); i++)
+                   {
+                       ///Wenn gesplittete Zeile (ausgabe) mit Zahl beginnt
+                       if (rgxZahl.IsMatch(ausgabe[i]) == true)   
                         {
-                            speicheradresse[i] = ausgabe[i];                    //erster Index = Speicheradresse
-                            command[i] = Command.setCommand(ausgabe[i + 1]);
-                            argument[i] = Command.setArgument(ausgabe[i + 1]);    //zweiter Index = Command + Argument
+                            // /erster Index = Speicheradresse
+                            speicheradresse[i] = ausgabe[i];
+                            /// zweiter Index = Command + Argument
+                            command[i] = Command.setCommand(ausgabe[i + 1]); 
+                            argument[i] = Command.setArgument(ausgabe[i + 1]);    
                             dataGridViewLst.Rows.Add(new object[] { speicheradresse[i], command[i], argument[i]});
                             break;
                         }
-                    }
+                   }
                 }
             }
         }
@@ -85,7 +93,8 @@ namespace PicSimulator
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK){               
             }
 
-            ReadLst(ofd.FileName);                          //Übergabe Filepfad an Einlesefunktion
+            /// Übergabe Filepfad an Einlesefunktion
+            ReadLst(ofd.FileName);                          
         }
 
         /// <summary>

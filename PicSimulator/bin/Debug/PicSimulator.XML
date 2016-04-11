@@ -4,11 +4,49 @@
         <name>PicSimulator</name>
     </assembly>
     <members>
+        <member name="F:PicSimulator.Command.commandAll">
+            <summary>
+            Speichert alle Befehle von gesammten Dokument in deren Reihenfolge
+            </summary>
+        </member>
+        <member name="F:PicSimulator.Command.argumentAll">
+            <summary>
+            Speichert alle Argumente von gesammten Dokument in deren Reihenfolge
+            </summary>
+        </member>
+        <member name="M:PicSimulator.Command.setCommand(System.String)">
+            <summary>
+            Einlesen des Befehls
+            </summary>
+            <param name="command">String mit Befehl und Argument</param>
+            <returns>Befehlt (zwei Zeichen)</returns>
+        </member>
+        <member name="M:PicSimulator.Command.setArgument(System.String)">
+            <summary>
+            Einlesen des Befehls
+            </summary>
+            <param name="argument">Befehl und Argument</param>
+            <returns>Argument (zwei Zeichen)</returns>
+        </member>
         <member name="M:PicSimulator.Form1.ReadLst(System.String)">
             <summary>
             Einlesen der LST-Datei
             </summary>
-            <param name="file">Pfad zur Datei</param>
+            <param name="file">Pfad der LST-Datei</param>
+        </member>
+        <member name="M:PicSimulator.Form1.dateiLadenToolStrip_Click(System.Object,System.EventArgs)">
+            <summary>
+            Auswahl der LST-Datei
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:PicSimulator.Form1.Form1_Load(System.Object,System.EventArgs)">
+            <summary>
+            Größe des Simulators
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="F:PicSimulator.Form1.components">
             <summary>
