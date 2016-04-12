@@ -27,56 +27,16 @@ namespace PicSimulator
             dataGridViewLst.Columns.Clear();
         }
 
-        /// <summary>
-        /// Einlesen der LST-Datei
-        /// </summary>
-        /// <param name="file">Pfad der LST-Datei</param>
-        void ReadLst(string file)
-        {
-            Regex rgxZahl = new Regex(@"^[0-9]$*");
-
-            Command Command = new Command();
-            char[] delimiterChar = { ' ' };
-             
-            string[] speicheradresse = new string[1000];
-            string[] command = new string[1000];
-            string[] argument = new string[2];
-
+        void PresentLst(string file)
+        {                  
             dataGridViewLst.ColumnCount = 3;
             dataGridViewLst.Columns[0].Name = "Speicheradresse";
             dataGridViewLst.Columns[1].Name = "Command";
             dataGridViewLst.Columns[2].Name = "Argument";
 
 
-            /// einlesen LST-File mithilfe Filepfad
-            StreamReader sr = new StreamReader(file);
-            /// jeweils aktuelle Zeile
-            string line;
 
-            while ((line = sr.ReadLine()) != null)
-            {
-                /// Regex Prüfung ob Zeile (line) mit Zahl beginnt
-                if (rgxZahl.IsMatch(line) == true)
-                {
-                   /// Aufsplittung der Zeile (line) an Leerzeichen
-                   string[] ausgabe = line.Split(delimiterChar);
-                   /// Durchloopen von ausgabe (Zeile)
-                   for (int i = 0; i < (ausgabe.Length - 1); i++)
-                   {
-                       ///Wenn gesplittete Zeile (ausgabe) mit Zahl beginnt
-                       if (rgxZahl.IsMatch(ausgabe[i]) == true)   
-                        {
-                            // /erster Index = Speicheradresse
-                            speicheradresse[i] = ausgabe[i];
-                            /// zweiter Index = Command + Argument
-                            command[i] = Command.setCommand(ausgabe[i + 1]); 
-                            argument[i] = Command.setArgument(ausgabe[i + 1]);    
-                            dataGridViewLst.Rows.Add(new object[] { speicheradresse[i], command[i], argument[i]});
-                            break;
-                        }
-                   }
-                }
-            }
+           dataGridViewLst.Rows.Add(new object[] {InstructionDecoder.ReadLst});
         }
 
 
@@ -93,8 +53,10 @@ namespace PicSimulator
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK){               
             }
 
+            InstructionSet instructionset;
+
             /// Übergabe Filepfad an Einlesefunktion
-            ReadLst(ofd.FileName);                          
+            instructionset = InstructionDecoder.ReadLst(ofd.FileName);                          
         }
 
         /// <summary>

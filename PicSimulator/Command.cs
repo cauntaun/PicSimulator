@@ -13,6 +13,7 @@ namespace PicSimulator
         /// Speichert alle Befehle von gesammten Dokument in deren Reihenfolge
         /// </summary>
         string[] commandAll = new string[1000];
+        Queue<string> cAll = new Queue<string>();
         /// <summary>
         /// Speichert alle Argumente von gesammten Dokument in deren Reihenfolge
         /// </summary>
@@ -23,6 +24,7 @@ namespace PicSimulator
         public Command()
         {
         }
+        
 
         /// <summary>
         /// Einlesen des Befehls
@@ -34,6 +36,7 @@ namespace PicSimulator
             ///Einlesen erster zwei Zeichen in String --> Befehl
             command = command.Substring(0, 2);              
             commandAll[counterCommand] = command;
+            cAll.Enqueue(command);
             counterCommand++;
 
             return command;
