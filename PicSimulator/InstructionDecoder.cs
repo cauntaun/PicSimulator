@@ -92,24 +92,96 @@ namespace PicSimulator
 
                 if (Enum.IsDefined(typeof(InstructionType), hexValue & 0x3F80)) 
                 {
-                    if((hexValue & 0x3F8) == 0)
+                    if((hexValue & 0x3F8) == 0x0000)
                     {
                         //Handelt sich um GOTO CALL oder SLEEP
                         //Rausspringen aus Verglech!
                         return;
                     }
 
-                    if((hexValue & 0x0300)==0)
+                    /// Byte Oriented
+                    if((hexValue & 0x0300) == 0x0000)
                     {
-                        //Byte Oriented
+                       switch(hexValue & 0x3F80) //längere Maske Byte Oriented  (Ausnahmen)
+                       {
+                           case 0x0080:
+                               return "MOVWF";
+                           
+                           case 0x0000:
+                               return "NOP";
+                       }
+
+                       switch(hexValue & 0x3F00) //Standardmaske Byte Oriented
+                        {
+                           case 0x0700:
+                               return "ADDWF";
+
+                           case 0x0500:
+                               return "ANDWF";
+                                   
+                           case 0x0100:
+                               return "CLRF";
+
+                           case 0x0900:
+                               return "COMF";
+
+                           case 0x0300:
+                               return "DECF";
+
+                           case 0x0B00:
+                               return "DECFSZ";
+                                   
+                           case 0x0A00:
+                               return "INCF";
+
+                           case 0x0F00:
+                               return "INCFSZ";
+
+                           case 0x0400:
+                               return "IORWF";
+
+                           case 0x0800:
+                               return "MOVF";
+
+                           case 0x0D00:
+                               return "RLF";
+                                   
+                           case 0x0C00:
+                               return "RRF";
+
+                           case 0x0200:
+                               return "SUBWF";
+
+                           case 0x0E00:
+                               return "SWAPF";
+
+                           case 0x0600:
+                               return "XORWF";
+                        }
                     }
 
-                     if((hexValue & 0x3F8) == 1)
+
+                     /// Bit Oriented
+                     if((hexValue & 0x3F8) == 0x1000)
                      {
-                         //Bit Oriented
+                        switch(hexValue & 0x3C00) //Standardmaske Bit Oriented
+                        {
+                           case 0x1000:
+                               return "BCF";
+
+                           case 0x1400:
+                               return "BSF";
+                                   
+                           case 0x1800:
+                               return "BTFSC";
+
+                           case 0x1C00:
+                               return "BTFSS";
+                        }
+
                      }
 
-                     if((hexValue & 0x3F8) == 3 | (hexValue & 0x3F8) == 2)
+                     if((hexValue & 0x3F8) == 0x3000 | (hexValue & 0x3F8) == 2)
                      {
                          //Literal And Control
                      }

@@ -32,7 +32,7 @@ namespace PicSimulator
         XORWF   = 0x0600,
  
 
-        /// Bit-Oriented    Mask: 0011 1100 0000 0000
+        /// Bit-Oriented    Mask: 0011 1100 0000 0000 --> 3C00
         BCF     = 0x1000,
         BSF     = 0x1400,
         BTFSC   = 0x1800,
