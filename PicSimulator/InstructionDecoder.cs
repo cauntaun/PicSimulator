@@ -17,18 +17,12 @@ namespace PicSimulator
     {
         List<Instruction> instructions = new List<Instruction>();
 
-        public static InstructionSet ReadLst(string file)
+        public static void ReadLst(string file)
         {
             Regex rgxZahl = new Regex(@"^[0-9]$*");
 
             Command Command = new Command();
             char[] delimiterChar = { ' ' };
-
-            //List<string> speicheradresse = new List<string>();
-            string[] speicheradresse = new string[1000];
-            string[] command = new string[1000];
-            string[] argument = new string[2];
-
 
             /// einlesen LST-File mithilfe Filepfad
             StreamReader sr = new StreamReader(file);
@@ -48,24 +42,16 @@ namespace PicSimulator
                         ///Wenn gesplittete Zeile (ausgabe) mit Zahl beginnt
                         if (rgxZahl.IsMatch(ausgabe[i]) == true)
                         {
-                            
-                            
-                            
-                            
-                            /*/// erster Index = Speicheradresse
-                            speicheradresse[i] = ausgabe[i];
-                            /// zweiter Index = Command + Argument
-                            command[i] = Command.setCommand(ausgabe[i + 1]);
-                            argument[i] = Command.setArgument(ausgabe[i + 1]);
-                            return command[i], argument[i];
-                            break; */
+                            ///Aufruf zum Parsen von Argument und Befehl
+                            ParseInstruction(ausgabe[i+1]);
+                            break;
                         }
                     }
                 }
             }
         }
 
-        public Instruction ParseInstruction(string commandArgument)
+        public static Instruction ParseInstruction(string commandArgument)
         {
             InstructionSet instructionSet = new InstructionSet();
             int maskByteOrientedSpecial = 0x3F80;
@@ -74,9 +60,8 @@ namespace PicSimulator
             int hexValue = int.Parse(commandArgument, System.Globalization.NumberStyles.HexNumber);
             
             /// Check for ByteOriented Instructions
-            /// 
-
-            int[] masks = new int[] 
+           
+            /*int[] masks = new int[] 
             {
                 0x3F80,
                 0x3F00
@@ -87,11 +72,11 @@ namespace PicSimulator
                 {
                     instructionSet.addInstruction(new Instruction());
                 }
-            }
+            }*/
             
 
-                if (Enum.IsDefined(typeof(InstructionType), hexValue & 0x3F80)) 
-                {
+                //if (Enum.IsDefined(typeof(InstructionType), hexValue & 0x3F80)) 
+                //{
                     if((hexValue & 0x3F8) == 0x0000)
                     {
                         //Handelt sich um GOTO CALL oder SLEEP
@@ -186,17 +171,5 @@ namespace PicSimulator
                          //Literal And Control
                      }
                 }
-            
-
-           
-            return       
-            
-
-           
-
-
-
-            
-
     }
 }
