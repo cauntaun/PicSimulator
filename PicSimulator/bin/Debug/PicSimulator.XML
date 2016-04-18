@@ -28,11 +28,17 @@
             <param name="argument">Befehl und Argument</param>
             <returns>Argument (zwei Zeichen)</returns>
         </member>
-        <member name="M:PicSimulator.Form1.ReadLst(System.String)">
+        <member name="F:PicSimulator.InstructionType.ADDWF">
             <summary>
-            Einlesen der LST-Datei
+            Deklaration Enumerations
             </summary>
-            <param name="file">Pfad der LST-Datei</param>
+            Byte-Oriented   Maske: 0011 1111 0000 0000 --> 3F00
+        </member>
+        <member name="F:PicSimulator.InstructionType.BCF">
+            Bit-Oriented    Mask: 0011 1100 0000 0000 --> 3C00
+        </member>
+        <member name="F:PicSimulator.InstructionType.ADDLW">
+            Literal and control     Mask: 0011 1110 0000 0000
         </member>
         <member name="M:PicSimulator.Form1.dateiLadenToolStrip_Click(System.Object,System.EventArgs)">
             <summary>

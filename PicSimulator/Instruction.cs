@@ -10,18 +10,18 @@ namespace PicSimulator
     {
 
 
-        public Instruction(Type)
+        public Instruction(InstructionType type)
         {
 
         }
        
         
-        public Instruction(Type Argument1)
+        public Instruction(InstructionType type, int argument)
         {
-
+            /// 
         }
 
-        public Instruction(Type Argument1 Argument2)
+        public Instruction(InstructionType type, int firstArgument, int secondArgument)
         {
 
         }

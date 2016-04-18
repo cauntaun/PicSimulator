@@ -36,7 +36,7 @@ namespace PicSimulator
 
 
 
-           dataGridViewLst.Rows.Add(new object[] {InstructionDecoder.ReadLst});
+           //dataGridViewLst.Rows.Add(new object[] {InstructionDecoder.ReadLst});
         }
 
 

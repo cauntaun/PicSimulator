@@ -32,3 +32,13 @@ N:\Henning\DHBW\Semester_4\PicSimulator\PicSimulator\bin\Debug\PicSimulator.exe.
 N:\Henning\DHBW\Semester_4\PicSimulator\PicSimulator\obj\Debug\PicSimulator.exe
 N:\Henning\DHBW\Semester_4\PicSimulator\PicSimulator\obj\Debug\PicSimulator.pdb
 C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSimulator\PicSimulator\bin\Debug\PicSimulator.XML
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\PicSimulator\PicSimulator\bin\Debug\PicSimulator.exe.config
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\PicSimulator\PicSimulator\bin\Debug\PicSimulator.XML
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\PicSimulator\PicSimulator\obj\Debug\PicSimulator.exe
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\PicSimulator\PicSimulator\obj\Debug\PicSimulator.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\PicSimulator\PicSimulator\obj\Debug\PicSimulator.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\PicSimulator\PicSimulator\obj\Debug\PicSimulator.Form1.resources
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\PicSimulator\PicSimulator\obj\Debug\PicSimulator.Properties.Resources.resources
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\PicSimulator\PicSimulator\obj\Debug\PicSimulator.csproj.GenerateResource.Cache
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\PicSimulator\PicSimulator\bin\Debug\PicSimulator.exe
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\PicSimulator\PicSimulator\bin\Debug\PicSimulator.pdb
