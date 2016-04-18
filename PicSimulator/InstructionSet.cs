@@ -8,10 +8,17 @@ namespace PicSimulator
 {
     class InstructionSet
     {
-        List<Instruction> instructions;
-        public void addInstruction(Instruction instruction)
+        private List<Instruction> instructions = new List<Instruction>();
+        public void AddInstruction(Instruction instruction)
         {
-            instructions.Add(instruction);
+            if (instruction == null)
+            {
+                Console.Write("Instruction NULL!");
+            }
+            else
+            {
+                instructions.Add(instruction);
+            }
         }
     }
 }

@@ -22,20 +22,20 @@ namespace PicSimulator
             Regex rgxZahl = new Regex(@"^[0-9]$*");
             InstructionSet result = new InstructionSet();
 
-            /// einlesen LST-File mithilfe Filepfad
+            // einlesen LST-File mithilfe Filepfad
             StreamReader sr = new StreamReader(file);
 
-            /// jeweils aktuelle Zeile
+            // jeweils aktuelle Zeile
             string line;
 
             while ((line = sr.ReadLine()) != null)
             {
-                /// Regex Prüfung ob Zeile (line) mit Zahl beginnt
+                // Regex Prüfung ob Zeile (line) mit Zahl beginnt
                 if (rgxZahl.IsMatch(line))
                 {
-                    /// Aufsplittung der Zeile (line) an Leerzeichen
+                    // Aufsplittung der Zeile (line) an Leerzeichen
                     string[] ausgabe = line.Split(' ');
-                    result.addInstruction(ParseInstruction(ausgabe[1]));
+                    result.AddInstruction(ParseInstruction(ausgabe[1]));
                 }
             }
             return result;
@@ -43,155 +43,135 @@ namespace PicSimulator
 
         public static Instruction ParseInstruction(string commandArgument)
         {
-            int maskByteOrientedSpecial = 0x3F80;
-            int maskByteOriented = 0x3F00;
-
             int hexValue = int.Parse(commandArgument, System.Globalization.NumberStyles.HexNumber);
 
-            /// Check for ByteOriented Instructions
-
-            /*int[] masks = new int[] 
+            // catch types from very specific to less specific
+            if ((hexValue & 0x3F9F) == 0x0000)
             {
-                0x3F80,
-                0x3F00
-            };
-            foreach (int mask in masks) 
+                return new Instruction(InstructionType.NOP);
+            }
+            else if ((hexValue & 0x3FFF) == 0x0064)
             {
-                if (Enum.IsDefined(typeof(InstructionType), hexValue & mask))
-                {
-                    instructionSet.addInstruction(new Instruction());
-                }
-            }*/
-
-
-            //if (Enum.IsDefined(typeof(InstructionType), hexValue & 0x3F80)) 
-            //{
-            if ((hexValue & 0x3F8) == 0x0000)
+                return new Instruction(InstructionType.CLRWDT);
+            }
+            else if ((hexValue & 0x3FFF) == 0x0009)
             {
-                //Handelt sich um GOTO CALL oder SLEEP
-                //Rausspringen aus Verglech!
-                // TODO Check for GOTO, CALL or SLEEP
+                return new Instruction(InstructionType.RETFIE);
+            }
+            else if ((hexValue & 0x3FFF) == 0x0008)
+            {
+                return new Instruction(InstructionType.RETURN);
+            }
+            else if ((hexValue & 0x3FFF) == 0x0063)
+            {
+                return new Instruction(InstructionType.SLEEP);
+            }
+            else if ((hexValue & 0x3000) == 0x0000)
+            {
+                return ByteOrientedInstruction(hexValue);
+            }
+            else if ((hexValue & 0x3000) == 0x1000)
+            {
+                return BitOrientedInstruction(hexValue);
+            }
+            else if ((hexValue & 0x3000) >= 0x2000)
+            {
+                return LcInstruction(hexValue);
+            }
+            else
+            {
+                // TODO throw Exception -> unknown instruction
                 return null;
             }
-
-            // Byte Oriented
-            if ((hexValue & 0x0300) == 0x0000)
-            {
-                return byteOrientedInstruction(hexValue);
-            }
-
-
-            // Bit Oriented
-            if ((hexValue & 0x3F8) == 0x1000)
-            {
-                return bitOrientedInstruction(hexValue);
-            }
-
-            if ((hexValue & 0x3F8) == 0x3000 | (hexValue & 0x3F8) == 2)
-            {
-                return lcInstruction(hexValue);
-            }
-
-            // Default return
-            // TODO throw exception
-            return null;
         }
-        private static Instruction byteOrientedInstruction(int hexValue)
+        private static Instruction ByteOrientedInstruction(int hexValue)
         {
-
-            switch (hexValue & 0x3F80) //längere Maske Byte Oriented  (Ausnahmen)
+            InstructionType type = new InstructionType();
+            // Check for CLRF, CLRW, MOVF and NOP (longer mask needed)
+            if (Enum.IsDefined(typeof(InstructionType), hexValue & 0x3F80))
             {
-                // MOVF
-                case 0x0080:
-                    // TODO: 2 Arguments
-                    return new Instruction(InstructionType.MOVF);
-                // NOP
-                case 0x0000:
-                    return new Instruction(InstructionType.NOP);
+                type = (InstructionType)(hexValue & 0x3F80);
             }
-
-            switch (hexValue & 0x3F00) //Standardmaske Byte Oriented
+            // Check for the rest of byte-oriented operations
+            else if (Enum.IsDefined(typeof(InstructionType), hexValue & 0x3F00))
             {
-                // ADDWF
-                case 0x0700:
-                    return null;
-                // ANDWF
-                case 0x0500:
-                    return null;
-                // CLRF
-                case 0x0100:
-                    return null;
-                // COMF
-                case 0x0900:
-                    return null;
-                // DECF
-                case 0x0300:
-                    return null;
-                // DECFSZ
-                case 0x0B00:
-                    return null;
-                // INCF
-                case 0x0A00:
-                    return null;
-                // INCFSZ
-                case 0x0F00:
-                    return null;
-                // IORWF
-                case 0x0400:
-                    return null;
-                // MOVF
-                case 0x0800:
-                    return null;
-                // RLF
-                case 0x0D00:
-                    return null;
-                // RRF  
-                case 0x0C00:
-                    return null;
-                // SUBWF
-                case 0x0200:
-                    return null;
-                // SWAPF
-                case 0x0E00:
-                    return null;
-                // XORWF
-                case 0x0600:
-                    return null;
+                // Convert AND-operation result to enum
+                type = (InstructionType)(hexValue & 0x3F00);
             }
-            // Default return value
-            // TODO throw exception
-            return null;
+            else
+            {
+                // Command undefined
+                // TODO throw exception
+                return null;
+            }
+            Console.WriteLine("Instruction: " + type.ToString());
+            // TODO return correct types -> with arguments maybe
+            return new Instruction(type);
         }
 
-        private static Instruction bitOrientedInstruction(int hexValue)
+        private static Instruction BitOrientedInstruction(int hexValue)
         {
-            // Standardmaske Bit Oriented
-            switch (hexValue & 0x3C00)
+            InstructionType type = new InstructionType();
+            // Check for bit-oriented operations
+            if (Enum.IsDefined(typeof(InstructionType), hexValue & 0x3C00))
             {
-                // BCF
-                case 0x1000:
-                    return null;
-                // BSF
-                case 0x1400:
-                    return null;
-                // BTFSC
-                case 0x1800:
-                    return null;
-                // BTFSS
-                case 0x1C00:
-                    return null;
+                type = (InstructionType)(hexValue & 0x3C00);
             }
-
-            // Default return value
-            // TODO: throw exception
-            return null;
+            else
+            {
+                // Instruction not defined
+                // TODO throw exception
+            }
+            Console.WriteLine("Instruction: " + type.ToString());
+            // TODO return correct types -> with arguments maybe
+            return new Instruction(type);
         }
 
-        private static Instruction lcInstruction(int hexValue)
+        private static Instruction LcInstruction(int hexValue)
         {
-            // literal and controll instructions
-            // TODO implement
-            return null;
+            InstructionType type = new InstructionType();
+            
+            // Check for CALL
+            if ((hexValue & 0x3800) == 0x2000)
+            {
+                type = InstructionType.CALL;
+            }
+            else if ((hexValue & 0x3800) == 0x2800)
+            {
+                type = InstructionType.GOTO;
+            }
+            else if ((hexValue & 0x3C00) == 0x3400)
+            {
+                type = InstructionType.RETLW;
+            }
+            else if ((hexValue & 0x3C00) == 0x3000)
+            {
+                type = InstructionType.MOVLW;
+            }
+            else if ((hexValue & 0x3E00) == 0x3E00)
+            {
+                type = InstructionType.ADDLW;
+            }
+            else if ((hexValue & 0x3E00) == 0x3C00)
+            {
+                type = InstructionType.SUBLW;
+            }
+            else
+            {
+                if (Enum.IsDefined(typeof(InstructionType), hexValue & 0x3F00))
+                {
+                    type = (InstructionType)(hexValue & 0x3F00);
+                }
+                else
+                {
+                    // Instruction not defined
+                    // TODO throw exception
+                }
+            }
+            
+            Console.WriteLine("Instruction: " + type.ToString());
+            // TODO return correct types -> with arguments maybe
+            return new Instruction(type);
         }
     }
 }

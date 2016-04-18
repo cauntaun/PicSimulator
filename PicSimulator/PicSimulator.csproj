@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command.cs" />
-    <Compile Include="Enums.cs" />
+    <Compile Include="InstructionType.cs" />
     <Compile Include="Instruction.cs" />
     <Compile Include="InstructionDecoder.cs" />
     <Compile Include="Form1.cs">

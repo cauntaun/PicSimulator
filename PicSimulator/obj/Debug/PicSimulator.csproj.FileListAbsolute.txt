@@ -42,3 +42,13 @@ C:\Users\Administrator\Documents\Visual Studio 2015\Projects\PicSimulator\PicSim
 C:\Users\Administrator\Documents\Visual Studio 2015\Projects\PicSimulator\PicSimulator\obj\Debug\PicSimulator.csproj.GenerateResource.Cache
 C:\Users\Administrator\Documents\Visual Studio 2015\Projects\PicSimulator\PicSimulator\bin\Debug\PicSimulator.exe
 C:\Users\Administrator\Documents\Visual Studio 2015\Projects\PicSimulator\PicSimulator\bin\Debug\PicSimulator.pdb
+C:\Users\Dominik\Source\Repos\PicSimulator\PicSimulator\bin\Debug\PicSimulator.exe.config
+C:\Users\Dominik\Source\Repos\PicSimulator\PicSimulator\bin\Debug\PicSimulator.XML
+C:\Users\Dominik\Source\Repos\PicSimulator\PicSimulator\obj\Debug\PicSimulator.exe
+C:\Users\Dominik\Source\Repos\PicSimulator\PicSimulator\obj\Debug\PicSimulator.pdb
+C:\Users\Dominik\Source\Repos\PicSimulator\PicSimulator\bin\Debug\PicSimulator.exe
+C:\Users\Dominik\Source\Repos\PicSimulator\PicSimulator\bin\Debug\PicSimulator.pdb
+C:\Users\Dominik\Source\Repos\PicSimulator\PicSimulator\obj\Debug\PicSimulator.csprojResolveAssemblyReference.cache
+C:\Users\Dominik\Source\Repos\PicSimulator\PicSimulator\obj\Debug\PicSimulator.Form1.resources
+C:\Users\Dominik\Source\Repos\PicSimulator\PicSimulator\obj\Debug\PicSimulator.Properties.Resources.resources
+C:\Users\Dominik\Source\Repos\PicSimulator\PicSimulator\obj\Debug\PicSimulator.csproj.GenerateResource.Cache
