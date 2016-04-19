@@ -11,14 +11,21 @@ namespace PicSimulator
         private List<Instruction> instructions = new List<Instruction>();
         public void AddInstruction(Instruction instruction)
         {
+            // TODO try-catch Exceptions
             if (instruction == null)
             {
                 Console.Write("Instruction NULL!");
             }
             else
             {
+                Console.Write("Saving " + instruction.ToString() + '\n');
                 instructions.Add(instruction);
             }
+        }
+
+        public List<Instruction> GetList()
+        {
+            return instructions;
         }
     }
 }

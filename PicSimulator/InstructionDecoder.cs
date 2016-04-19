@@ -15,8 +15,6 @@ namespace PicSimulator
 {
     class InstructionDecoder
     {
-        List<Instruction> instructions = new List<Instruction>();
-
         public static InstructionSet ReadLst(string file)
         {
             Regex rgxZahl = new Regex(@"^[0-9]$*");
@@ -35,6 +33,7 @@ namespace PicSimulator
                 {
                     // Aufsplittung der Zeile (line) an Leerzeichen
                     string[] ausgabe = line.Split(' ');
+                    
                     result.AddInstruction(ParseInstruction(ausgabe[1]));
                 }
             }
@@ -104,7 +103,7 @@ namespace PicSimulator
                 // TODO throw exception
                 return null;
             }
-            Console.WriteLine("Instruction: " + type.ToString());
+            //Console.WriteLine("Instruction: " + type.ToString());
             // TODO return correct types -> with arguments maybe
             return new Instruction(type);
         }
@@ -122,9 +121,9 @@ namespace PicSimulator
                 // Instruction not defined
                 // TODO throw exception
             }
-            Console.WriteLine("Instruction: " + type.ToString());
+            //Console.WriteLine("Instruction: " + type.ToString());
             // TODO return correct types -> with arguments maybe
-            return new Instruction(type);
+            return new Instruction(type, hexValue);
         }
 
         private static Instruction LcInstruction(int hexValue)
@@ -169,7 +168,7 @@ namespace PicSimulator
                 }
             }
             
-            Console.WriteLine("Instruction: " + type.ToString());
+            //Console.WriteLine("Instruction: " + type.ToString());
             // TODO return correct types -> with arguments maybe
             return new Instruction(type);
         }

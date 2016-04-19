@@ -42,7 +42,7 @@ namespace PicSimulator
 
         /// Literal and control     Mask: 0011 1110 0000 0000
         ADDLW   = 0x3E00,
-        ANDLW   = 0x3800,
+        ANDLW   = 0x3900,
         CALL    = 0x2000, //0011 1000 0000 0000
         CLRWDT  = 0x0064, //0011 1111 1111 1111     //seperate Prüfung!
         GOTO    = 0x2800, //0011 1000 0000 0000
