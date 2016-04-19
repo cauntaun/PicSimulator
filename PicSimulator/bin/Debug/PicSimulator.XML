@@ -40,6 +40,25 @@
         <member name="F:PicSimulator.InstructionType.ADDLW">
             Literal and control     Mask: 0011 1110 0000 0000
         </member>
+        <member name="M:PicSimulator.Instruction.Execute">
+            <summary>
+            Executes the instruction.
+            Uses the String-Format of the type to determine the method which should be used.
+            </summary>
+            <returns>true when successful, false otherwise</returns>
+        </member>
+        <member name="M:PicSimulator.Instruction.ToString">
+            <summary>
+            Returns Instruction in String format.
+            </summary>
+            <returns>Instruction as String</returns>
+        </member>
+        <member name="M:PicSimulator.Instruction.ADDWF">
+            <summary>
+            Executes the ADDWF command.
+            </summary>
+            <returns>true when successful, false otherwise</returns>
+        </member>
         <member name="M:PicSimulator.Form1.dateiLadenToolStrip_Click(System.Object,System.EventArgs)">
             <summary>
             Auswahl der LST-Datei

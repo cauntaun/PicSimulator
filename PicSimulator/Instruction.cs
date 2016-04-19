@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,33 +10,12 @@ namespace PicSimulator
     class Instruction
     {
         private InstructionType type = new InstructionType();
-
-        /// <summary>
-        /// Mapping InstructionTypes to their functions.
-        /// (when type is ADDWF, the ADDWF() function should be called)
-        /// </summary>
-        private Dictionary<InstructionType, Func<bool>> byteMapping = new Dictionary<InstructionType, Func<bool>>
-        {
-            { InstructionType.ADDWF, ADDWF },
-            { InstructionType.ANDWF, ANDWF },
-            { InstructionType.CLRF,  CLRF  },
-            { InstructionType.CLRW,  CLRW  },
-            { InstructionType.COMF,  COMF  },
-            { InstructionType.DECF,  DECF  },
-            { InstructionType.DECFSZ, DECFSZ },
-            { InstructionType.INCF,  INCF },
-            { InstructionType.INCFSZ, INCFSZ },
-            { InstructionType.IORWF, IORWF },
-            { InstructionType.MOVF, MOVF },
-            { InstructionType.MOVWF, MOVWF },
-        };
-
+        
         public Instruction(InstructionType type)
         {
             this.type = type;
         }
-
-
+        
         public Instruction(InstructionType type, int argument)
         {
             this.type = type;
@@ -48,20 +28,24 @@ namespace PicSimulator
 
         /// <summary>
         /// Executes the instruction.
-        /// Uses the Dictionary-Mappings to detect the correct function to use.
+        /// Uses the String-Format of the type to determine the method which should be used.
         /// </summary>
         /// <returns>true when successful, false otherwise</returns>
         public bool Execute()
         {
-            //testing
-            return byteMapping[type]();
+            // Get the type of this object (=Instruction)
+            Type thisType = this.GetType();
+            // Get the method by the String (type.ToString()) and also look for private and protected methods -> BindingFlags
+            MethodInfo method = thisType.GetMethod(type.ToString(), BindingFlags.Instance | BindingFlags.NonPublic);
+            // Invoke the method
+            return (bool)method.Invoke(this, null);
         }
 
         /// <summary>
         /// Returns Instruction in String format.
         /// </summary>
         /// <returns>Instruction as String</returns>
-        public String ToString()
+        public override String ToString()
         {
             return type.ToString();
         }
@@ -70,7 +54,7 @@ namespace PicSimulator
         /// Executes the ADDWF command.
         /// </summary>
         /// <returns>true when successful, false otherwise</returns>
-        private static bool ADDWF()
+        private bool ADDWF()
         {
             Console.Write("Fuehre ADDWF aus..");
             // TODO implement
