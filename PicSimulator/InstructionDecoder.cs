@@ -25,19 +25,42 @@ namespace PicSimulator
 
             // jeweils aktuelle Zeile
             string line;
-
+            int counter = 0;
             while ((line = sr.ReadLine()) != null)
             {
-                // Regex Prüfung ob Zeile (line) mit Zahl beginnt
-                if (rgxZahl.IsMatch(line))
+                // Mind. 9 Zeichen für valide Addresse mit Opcode
+                if (line.Length < 9)
                 {
-                    // Aufsplittung der Zeile (line) an Leerzeichen
-                    string[] ausgabe = line.Split(' ');
-                    
-                    result.AddInstruction(ParseInstruction(ausgabe[1]));
+                    result.AddLine(line);
+                } else
+                {
+                    if (IsNotEmpty(line.Substring(0, 4)) && IsNotEmpty(line.Substring(5,4)))
+                    {
+                        result.AddInstruction(ParseInstruction(line.Substring(5, 4)));
+                    }
                 }
+                
+                // Regex Prüfung ob Zeile (line) mit Zahl beginnt
+                //if (rgxZahl.IsMatch(line))
+                //{
+                    // Aufsplittung der Zeile (line) an Leerzeichen
+                //    string[] ausgabe = line.Split(' ');
+                    
+                //    result.AddInstruction(ParseInstruction(ausgabe[1]));
+                //}
             }
             return result;
+        }
+
+        private static bool IsNotEmpty(String addressOrCommand)
+        {
+            if (string.IsNullOrWhiteSpace(addressOrCommand))
+            {
+                return false;
+            } else
+            {
+                return true;
+            }
         }
 
         public static Instruction ParseInstruction(string commandArgument)

@@ -16,31 +16,16 @@ namespace PicSimulator
 {
     public partial class Form1 : Form
     {
-        Log log = null;
+        private PicSimulator picSimulator;
+        private Log log = null;
 
         public Form1()
         {
             InitializeComponent();
         }
 
-
-        void Clear_all()
-        {
-            dataGridViewLst.Columns.Clear();
-        }
-
-        void PresentLst(string file)
-        {                  
-            dataGridViewLst.ColumnCount = 3;
-            dataGridViewLst.Columns[0].Name = "Speicheradresse";
-            dataGridViewLst.Columns[1].Name = "Command";
-            dataGridViewLst.Columns[2].Name = "Argument";
-           //dataGridViewLst.Rows.Add(new object[] {InstructionDecoder.ReadLst});
-        }
-
-
         /// <summary>
-        /// Auswahl der LST-Datei
+        /// Erstelle neuen PicSimulator und lade Befehle aus LST-Datei.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -52,16 +37,12 @@ namespace PicSimulator
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK){               
             }
 
-            InstructionSet instructionSet;
-
-            /// Übergabe Filepfad an Einlesefunktion
-            instructionSet = InstructionDecoder.ReadLst(ofd.FileName);
-            Console.Write("Execute Instruction: " + instructionSet.GetList()[0].ToString() + '\n');
-            instructionSet.GetList()[0].Execute();                  
+            picSimulator = new PicSimulator();
+            picSimulator.LoadLST(ofd.FileName);
         }
 
         /// <summary>
-        /// Größe des Simulators
+        /// Schreibe die Konsolenausgabe in das consoleLog-Fenster.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

@@ -61,14 +61,14 @@
         </member>
         <member name="M:PicSimulator.Form1.dateiLadenToolStrip_Click(System.Object,System.EventArgs)">
             <summary>
-            Auswahl der LST-Datei
+            Erstelle neuen PicSimulator und lade Befehle aus LST-Datei.
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
         </member>
         <member name="M:PicSimulator.Form1.Form1_Load(System.Object,System.EventArgs)">
             <summary>
-            Größe des Simulators
+            Schreibe die Konsolenausgabe in das consoleLog-Fenster.
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
@@ -110,6 +110,38 @@
               Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
               Ressourcenlookups, die diese stark typisierte Ressourcenklasse verwenden.
             </summary>
+        </member>
+        <member name="M:LineNumbers.LineNumbers_For_RichTextBox.Update_SizeAndPosition">
+            <summary>
+            This Sub will run whenever Me.Refresh() is called. It applies the AutoSizing and DockSide settings.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:LineNumbers.LineNumbers_For_RichTextBox.Update_VisibleLineNumberItems">
+            <summary>
+            This Sub determines which textlines are visible in the ParentRichTextBox, and makes LineNumberItems (LineNumber + ItemRectangle)
+            for each visible line. They are put into the zLNIs List that will be used by the OnPaint event to draw the LineNumberItems. 
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="M:LineNumbers.LineNumbers_For_RichTextBox.FindStartIndex(System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            FindStartIndex is a recursive Sub (one that calls itself) to compute the first visible line that should have a LineNumber.
+            </summary>
+            <param name="zMin"> this will hold the eventual BestStartIndex when the Sub has completed its run.</param>
+            <param name="zMax"></param>
+            <param name="zTarget"></param>
+            <remarks></remarks>
+        </member>
+        <member name="M:LineNumbers.LineNumbers_For_RichTextBox.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            OnPaint will go through the enabled elements (vertical ReminderMessage, GridLines, LineNumbers, BorderLines, MarginLines) and will
+            draw them if enabled. At the same time, it will build GraphicsPaths for each of those elements (that are enabled), which will be used 
+            in SeeThroughMode (if it's active): the figures in the GraphicsPaths will form a customized outline for the control by setting them as the 
+            Region of the LineNumber control. Note: the vertical ReminderMessages are only drawn during designtime. 
+            </summary>
+            <param name="e"></param>
+            <remarks></remarks>
         </member>
     </members>
 </doc>

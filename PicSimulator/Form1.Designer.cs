@@ -33,12 +33,12 @@
             this.dateiLadenToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.hilfeToolStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewLst = new System.Windows.Forms.DataGridView();
             this.consoleLog = new System.Windows.Forms.TextBox();
             this.consoleLabel = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLst)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -81,14 +81,6 @@
             this.hilfeToolStrip.Size = new System.Drawing.Size(99, 22);
             this.hilfeToolStrip.Text = "Hilfe";
             // 
-            // dataGridViewLst
-            // 
-            this.dataGridViewLst.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewLst.Location = new System.Drawing.Point(13, 28);
-            this.dataGridViewLst.Name = "dataGridViewLst";
-            this.dataGridViewLst.Size = new System.Drawing.Size(576, 670);
-            this.dataGridViewLst.TabIndex = 1;
-            // 
             // consoleLog
             // 
             this.consoleLog.Location = new System.Drawing.Point(595, 65);
@@ -119,15 +111,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 51);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(577, 647);
+            this.dataGridView1.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1167, 710);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.consoleLabel);
             this.Controls.Add(this.consoleLog);
-            this.Controls.Add(this.dataGridViewLst);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -135,7 +135,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLst)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,10 +148,10 @@
         private System.Windows.Forms.ToolStripMenuItem dateiLadenToolStrip;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStrip;
         private System.Windows.Forms.ToolStripMenuItem hilfeToolStrip;
-        private System.Windows.Forms.DataGridView dataGridViewLst;
         private System.Windows.Forms.TextBox consoleLog;
         private System.Windows.Forms.Label consoleLabel;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

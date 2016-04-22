@@ -56,7 +56,13 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="InstructionSet.cs" />
+    <Compile Include="linenum_rtf.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Log.cs" />
+    <Compile Include="PicSimulator.cs" />
+    <Compile Include="Pin.cs" />
+    <Compile Include="PinSet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

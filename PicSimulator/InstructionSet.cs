@@ -9,6 +9,8 @@ namespace PicSimulator
     class InstructionSet
     {
         private List<Instruction> instructions = new List<Instruction>();
+        private List<String> lines = new List<String>();
+
         public void AddInstruction(Instruction instruction)
         {
             // TODO try-catch Exceptions
@@ -26,6 +28,11 @@ namespace PicSimulator
         public List<Instruction> GetList()
         {
             return instructions;
+        }
+
+        public void AddLine(String line)
+        {
+            lines.Add(line);
         }
     }
 }
