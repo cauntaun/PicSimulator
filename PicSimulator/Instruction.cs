@@ -27,9 +27,14 @@ namespace PicSimulator
 
         }
 
-        public void setLineNumber(int lineNumber)
+        public void SetLineNumber(int lineNumber)
         {
             this.lineNumber = lineNumber;
+        }
+
+        public int GetLineNumber()
+        {
+            return lineNumber;
         }
 
         /// <summary>

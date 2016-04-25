@@ -21,7 +21,7 @@ namespace PicSimulator
             else
             {
                 Console.Write("Saving " + instruction.ToString() + '\n');
-                instruction.setLineNumber(lineNumber);
+                instruction.SetLineNumber(lineNumber);
                 instructions.Add(instruction);
             }
         }
@@ -34,6 +34,12 @@ namespace PicSimulator
         public void AddLine(String line)
         {
             lines.Add(line);
+            Program.mainForm.addLstLine(line);
+        }
+
+        public Instruction GetFirstInstruction()
+        {
+            return instructions[0];
         }
     }
 }

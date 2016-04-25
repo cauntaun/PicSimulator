@@ -21,8 +21,8 @@ namespace PicSimulator
 
         public void LoadLST(String filename)
         {
-            
             instructionSet = InstructionDecoder.ReadLst(filename);
+            Program.mainForm.HighlightLine(instructionSet.GetFirstInstruction().GetLineNumber());
         }
 
         public void SetStartLine(int startLine)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menueToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.dateiLadenToolStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -35,10 +36,11 @@
             this.hilfeToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.consoleLog = new System.Windows.Forms.TextBox();
             this.consoleLabel = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView_Lst = new System.Windows.Forms.DataGridView();
             this.btn_Clear = new System.Windows.Forms.Button();
+            this.Sourcecode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Lst)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -101,13 +103,28 @@
             this.consoleLabel.TabIndex = 3;
             this.consoleLabel.Text = "Console Log";
             // 
-            // dataGridView1
+            // dataGridView_Lst
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 51);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(577, 647);
-            this.dataGridView1.TabIndex = 5;
+            this.dataGridView_Lst.AllowUserToAddRows = false;
+            this.dataGridView_Lst.AllowUserToDeleteRows = false;
+            this.dataGridView_Lst.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Lst.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Sourcecode});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_Lst.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView_Lst.Location = new System.Drawing.Point(12, 51);
+            this.dataGridView_Lst.MultiSelect = false;
+            this.dataGridView_Lst.Name = "dataGridView_Lst";
+            this.dataGridView_Lst.ReadOnly = true;
+            this.dataGridView_Lst.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_Lst.Size = new System.Drawing.Size(577, 647);
+            this.dataGridView_Lst.TabIndex = 5;
             // 
             // btn_Clear
             // 
@@ -119,13 +136,20 @@
             this.btn_Clear.UseVisualStyleBackColor = true;
             this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
+            // Sourcecode
+            // 
+            this.Sourcecode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Sourcecode.HeaderText = "Sourcecode";
+            this.Sourcecode.Name = "Sourcecode";
+            this.Sourcecode.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1167, 710);
             this.Controls.Add(this.btn_Clear);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridView_Lst);
             this.Controls.Add(this.consoleLabel);
             this.Controls.Add(this.consoleLog);
             this.Controls.Add(this.menuStrip1);
@@ -135,7 +159,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Lst)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,8 +174,9 @@
         private System.Windows.Forms.ToolStripMenuItem hilfeToolStrip;
         private System.Windows.Forms.TextBox consoleLog;
         private System.Windows.Forms.Label consoleLabel;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView_Lst;
         private System.Windows.Forms.Button btn_Clear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sourcecode;
     }
 }
 

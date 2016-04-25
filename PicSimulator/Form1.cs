@@ -54,7 +54,20 @@ namespace PicSimulator
 
         private void btn_Clear_Click(object sender, EventArgs e)
         {
+            dataGridView_Lst.Rows.Clear();
             consoleLog.Clear();
+        }
+
+        public void addLstLine(String line)
+        {
+            int n = dataGridView_Lst.Rows.Add();
+            dataGridView_Lst.Rows[n].Cells[0].Value = line;
+        }
+
+        public void HighlightLine(int lineNumber)
+        {
+            dataGridView_Lst.Rows[lineNumber].Selected = true;
+            //dataGridView_Lst.Rows[lineNumber].DefaultCellStyle.BackColor = Color.LightBlue;
         }
     }
 }

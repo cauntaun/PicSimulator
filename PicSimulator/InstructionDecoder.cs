@@ -39,8 +39,9 @@ namespace PicSimulator
                     {
                         result.AddInstruction(ParseInstruction(line.Substring(5, 4)), counter);
                     }
-                }
 
+                }
+                result.AddLine(line);
                 counter++;
                 
                 // Regex Prüfung ob Zeile (line) mit Zahl beginnt
