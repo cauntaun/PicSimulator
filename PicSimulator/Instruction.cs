@@ -10,7 +10,8 @@ namespace PicSimulator
     class Instruction
     {
         private InstructionType type = new InstructionType();
-        
+        private int lineNumber = 0;
+
         public Instruction(InstructionType type)
         {
             this.type = type;
@@ -24,6 +25,11 @@ namespace PicSimulator
         public Instruction(InstructionType type, int firstArgument, int secondArgument)
         {
 
+        }
+
+        public void setLineNumber(int lineNumber)
+        {
+            this.lineNumber = lineNumber;
         }
 
         /// <summary>

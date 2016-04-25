@@ -11,7 +11,7 @@ namespace PicSimulator
         private List<Instruction> instructions = new List<Instruction>();
         private List<String> lines = new List<String>();
 
-        public void AddInstruction(Instruction instruction)
+        public void AddInstruction(Instruction instruction, int lineNumber)
         {
             // TODO try-catch Exceptions
             if (instruction == null)
@@ -21,6 +21,7 @@ namespace PicSimulator
             else
             {
                 Console.Write("Saving " + instruction.ToString() + '\n');
+                instruction.setLineNumber(lineNumber);
                 instructions.Add(instruction);
             }
         }
