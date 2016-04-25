@@ -35,8 +35,8 @@
             this.hilfeToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.consoleLog = new System.Windows.Forms.TextBox();
             this.consoleLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btn_Clear = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -101,16 +101,6 @@
             this.consoleLabel.TabIndex = 3;
             this.consoleLabel.Text = "Console Log";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1080, 36);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Clear";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -119,13 +109,23 @@
             this.dataGridView1.Size = new System.Drawing.Size(577, 647);
             this.dataGridView1.TabIndex = 5;
             // 
+            // btn_Clear
+            // 
+            this.btn_Clear.Location = new System.Drawing.Point(1080, 32);
+            this.btn_Clear.Name = "btn_Clear";
+            this.btn_Clear.Size = new System.Drawing.Size(75, 23);
+            this.btn_Clear.TabIndex = 6;
+            this.btn_Clear.Text = "Clear";
+            this.btn_Clear.UseVisualStyleBackColor = true;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1167, 710);
+            this.Controls.Add(this.btn_Clear);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.consoleLabel);
             this.Controls.Add(this.consoleLog);
             this.Controls.Add(this.menuStrip1);
@@ -150,8 +150,8 @@
         private System.Windows.Forms.ToolStripMenuItem hilfeToolStrip;
         private System.Windows.Forms.TextBox consoleLog;
         private System.Windows.Forms.Label consoleLabel;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btn_Clear;
     }
 }
 

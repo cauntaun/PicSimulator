@@ -52,7 +52,7 @@ namespace PicSimulator
             Console.SetOut(log);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_Clear_Click(object sender, EventArgs e)
         {
             consoleLog.Clear();
         }

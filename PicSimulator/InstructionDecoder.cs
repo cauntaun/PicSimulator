@@ -32,13 +32,16 @@ namespace PicSimulator
                 if (line.Length < 9)
                 {
                     result.AddLine(line);
-                } else
+                }
+                else
                 {
                     if (IsNotEmpty(line.Substring(0, 4)) && IsNotEmpty(line.Substring(5,4)))
                     {
-                        result.AddInstruction(ParseInstruction(line.Substring(5, 4)));
+                        result.AddInstruction(ParseInstruction(line.Substring(5, 4)), counter);
                     }
                 }
+
+                counter++;
                 
                 // Regex Prüfung ob Zeile (line) mit Zahl beginnt
                 //if (rgxZahl.IsMatch(line))
