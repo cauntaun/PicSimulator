@@ -18,10 +18,12 @@ namespace PicSimulator
     {
         private PicSimulator picSimulator;
         private Log log = null;
+        private int test = 1;
 
         public Form1()
         {
             InitializeComponent();
+            to_Checkbox.DataBindings.Add("Checked", test, null, true);
         }
 
         /// <summary>

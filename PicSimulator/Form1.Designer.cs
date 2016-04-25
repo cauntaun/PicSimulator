@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menueToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.dateiLadenToolStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,14 +42,14 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TRIS = new System.Windows.Forms.TabPage();
             this.Spezialregister = new System.Windows.Forms.TabPage();
-            this.rp1_Select = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.rp0_Select = new System.Windows.Forms.CheckBox();
-            this.to_select = new System.Windows.Forms.CheckBox();
-            this.pd_Select = new System.Windows.Forms.CheckBox();
-            this.z_Select = new System.Windows.Forms.CheckBox();
-            this.dc_Select = new System.Windows.Forms.CheckBox();
-            this.c_Select = new System.Windows.Forms.CheckBox();
+            this.c_Checkbox = new System.Windows.Forms.CheckBox();
+            this.dc_Checkbox = new System.Windows.Forms.CheckBox();
+            this.z_Checkbox = new System.Windows.Forms.CheckBox();
+            this.pd_Checkbox = new System.Windows.Forms.CheckBox();
+            this.to_Checkbox = new System.Windows.Forms.CheckBox();
+            this.rp0_Checkbox = new System.Windows.Forms.CheckBox();
+            this.irp_Checkbox = new System.Windows.Forms.CheckBox();
+            this.rp1_Checkbox = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Lst)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -123,14 +123,14 @@
             this.dataGridView_Lst.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Lst.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Sourcecode});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_Lst.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_Lst.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView_Lst.Location = new System.Drawing.Point(12, 436);
             this.dataGridView_Lst.MultiSelect = false;
             this.dataGridView_Lst.Name = "dataGridView_Lst";
@@ -178,14 +178,14 @@
             // 
             // Spezialregister
             // 
-            this.Spezialregister.Controls.Add(this.c_Select);
-            this.Spezialregister.Controls.Add(this.dc_Select);
-            this.Spezialregister.Controls.Add(this.z_Select);
-            this.Spezialregister.Controls.Add(this.pd_Select);
-            this.Spezialregister.Controls.Add(this.to_select);
-            this.Spezialregister.Controls.Add(this.rp0_Select);
-            this.Spezialregister.Controls.Add(this.checkBox1);
-            this.Spezialregister.Controls.Add(this.rp1_Select);
+            this.Spezialregister.Controls.Add(this.c_Checkbox);
+            this.Spezialregister.Controls.Add(this.dc_Checkbox);
+            this.Spezialregister.Controls.Add(this.z_Checkbox);
+            this.Spezialregister.Controls.Add(this.pd_Checkbox);
+            this.Spezialregister.Controls.Add(this.to_Checkbox);
+            this.Spezialregister.Controls.Add(this.rp0_Checkbox);
+            this.Spezialregister.Controls.Add(this.irp_Checkbox);
+            this.Spezialregister.Controls.Add(this.rp1_Checkbox);
             this.Spezialregister.Location = new System.Drawing.Point(4, 22);
             this.Spezialregister.Name = "Spezialregister";
             this.Spezialregister.Padding = new System.Windows.Forms.Padding(3);
@@ -194,85 +194,85 @@
             this.Spezialregister.Text = "Spezialregister";
             this.Spezialregister.UseVisualStyleBackColor = true;
             // 
-            // rp1_Select
+            // c_Checkbox
             // 
-            this.rp1_Select.AutoSize = true;
-            this.rp1_Select.Location = new System.Drawing.Point(6, 217);
-            this.rp1_Select.Name = "rp1_Select";
-            this.rp1_Select.Size = new System.Drawing.Size(47, 17);
-            this.rp1_Select.TabIndex = 0;
-            this.rp1_Select.Text = "RP1";
-            this.rp1_Select.UseVisualStyleBackColor = true;
+            this.c_Checkbox.AutoSize = true;
+            this.c_Checkbox.Location = new System.Drawing.Point(6, 355);
+            this.c_Checkbox.Name = "c_Checkbox";
+            this.c_Checkbox.Size = new System.Drawing.Size(33, 17);
+            this.c_Checkbox.TabIndex = 7;
+            this.c_Checkbox.Text = "C";
+            this.c_Checkbox.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // dc_Checkbox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 194);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(44, 17);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "IRP";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.dc_Checkbox.AutoSize = true;
+            this.dc_Checkbox.Location = new System.Drawing.Point(6, 332);
+            this.dc_Checkbox.Name = "dc_Checkbox";
+            this.dc_Checkbox.Size = new System.Drawing.Size(41, 17);
+            this.dc_Checkbox.TabIndex = 6;
+            this.dc_Checkbox.Text = "DC";
+            this.dc_Checkbox.UseVisualStyleBackColor = true;
             // 
-            // rp0_Select
+            // z_Checkbox
             // 
-            this.rp0_Select.AutoSize = true;
-            this.rp0_Select.Location = new System.Drawing.Point(6, 240);
-            this.rp0_Select.Name = "rp0_Select";
-            this.rp0_Select.Size = new System.Drawing.Size(47, 17);
-            this.rp0_Select.TabIndex = 2;
-            this.rp0_Select.Text = "RP0";
-            this.rp0_Select.UseVisualStyleBackColor = true;
+            this.z_Checkbox.AutoSize = true;
+            this.z_Checkbox.Location = new System.Drawing.Point(6, 309);
+            this.z_Checkbox.Name = "z_Checkbox";
+            this.z_Checkbox.Size = new System.Drawing.Size(33, 17);
+            this.z_Checkbox.TabIndex = 5;
+            this.z_Checkbox.Text = "Z";
+            this.z_Checkbox.UseVisualStyleBackColor = true;
             // 
-            // to_select
+            // pd_Checkbox
             // 
-            this.to_select.AutoSize = true;
-            this.to_select.Location = new System.Drawing.Point(6, 263);
-            this.to_select.Name = "to_select";
-            this.to_select.Size = new System.Drawing.Size(41, 17);
-            this.to_select.TabIndex = 3;
-            this.to_select.Text = "TO";
-            this.to_select.UseVisualStyleBackColor = true;
+            this.pd_Checkbox.AutoSize = true;
+            this.pd_Checkbox.Location = new System.Drawing.Point(6, 286);
+            this.pd_Checkbox.Name = "pd_Checkbox";
+            this.pd_Checkbox.Size = new System.Drawing.Size(41, 17);
+            this.pd_Checkbox.TabIndex = 4;
+            this.pd_Checkbox.Text = "PD";
+            this.pd_Checkbox.UseVisualStyleBackColor = true;
             // 
-            // pd_Select
+            // to_Checkbox
             // 
-            this.pd_Select.AutoSize = true;
-            this.pd_Select.Location = new System.Drawing.Point(6, 286);
-            this.pd_Select.Name = "pd_Select";
-            this.pd_Select.Size = new System.Drawing.Size(41, 17);
-            this.pd_Select.TabIndex = 4;
-            this.pd_Select.Text = "PD";
-            this.pd_Select.UseVisualStyleBackColor = true;
+            this.to_Checkbox.AutoSize = true;
+            this.to_Checkbox.Location = new System.Drawing.Point(6, 263);
+            this.to_Checkbox.Name = "to_Checkbox";
+            this.to_Checkbox.Size = new System.Drawing.Size(41, 17);
+            this.to_Checkbox.TabIndex = 3;
+            this.to_Checkbox.Text = "TO";
+            this.to_Checkbox.UseVisualStyleBackColor = true;
             // 
-            // z_Select
+            // rp0_Checkbox
             // 
-            this.z_Select.AutoSize = true;
-            this.z_Select.Location = new System.Drawing.Point(6, 309);
-            this.z_Select.Name = "z_Select";
-            this.z_Select.Size = new System.Drawing.Size(33, 17);
-            this.z_Select.TabIndex = 5;
-            this.z_Select.Text = "Z";
-            this.z_Select.UseVisualStyleBackColor = true;
+            this.rp0_Checkbox.AutoSize = true;
+            this.rp0_Checkbox.Location = new System.Drawing.Point(6, 240);
+            this.rp0_Checkbox.Name = "rp0_Checkbox";
+            this.rp0_Checkbox.Size = new System.Drawing.Size(47, 17);
+            this.rp0_Checkbox.TabIndex = 2;
+            this.rp0_Checkbox.Text = "RP0";
+            this.rp0_Checkbox.UseVisualStyleBackColor = true;
             // 
-            // dc_Select
+            // irp_Checkbox
             // 
-            this.dc_Select.AutoSize = true;
-            this.dc_Select.Location = new System.Drawing.Point(6, 332);
-            this.dc_Select.Name = "dc_Select";
-            this.dc_Select.Size = new System.Drawing.Size(41, 17);
-            this.dc_Select.TabIndex = 6;
-            this.dc_Select.Text = "DC";
-            this.dc_Select.UseVisualStyleBackColor = true;
+            this.irp_Checkbox.AutoSize = true;
+            this.irp_Checkbox.Location = new System.Drawing.Point(6, 194);
+            this.irp_Checkbox.Name = "irp_Checkbox";
+            this.irp_Checkbox.Size = new System.Drawing.Size(44, 17);
+            this.irp_Checkbox.TabIndex = 1;
+            this.irp_Checkbox.Text = "IRP";
+            this.irp_Checkbox.UseVisualStyleBackColor = true;
             // 
-            // c_Select
+            // rp1_Checkbox
             // 
-            this.c_Select.AutoSize = true;
-            this.c_Select.Location = new System.Drawing.Point(6, 355);
-            this.c_Select.Name = "c_Select";
-            this.c_Select.Size = new System.Drawing.Size(33, 17);
-            this.c_Select.TabIndex = 7;
-            this.c_Select.Text = "C";
-            this.c_Select.UseVisualStyleBackColor = true;
+            this.rp1_Checkbox.AutoSize = true;
+            this.rp1_Checkbox.Location = new System.Drawing.Point(6, 217);
+            this.rp1_Checkbox.Name = "rp1_Checkbox";
+            this.rp1_Checkbox.Size = new System.Drawing.Size(47, 17);
+            this.rp1_Checkbox.TabIndex = 0;
+            this.rp1_Checkbox.Text = "RP1";
+            this.rp1_Checkbox.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -315,14 +315,14 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage TRIS;
         private System.Windows.Forms.TabPage Spezialregister;
-        private System.Windows.Forms.CheckBox c_Select;
-        private System.Windows.Forms.CheckBox dc_Select;
-        private System.Windows.Forms.CheckBox z_Select;
-        private System.Windows.Forms.CheckBox pd_Select;
-        private System.Windows.Forms.CheckBox to_select;
-        private System.Windows.Forms.CheckBox rp0_Select;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox rp1_Select;
+        private System.Windows.Forms.CheckBox c_Checkbox;
+        private System.Windows.Forms.CheckBox dc_Checkbox;
+        private System.Windows.Forms.CheckBox z_Checkbox;
+        private System.Windows.Forms.CheckBox pd_Checkbox;
+        private System.Windows.Forms.CheckBox to_Checkbox;
+        private System.Windows.Forms.CheckBox rp0_Checkbox;
+        private System.Windows.Forms.CheckBox irp_Checkbox;
+        private System.Windows.Forms.CheckBox rp1_Checkbox;
     }
 }
 
