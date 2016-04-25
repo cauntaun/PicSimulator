@@ -62,9 +62,10 @@
     <Compile Include="Log.cs" />
     <Compile Include="PicSimulator.cs" />
     <Compile Include="Pin.cs" />
-    <Compile Include="PinSet.cs" />
+    <Compile Include="RegisterSet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterType.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

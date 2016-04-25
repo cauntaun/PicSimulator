@@ -9,14 +9,14 @@ namespace PicSimulator
     class PicSimulator
     {
         private InstructionSet instructionSet;
-        private PinSet pinSet;
+        private RegisterSet registerSet;
         private int startLine;
         private int endLine;
 
         public PicSimulator()
         {
             instructionSet = new InstructionSet();
-            pinSet = new PinSet();
+            registerSet = new RegisterSet();
         }
 
         public void LoadLST(String filename)
