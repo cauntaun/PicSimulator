@@ -11,20 +11,23 @@ namespace PicSimulator
     {
         private InstructionType type = new InstructionType();
         private int lineNumber = 0;
+        private int arguments = -1;
 
         public Instruction(InstructionType type)
         {
             this.type = type;
+            arguments = 0;
         }
         
         public Instruction(InstructionType type, int argument)
         {
             this.type = type;
+            arguments = 1;
         }
 
         public Instruction(InstructionType type, int firstArgument, int secondArgument)
         {
-
+            arguments = 2;
         }
 
         public void SetLineNumber(int lineNumber)
@@ -58,7 +61,7 @@ namespace PicSimulator
         /// <returns>Instruction as String</returns>
         public override String ToString()
         {
-            return type.ToString();
+            return type.ToString() + " mit " + arguments.ToString() + " Argumenten";
         }
 
         /// <summary>
@@ -74,6 +77,7 @@ namespace PicSimulator
 
         private static bool ANDWF()
         {
+            Console.Write("Fuehre ANDWF aus..");
             // TODO implement
             return false;
         }

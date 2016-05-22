@@ -8,7 +8,7 @@ namespace PicSimulator
 {
     class RegisterSet
     {
-        private int[] register = new int[0xFF];
+        private int[] register = new int[0xFF+ 8];
 
         public RegisterSet()
         {
@@ -35,6 +35,8 @@ namespace PicSimulator
             register[(int)RegisterType.TRISB]       = 0xFF;
             register[(int)RegisterType.EECON1]      = 0x00;
             register[(int)RegisterType.EECON2]      = 0x00;
+            //Console.Write(register.Length.ToString("X2"));
+            Program.mainForm.AddStorageSet(register);
         }
 
         public int[] GetRegister()
