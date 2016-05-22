@@ -12,6 +12,8 @@ namespace PicSimulator
         private InstructionType type = new InstructionType();
         private int lineNumber = 0;
         private int arguments = -1;
+        private int firstArgument = -1;
+        private int secondArgument = -1;
 
         public Instruction(InstructionType type)
         {
@@ -22,11 +24,15 @@ namespace PicSimulator
         public Instruction(InstructionType type, int argument)
         {
             this.type = type;
+            this.firstArgument = argument;
             arguments = 1;
         }
 
         public Instruction(InstructionType type, int firstArgument, int secondArgument)
         {
+            this.type = type;
+            this.firstArgument = firstArgument;
+            this.secondArgument = secondArgument;
             arguments = 2;
         }
 
@@ -61,7 +67,18 @@ namespace PicSimulator
         /// <returns>Instruction as String</returns>
         public override String ToString()
         {
-            return type.ToString() + " mit " + arguments.ToString() + " Argumenten";
+            string result = type.ToString();
+            if (arguments == 0)
+            {
+                result += "\nKein Argument\n";
+            } else if (arguments == 1)
+            {
+                result += "\nEin Argument: " + firstArgument.ToString("X2") + "\n";
+            } else if (arguments == 2)
+            {
+                result += "\nZwei Argumente: " + firstArgument.ToString("X2") + " und " + secondArgument.ToString("X2") + "\n";
+            }
+            return result;
         }
 
         /// <summary>

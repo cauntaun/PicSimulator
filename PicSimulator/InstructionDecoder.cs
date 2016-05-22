@@ -94,6 +94,7 @@ namespace PicSimulator
             }
             else if ((hexValue & 0x3000) == 0x0000)
             {
+                
                 return ByteOrientedInstruction(hexValue);
             }
             else if ((hexValue & 0x3000) == 0x1000)
@@ -117,12 +118,26 @@ namespace PicSimulator
             if (Enum.IsDefined(typeof(InstructionType), hexValue & 0x3F80))
             {
                 type = (InstructionType)(hexValue & 0x3F80);
+                if (type == InstructionType.CLRF)
+                {
+                    return new Instruction(type, hexValue & 0x007F);
+                }
             }
             // Check for the rest of byte-oriented operations
             else if (Enum.IsDefined(typeof(InstructionType), hexValue & 0x3F00))
             {
                 // Convert AND-operation result to enum
-                type = (InstructionType)(hexValue & 0x3F00);
+                type = (InstructionType)(hexValue & 0x3F00); 
+
+                // Return new Instructions with two arguments
+                if ((hexValue & 0x0080) > 0)
+                {
+                    return new Instruction(type, 1, hexValue & 0x007F);
+                } else
+                {
+                    return new Instruction(type, 0, hexValue & 0x007F);
+                }
+                
             }
             else
             {
@@ -132,6 +147,10 @@ namespace PicSimulator
             }
             //Console.WriteLine("Instruction: " + type.ToString());
             // TODO return correct types -> with arguments maybe
+            if (type == InstructionType.MOVWF)
+            {
+                return new Instruction(type, hexValue & 0x007F);
+            }
             return new Instruction(type);
         }
 
@@ -150,7 +169,8 @@ namespace PicSimulator
             }
             //Console.WriteLine("Instruction: " + type.ToString());
             // TODO return correct types -> with arguments maybe
-            return new Instruction(type, hexValue);
+            int argument1 = Convert.ToInt32(Convert.ToString(hexValue, 2).Substring(6, 3), 2);
+            return new Instruction(type, argument1, hexValue & 0x007F);
         }
 
         private static Instruction LcInstruction(int hexValue)
@@ -161,26 +181,32 @@ namespace PicSimulator
             if ((hexValue & 0x3800) == 0x2000)
             {
                 type = InstructionType.CALL;
+                return new Instruction(type, hexValue & 0x07FF);
             }
             else if ((hexValue & 0x3800) == 0x2800)
             {
                 type = InstructionType.GOTO;
+                return new Instruction(type, hexValue & 0x07FF);
             }
             else if ((hexValue & 0x3C00) == 0x3400)
             {
                 type = InstructionType.RETLW;
+                
             }
             else if ((hexValue & 0x3C00) == 0x3000)
             {
                 type = InstructionType.MOVLW;
+                
             }
             else if ((hexValue & 0x3E00) == 0x3E00)
             {
                 type = InstructionType.ADDLW;
+             
             }
             else if ((hexValue & 0x3E00) == 0x3C00)
             {
                 type = InstructionType.SUBLW;
+                
             }
             else
             {
@@ -194,10 +220,10 @@ namespace PicSimulator
                     // TODO throw exception
                 }
             }
-            
+
             //Console.WriteLine("Instruction: " + type.ToString());
             // TODO return correct types -> with arguments maybe
-            return new Instruction(type);
+            return new Instruction(type, hexValue & 0x00FF);
         }
     }
 }
