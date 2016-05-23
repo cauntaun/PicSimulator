@@ -39,7 +39,6 @@ namespace PicSimulator
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
             }
-            picSimulator = new PicSimulator();
             picSimulator.Reset();
             picSimulator.LoadLST(ofd.FileName);
         }

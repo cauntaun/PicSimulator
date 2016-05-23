@@ -51,14 +51,15 @@ namespace PicSimulator
         /// Uses the String-Format of the type to determine the method which should be used.
         /// </summary>
         /// <returns>true when successful, false otherwise</returns>
-        public bool Execute()
+        public bool Execute(PicSimulator picSim)
         {
             // Get the type of this object (=Instruction)
             this.GetType().InvokeMember(
                 type.ToString(),
                 BindingFlags.InvokeMethod,
                 null,
-                this, new object[] { });
+                this,
+                new object[] { picSim });
 
             return true;
             // Get the method by the String (type.ToString()) and also look for private and protected methods -> BindingFlags
@@ -186,12 +187,34 @@ namespace PicSimulator
             return false;
         }
 
-        public bool MOVLW()
+        public bool MOVLW(PicSimulator picSim)
         {
-            Console.Write("MOVLW Ausfuehren");
-            int result = firstArgument + Program.mainForm.GetWRegister();
-            Console.Write("\nResult: " + result);
-            Program.mainForm.SetWRegister(result);
+            string result = (Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber) + firstArgument).ToString("X2");
+            picSim.WRegister = result;
+            return true;
+        }
+
+        public bool ANDLW(PicSimulator picSim)
+        {
+            int wRegister = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber);
+            int result = (wRegister & firstArgument);
+            picSim.WRegister = result.ToString("X2");
+            return true;
+        }
+
+        public bool IORLW(PicSimulator picSim)
+        {
+            int wRegister = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber);
+            int result = (wRegister | firstArgument);
+            picSim.WRegister = result.ToString("X2");
+            return true;
+        }
+
+        public bool SUBLW(PicSimulator picSim)
+        {
+            int wRegister = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber);
+            int result = firstArgument - wRegister;
+            picSim.WRegister = result.ToString("X2");
             return true;
         }
     }

@@ -18,11 +18,19 @@ namespace PicSimulator
             this.output = output;
         }
 
+        public override void Write(string value)
+        {
+            base.Write(value);
+            this.output.AppendText(value);
+        }
+
         public override void Write(char value)
         {
             base.Write(value);
-            this.output.AppendText(value.ToString());
+            //this.output.AppendText(value.ToString());
         }
+
+        
 
         public override Encoding Encoding
         {

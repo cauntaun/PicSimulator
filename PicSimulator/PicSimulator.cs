@@ -29,7 +29,7 @@ namespace PicSimulator
             {
                 if (value != this.wRegister.ToString("X2"))
                 {
-                    this.wRegister = Int32.Parse(value);
+                    this.wRegister = Int32.Parse(value, System.Globalization.NumberStyles.HexNumber);
                     NotifyPropertyChanged("wRegister");
                 }
             }
@@ -69,13 +69,13 @@ namespace PicSimulator
 
         public void Reset()
         {
-            wRegister = 0;
+            WRegister = 0.ToString("X2");
             // TODO implement
         }
 
         public void NextStep()
         {
-            instructionSet.Execute(programCounter);
+            instructionSet.Execute(programCounter, this);
             programCounter++;
         }
 

@@ -15,6 +15,18 @@ namespace PicSimulator
             this.InitializeRegister();
         }
 
+        public int this[int i]
+        {
+            get
+            {
+                return register[i];
+            }
+            set
+            {
+                register[i] = value;
+            }
+        }
+
 
         public void InitializeRegister()
         {

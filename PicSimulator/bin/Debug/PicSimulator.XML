@@ -40,7 +40,7 @@
         <member name="F:PicSimulator.InstructionType.ADDLW">
             Literal and control     Mask: 0011 1110 0000 0000
         </member>
-        <member name="M:PicSimulator.Instruction.Execute">
+        <member name="M:PicSimulator.Instruction.Execute(PicSimulator.PicSimulator)">
             <summary>
             Executes the instruction.
             Uses the String-Format of the type to determine the method which should be used.
