@@ -8,7 +8,7 @@ namespace PicSimulator
 {
     class RegisterSet
     {
-        private int[] register = new int[0xFF+ 8];
+        private int[] register = new int[0xFF + 8];
 
         public RegisterSet()
         {

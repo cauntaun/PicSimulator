@@ -17,20 +17,20 @@ namespace PicSimulator
         private int programCounter;
 
         // Test
-        private int unit = 2;
+        private int wRegister;
         public event PropertyChangedEventHandler PropertyChanged;
-        public int Unit
+        public string WRegister
         {
             get
             {
-                return this.unit;
+                return this.wRegister.ToString("X2");
             }
             set
             {
-                if (value != this.unit)
+                if (value != this.wRegister.ToString("X2"))
                 {
-                    this.unit = value;
-                    NotifyPropertyChanged("Unit");
+                    this.wRegister = Int32.Parse(value);
+                    NotifyPropertyChanged("wRegister");
                 }
             }
         }
@@ -69,6 +69,7 @@ namespace PicSimulator
 
         public void Reset()
         {
+            wRegister = 0;
             // TODO implement
         }
 
@@ -77,5 +78,7 @@ namespace PicSimulator
             instructionSet.Execute(programCounter);
             programCounter++;
         }
+
+       
     }
 }

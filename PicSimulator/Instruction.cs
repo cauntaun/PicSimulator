@@ -54,11 +54,17 @@ namespace PicSimulator
         public bool Execute()
         {
             // Get the type of this object (=Instruction)
-            Type thisType = this.GetType();
+            this.GetType().InvokeMember(
+                type.ToString(),
+                BindingFlags.InvokeMethod,
+                null,
+                this, new object[] { });
+
+            return true;
             // Get the method by the String (type.ToString()) and also look for private and protected methods -> BindingFlags
-            MethodInfo method = thisType.GetMethod(type.ToString(), BindingFlags.Instance | BindingFlags.NonPublic);
+            //MethodInfo method = thisType.GetMethod(type.ToString(), BindingFlags.Instance | BindingFlags.Public);
             // Invoke the method
-            return (bool)method.Invoke(this, null);
+            //return (bool)method.Invoke(this, null);
         }
 
         /// <summary>
@@ -95,6 +101,7 @@ namespace PicSimulator
         private static bool ANDWF()
         {
             Console.Write("Fuehre ANDWF aus..");
+
             // TODO implement
             return false;
         }
@@ -177,6 +184,15 @@ namespace PicSimulator
         {
             // TODO implement
             return false;
+        }
+
+        public bool MOVLW()
+        {
+            Console.Write("MOVLW Ausfuehren");
+            int result = firstArgument + Program.mainForm.GetWRegister();
+            Console.Write("\nResult: " + result);
+            Program.mainForm.SetWRegister(result);
+            return true;
         }
     }
 }

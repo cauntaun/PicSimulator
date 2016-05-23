@@ -52,3 +52,13 @@ C:\Users\Dominik\Source\Repos\PicSimulator\PicSimulator\obj\Debug\PicSimulator.c
 C:\Users\Dominik\Source\Repos\PicSimulator\PicSimulator\obj\Debug\PicSimulator.Form1.resources
 C:\Users\Dominik\Source\Repos\PicSimulator\PicSimulator\obj\Debug\PicSimulator.Properties.Resources.resources
 C:\Users\Dominik\Source\Repos\PicSimulator\PicSimulator\obj\Debug\PicSimulator.csproj.GenerateResource.Cache
+C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSim\PicSimulator\bin\Debug\PicSimulator.exe.config
+C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSim\PicSimulator\bin\Debug\PicSimulator.XML
+C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSim\PicSimulator\obj\Debug\PicSimulator.exe
+C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSim\PicSimulator\obj\Debug\PicSimulator.pdb
+C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSim\PicSimulator\bin\Debug\PicSimulator.exe
+C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSim\PicSimulator\bin\Debug\PicSimulator.pdb
+C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSim\PicSimulator\obj\Debug\PicSimulator.csprojResolveAssemblyReference.cache
+C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSim\PicSimulator\obj\Debug\PicSimulator.Form1.resources
+C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSim\PicSimulator\obj\Debug\PicSimulator.Properties.Resources.resources
+C:\Users\Henning\BitTorrent Sync\DHBW\Semester_4\PicSim\PicSimulator\obj\Debug\PicSimulator.csproj.GenerateResource.Cache

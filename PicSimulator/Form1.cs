@@ -36,7 +36,8 @@ namespace PicSimulator
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Nur .lst Dateien. |*.lst;";
 
-            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK){               
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
             }
             picSimulator = new PicSimulator();
             picSimulator.Reset();
@@ -50,6 +51,8 @@ namespace PicSimulator
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
+            picSimulator = new PicSimulator();
+            wLabel.DataBindings.Add("Text", picSimulator, "wRegister");
             log = new Log(consoleLog);
             Console.SetOut(log);
         }
@@ -70,10 +73,10 @@ namespace PicSimulator
         {
             //storageGridView.RowHeadersWidth = 30;
             Console.Write(storage.Length.ToString("X2"));
-            Console.Write(storage[0xFF-1].ToString("X2"));
-            for (int i = 0; i < (storage.Length)/8; i++)
+            Console.Write(storage[0xFF - 1].ToString("X2"));
+            for (int i = 0; i < (storage.Length) / 8; i++)
             {
-                
+
                 int n = storageGridView.Rows.Add();
                 storageGridView.Rows[n].Cells[0].Value = storage[8 * i + 0].ToString("X2");
                 storageGridView.Rows[n].Cells[1].Value = storage[8 * i + 1].ToString("X2");
@@ -100,12 +103,22 @@ namespace PicSimulator
 
         private void testLabel_Click(object sender, EventArgs e)
         {
-            picSimulator.Unit = 3;
+            picSimulator.WRegister = 3.ToString("X2");
         }
 
         private void btn_nextStep_Click(object sender, EventArgs e)
         {
             picSimulator.NextStep();
+        }
+
+        public void SetWRegister(int wRegister)
+        {
+            picSimulator.WRegister = wRegister.ToString("X2");
+        }
+
+        public int GetWRegister()
+        {
+            return Int32.Parse(picSimulator.WRegister);
         }
     }
 }
