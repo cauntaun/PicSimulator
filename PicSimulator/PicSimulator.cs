@@ -16,26 +16,10 @@ namespace PicSimulator
         private int endLine;
         private int programCounter;
 
-        // Test
         private int wRegister;
         public event PropertyChangedEventHandler PropertyChanged;
-        public string WRegister
-        {
-            get
-            {
-                return this.wRegister.ToString("X2");
-            }
-            set
-            {
-                if (value != this.wRegister.ToString("X2"))
-                {
-                    this.wRegister = Int32.Parse(value, System.Globalization.NumberStyles.HexNumber);
-                    NotifyPropertyChanged("wRegister");
-                }
-            }
-        }
 
-        private void NotifyPropertyChanged(String propertyName)
+        public void NotifyPropertyChanged(String propertyName)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
 
@@ -76,9 +60,283 @@ namespace PicSimulator
         public void NextStep()
         {
             instructionSet.Execute(programCounter, this);
-            programCounter++;
+            ProgramCounter = (programCounter + 1).ToString();
+            Program.mainForm.HighlightLine(instructionSet.GetInstruction(programCounter).GetLineNumber());
         }
 
-       
+        public string WRegister
+        {
+            get
+            {
+                return this.wRegister.ToString("X2");
+            }
+            set
+            {
+                if (value != this.wRegister.ToString("X2"))
+                {
+                    this.wRegister = Int32.Parse(value, System.Globalization.NumberStyles.HexNumber);
+                    NotifyPropertyChanged("wRegister");
+                }
+            }
+        }
+
+        
+
+        public string CBit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.STATUS] & 1 << 0) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.STATUS] & 1 << 0) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.STATUS] & 1 << 0) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.STATUS, 0);
+                    }
+                    NotifyPropertyChanged("CBit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.STATUS, 0);
+                    NotifyPropertyChanged("CBit");
+                }
+            }
+        }
+
+        public string DCBit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.STATUS] & 1 << 1) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.STATUS] & (1 << 1)) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.STATUS] & 1 << 1) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.STATUS, 1);
+                    }
+                    NotifyPropertyChanged("DCBit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.STATUS, 1);
+                    NotifyPropertyChanged("DCBit");
+                }
+                
+            }
+        }
+
+        public string ZBit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.STATUS] & 1 << 2) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try { 
+                if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.STATUS] & 1 << 2) > 0))
+                {
+                    //do nothing
+                }
+                else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.STATUS] & 1 << 2) == 0)))
+                {
+
+                }
+                else
+                {
+                    registerSet.ToggleBit((int)RegisterType.STATUS, 2);
+                }
+                NotifyPropertyChanged("ZBit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.STATUS, 2);
+                    NotifyPropertyChanged("ZBit");
+                }
+            }
+        }
+
+        public string PDBit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.STATUS] & 1 << 3) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.STATUS] & 1 << 3) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.STATUS] & 1 << 3) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.STATUS, 3);
+                    }
+                    NotifyPropertyChanged("PDBit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.STATUS, 3);
+                    NotifyPropertyChanged("PDBit");
+                }
+            }
+        }
+
+        public string TOBit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.STATUS] & 1 << 4) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.STATUS] & 1 << 4) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.STATUS] & 1 << 4) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.STATUS, 4);
+                    }
+                    NotifyPropertyChanged("TOBit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.STATUS, 4);
+                    NotifyPropertyChanged("TOBit");
+                }
+            }
+        }
+
+        public string RP0Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.STATUS] & 1 << 5) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.STATUS] & 1 << 5) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.STATUS] & 1 << 5) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.STATUS, 5);
+                    }
+                    NotifyPropertyChanged("RP0Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.STATUS, 5);
+                    NotifyPropertyChanged("RP0Bit");
+                }
+            }
+        }
+
+
+        public string ProgramCounter
+        {
+            get
+            {
+                return this.programCounter.ToString("0000");
+            }
+            set
+            {
+                if (value != programCounter.ToString("0000"))
+                {
+                    programCounter = Int32.Parse(value);
+                    //Console.Write("Programmcounter: " + programCounter);
+                    NotifyPropertyChanged("ProgramCounter");
+                }
+            }
+        }
+
+        public RegisterSet GetRegisterSet()
+        {
+            return registerSet;
+        }
     }
 }

@@ -48,12 +48,34 @@ namespace PicSimulator
             register[(int)RegisterType.EECON1]      = 0x00;
             register[(int)RegisterType.EECON2]      = 0x00;
             //Console.Write(register.Length.ToString("X2"));
+            Program.mainForm.ResetStorageSet();
             Program.mainForm.AddStorageSet(register);
         }
 
         public int[] GetRegister()
         {
             return register;
+        }
+
+        public int ToggleBit(int address, int bit)
+        {
+            Console.Write("[+] Toggling Bit " + bit + " on address " + address + "\n");
+            Console.Write(" + Address Before: 0x" + register[address].ToString("X2") + "\n");
+            register[address] ^= 1 << bit;
+            Console.Write(" + Address After: 0x" + register[address].ToString("X2") + "\n");
+
+            // Update Storage
+            Program.mainForm.UpdateStorageSet();
+
+            if ((register[address] & (1 << bit)) > 0)
+            {
+                //Console.Write(" + Bit was set to 1\n");
+                return 1;
+            } else
+            {
+                //Console.Write(" + Bit was set to 0\n");
+                return 0;
+            }
         }
     }
 }

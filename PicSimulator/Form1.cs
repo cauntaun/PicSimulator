@@ -52,6 +52,14 @@ namespace PicSimulator
         {
             picSimulator = new PicSimulator();
             wLabel.DataBindings.Add("Text", picSimulator, "wRegister");
+            pcLabel.DataBindings.Add("Text", picSimulator, "ProgramCounter");
+            cLabel.DataBindings.Add("Text", picSimulator, "CBit");
+            dcLabel.DataBindings.Add("Text", picSimulator, "DCBit");
+            zLabel.DataBindings.Add("Text", picSimulator, "ZBit");
+            pdLabel.DataBindings.Add("Text", picSimulator, "PDBit");
+            toLabel.DataBindings.Add("Text", picSimulator, "TOBit");
+            rp0Label.DataBindings.Add("Text", picSimulator, "RP0Bit");
+
             log = new Log(consoleLog);
             Console.SetOut(log);
         }
@@ -71,12 +79,12 @@ namespace PicSimulator
         public void AddStorageSet(int[] storage)
         {
             //storageGridView.RowHeadersWidth = 30;
-            Console.Write(storage.Length.ToString("X2"));
-            Console.Write(storage[0xFF - 1].ToString("X2"));
+            Console.Write("[+] Initializing Storage\n");
             for (int i = 0; i < (storage.Length) / 8; i++)
             {
 
                 int n = storageGridView.Rows.Add();
+
                 storageGridView.Rows[n].Cells[0].Value = storage[8 * i + 0].ToString("X2");
                 storageGridView.Rows[n].Cells[1].Value = storage[8 * i + 1].ToString("X2");
                 storageGridView.Rows[n].Cells[2].Value = storage[8 * i + 2].ToString("X2");
@@ -92,6 +100,29 @@ namespace PicSimulator
                 storageGridView.Rows[i].HeaderCell.Value = counter.ToString("X2");
                 counter += 8;
             }
+        }
+
+        public void UpdateStorageSet()
+        {
+            int[] storage = picSimulator.GetRegisterSet().GetRegister();
+            Console.Write("[+] Updating Storage\n");
+            for (int i = 0; i < storage.Length/8; i++)
+            {
+                storageGridView.Rows[i].Cells[0].Value = storage[8 * i + 0].ToString("X2");
+                storageGridView.Rows[i].Cells[1].Value = storage[8 * i + 1].ToString("X2");
+                storageGridView.Rows[i].Cells[2].Value = storage[8 * i + 2].ToString("X2");
+                storageGridView.Rows[i].Cells[3].Value = storage[8 * i + 3].ToString("X2");
+                storageGridView.Rows[i].Cells[4].Value = storage[8 * i + 4].ToString("X2");
+                storageGridView.Rows[i].Cells[5].Value = storage[8 * i + 5].ToString("X2");
+                storageGridView.Rows[i].Cells[6].Value = storage[8 * i + 6].ToString("X2");
+                storageGridView.Rows[i].Cells[7].Value = storage[8 * i + 7].ToString("X2");
+            }
+        }
+
+        public void ResetStorageSet()
+        {
+            storageGridView.Rows.Clear();
+            storageGridView.Refresh();
         }
 
         public void HighlightLine(int lineNumber)
@@ -118,6 +149,36 @@ namespace PicSimulator
         public int GetWRegister()
         {
             return Int32.Parse(picSimulator.WRegister);
+        }
+
+        private void dcLabel_Click(object sender, EventArgs e)
+        {
+            picSimulator.DCBit = "";
+        }
+
+        private void cLabel_Click(object sender, EventArgs e)
+        {
+            picSimulator.CBit = "";
+        }
+
+        private void zLabel_Click(object sender, EventArgs e)
+        {
+            picSimulator.ZBit = "";
+        }
+
+        private void pdLabel_Click(object sender, EventArgs e)
+        {
+            picSimulator.PDBit = "";
+        }
+
+        private void toLabel_Click(object sender, EventArgs e)
+        {
+            picSimulator.TOBit = "";
+        }
+
+        private void rp0Label_Click(object sender, EventArgs e)
+        {
+            picSimulator.RP0Bit = "";
         }
     }
 }
