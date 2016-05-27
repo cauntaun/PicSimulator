@@ -129,6 +129,7 @@ namespace PicSimulator
         public void HighlightLine(int lineNumber)
         {
             dataGridView_Lst.Rows[lineNumber].Selected = true;
+            dataGridView_Lst.FirstDisplayedScrollingRowIndex = lineNumber;
             //dataGridView_Lst.Rows[lineNumber].DefaultCellStyle.BackColor = Color.LightBlue;
         }
 

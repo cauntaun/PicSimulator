@@ -92,17 +92,6 @@ namespace PicSimulator
             return result;
         }
 
-        /// <summary>
-        /// Executes the ADDWF command.
-        /// </summary>
-        /// <returns>true when successful, false otherwise</returns>
-        private bool ADDWF()
-        {
-            Console.Write("Fuehre ADDWF aus..");
-            // TODO implement
-            return false;
-        }
-
         private static bool ANDWF()
         {
             Console.Write("Fuehre ANDWF aus..");
@@ -155,11 +144,25 @@ namespace PicSimulator
             // TODO implement
             return false;
         }
-        private static bool MOVWF()
+        public bool MOVWF(PicSimulator picSim)
         {
-            // TODO implement
-            return false;
+            picSim.GetRegisterSet().SetRegisterAtAddress(firstArgument, Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber));
+            return true;
         }
+
+        public bool ADDWF(PicSimulator picSim)
+        {
+            int result = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber) + secondArgument;
+            if (firstArgument == 0)
+            {
+                picSim.WRegister = result.ToString("0000");
+            } else if (firstArgument == 1)
+            {
+                picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, result);
+            }
+            return true;
+        }
+
         public bool NOP(PicSimulator picSim)
         {
             // Do Nothing
@@ -213,7 +216,7 @@ namespace PicSimulator
             int wRegister = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber);
             int result = (wRegister + firstArgument);
             CheckZBit(picSim, result);
-            CheckCBit(picSim, result);
+            CheckCBit(picSim, InstructionType.ADDLW, result);
             CheckDCBit(picSim, wRegister, firstArgument);
             picSim.WRegister = result.ToString("X2");
             return true;
@@ -232,7 +235,7 @@ namespace PicSimulator
         {
             int wRegister = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber);
             int result = firstArgument - wRegister;
-            CheckCBit(picSim, result);
+            CheckCBit(picSim, InstructionType.SUBLW, result);
             CheckDCBit(picSim, wRegister, firstArgument);
             CheckZBit(picSim, result);
             picSim.WRegister = result.ToString("X2");
@@ -297,13 +300,21 @@ namespace PicSimulator
             }
         }
 
-        private void CheckCBit(PicSimulator picSim, int result)
+        private void CheckCBit(PicSimulator picSim, InstructionType type, int result)
         {
-            // TODO Fix (Add won't work)
-            if(result >=0)
+            if (type == InstructionType.SUBLW)
             {
-                // Set CBit to 1
-                picSim.CBit = "1";
+                if (result >= 0)
+                {
+                    picSim.CBit = "1";
+                }
+            }
+            else if (type == InstructionType.ADDLW)
+            {
+                if (result > 0xFF)
+                {
+                    picSim.CBit = "1";
+                }
             }
         }
 

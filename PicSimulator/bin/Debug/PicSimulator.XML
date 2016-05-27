@@ -53,12 +53,6 @@
             </summary>
             <returns>Instruction as String</returns>
         </member>
-        <member name="M:PicSimulator.Instruction.ADDWF">
-            <summary>
-            Executes the ADDWF command.
-            </summary>
-            <returns>true when successful, false otherwise</returns>
-        </member>
         <member name="M:PicSimulator.Form1.dateiLadenToolStrip_Click(System.Object,System.EventArgs)">
             <summary>
             Erstelle neuen PicSimulator und lade Befehle aus LST-Datei.
