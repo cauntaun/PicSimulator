@@ -59,6 +59,7 @@ namespace PicSimulator
             pdLabel.DataBindings.Add("Text", picSimulator, "PDBit");
             toLabel.DataBindings.Add("Text", picSimulator, "TOBit");
             rp0Label.DataBindings.Add("Text", picSimulator, "RP0Bit");
+            pclLabel.DataBindings.Add("Text", picSimulator, "PCL");
 
             log = new Log(consoleLog);
             Console.SetOut(log);
@@ -180,5 +181,18 @@ namespace PicSimulator
         {
             picSimulator.RP0Bit = "";
         }
+
+        public void UpdateStack(Stack<int> stack)
+        {
+            // Clear stack
+            stackGridView.Rows.Clear();
+            int[] stackarr = stack.ToArray();
+            for (int i = stackarr.Length; i > 0; i--)
+            {
+                int n = stackGridView.Rows.Add();
+                stackGridView.Rows[n].Cells[0].Value = stackarr[i-1].ToString("0000");
+            }
+        }
+        
     }
 }

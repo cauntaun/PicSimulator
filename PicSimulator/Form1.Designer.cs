@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menueToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.dateiLadenToolStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,6 +85,21 @@
             this.irp_Checkbox = new System.Windows.Forms.CheckBox();
             this.rp1_Checkbox = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pcLabel = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rp0Label = new System.Windows.Forms.Label();
+            this.toLabel = new System.Windows.Forms.Label();
+            this.pdLabel = new System.Windows.Forms.Label();
+            this.zLabel = new System.Windows.Forms.Label();
+            this.dcLabel = new System.Windows.Forms.Label();
+            this.cLabel = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.wLabel = new System.Windows.Forms.Label();
             this.storageGridView = new System.Windows.Forms.DataGridView();
@@ -99,28 +114,20 @@
             this.btn_nextStep = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cLabel = new System.Windows.Forms.Label();
-            this.dcLabel = new System.Windows.Forms.Label();
-            this.zLabel = new System.Windows.Forms.Label();
-            this.pdLabel = new System.Windows.Forms.Label();
-            this.toLabel = new System.Windows.Forms.Label();
-            this.rp0Label = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pcLabel = new System.Windows.Forms.Label();
+            this.stackGridView = new System.Windows.Forms.DataGridView();
+            this.stackColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stackLabel = new System.Windows.Forms.Label();
+            this.pclLabel1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pclLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Lst)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.Spezialregister.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.storageGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.storageGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stackGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -190,14 +197,14 @@
             this.dataGridView_Lst.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Lst.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Sourcecode});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_Lst.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_Lst.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_Lst.Location = new System.Drawing.Point(354, 440);
             this.dataGridView_Lst.MultiSelect = false;
             this.dataGridView_Lst.Name = "dataGridView_Lst";
@@ -712,6 +719,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pclLabel);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.pclLabel1);
+            this.groupBox1.Controls.Add(this.stackLabel);
+            this.groupBox1.Controls.Add(this.stackGridView);
             this.groupBox1.Controls.Add(this.pcLabel);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.groupBox2);
@@ -723,6 +735,159 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Spezialregister";
+            // 
+            // pcLabel
+            // 
+            this.pcLabel.AutoSize = true;
+            this.pcLabel.Location = new System.Drawing.Point(287, 34);
+            this.pcLabel.Name = "pcLabel";
+            this.pcLabel.Size = new System.Drawing.Size(10, 13);
+            this.pcLabel.TabIndex = 6;
+            this.pcLabel.Text = "-";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(191, 34);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 13);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Program Counter:";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rp0Label);
+            this.groupBox2.Controls.Add(this.toLabel);
+            this.groupBox2.Controls.Add(this.pdLabel);
+            this.groupBox2.Controls.Add(this.zLabel);
+            this.groupBox2.Controls.Add(this.dcLabel);
+            this.groupBox2.Controls.Add(this.cLabel);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Location = new System.Drawing.Point(6, 19);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(167, 65);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Status";
+            // 
+            // rp0Label
+            // 
+            this.rp0Label.AutoSize = true;
+            this.rp0Label.Location = new System.Drawing.Point(139, 39);
+            this.rp0Label.Name = "rp0Label";
+            this.rp0Label.Size = new System.Drawing.Size(10, 13);
+            this.rp0Label.TabIndex = 4;
+            this.rp0Label.Text = "-";
+            this.rp0Label.Click += new System.EventHandler(this.rp0Label_Click);
+            // 
+            // toLabel
+            // 
+            this.toLabel.AutoSize = true;
+            this.toLabel.Location = new System.Drawing.Point(109, 39);
+            this.toLabel.Name = "toLabel";
+            this.toLabel.Size = new System.Drawing.Size(10, 13);
+            this.toLabel.TabIndex = 4;
+            this.toLabel.Text = "-";
+            this.toLabel.Click += new System.EventHandler(this.toLabel_Click);
+            // 
+            // pdLabel
+            // 
+            this.pdLabel.AutoSize = true;
+            this.pdLabel.Location = new System.Drawing.Point(82, 39);
+            this.pdLabel.Name = "pdLabel";
+            this.pdLabel.Size = new System.Drawing.Size(10, 13);
+            this.pdLabel.TabIndex = 4;
+            this.pdLabel.Text = "-";
+            this.pdLabel.Click += new System.EventHandler(this.pdLabel_Click);
+            // 
+            // zLabel
+            // 
+            this.zLabel.AutoSize = true;
+            this.zLabel.Location = new System.Drawing.Point(58, 39);
+            this.zLabel.Name = "zLabel";
+            this.zLabel.Size = new System.Drawing.Size(10, 13);
+            this.zLabel.TabIndex = 4;
+            this.zLabel.Text = "-";
+            this.zLabel.Click += new System.EventHandler(this.zLabel_Click);
+            // 
+            // dcLabel
+            // 
+            this.dcLabel.AutoSize = true;
+            this.dcLabel.Location = new System.Drawing.Point(34, 39);
+            this.dcLabel.Name = "dcLabel";
+            this.dcLabel.Size = new System.Drawing.Size(10, 13);
+            this.dcLabel.TabIndex = 4;
+            this.dcLabel.Text = "-";
+            this.dcLabel.Click += new System.EventHandler(this.dcLabel_Click);
+            // 
+            // cLabel
+            // 
+            this.cLabel.AutoSize = true;
+            this.cLabel.Location = new System.Drawing.Point(11, 39);
+            this.cLabel.Name = "cLabel";
+            this.cLabel.Size = new System.Drawing.Size(10, 13);
+            this.cLabel.TabIndex = 4;
+            this.cLabel.Text = "-";
+            this.cLabel.Click += new System.EventHandler(this.cLabel_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(132, 16);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(28, 13);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "RP0";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(8, 16);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(14, 13);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "C";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(104, 16);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(22, 13);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "TO";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(28, 16);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(22, 13);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "DC";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(76, 16);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(22, 13);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "PD";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(56, 16);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(14, 13);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "Z";
             // 
             // label6
             // 
@@ -848,158 +1013,57 @@
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // label10
+            // stackGridView
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 16);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(14, 13);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "C";
+            this.stackGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.stackGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.stackColumn});
+            this.stackGridView.Location = new System.Drawing.Point(179, 105);
+            this.stackGridView.Name = "stackGridView";
+            this.stackGridView.Size = new System.Drawing.Size(151, 120);
+            this.stackGridView.TabIndex = 7;
             // 
-            // label11
+            // stackColumn
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(28, 16);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(22, 13);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "DC";
+            this.stackColumn.HeaderText = "Stack-Value";
+            this.stackColumn.Name = "stackColumn";
+            this.stackColumn.Width = 105;
             // 
-            // label12
+            // stackLabel
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(56, 16);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(14, 13);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "Z";
+            this.stackLabel.AutoSize = true;
+            this.stackLabel.Location = new System.Drawing.Point(176, 89);
+            this.stackLabel.Name = "stackLabel";
+            this.stackLabel.Size = new System.Drawing.Size(35, 13);
+            this.stackLabel.TabIndex = 8;
+            this.stackLabel.Text = "Stack";
             // 
-            // label13
+            // pclLabel1
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(76, 16);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(22, 13);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "PD";
+            this.pclLabel1.AutoSize = true;
+            this.pclLabel1.Location = new System.Drawing.Point(3, 89);
+            this.pclLabel1.Name = "pclLabel1";
+            this.pclLabel1.Size = new System.Drawing.Size(30, 13);
+            this.pclLabel1.TabIndex = 9;
+            this.pclLabel1.Text = "PCL:";
             // 
-            // label14
+            // label8
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(104, 16);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(22, 13);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "TO";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 105);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(52, 13);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "PCLATH:";
             // 
-            // label15
+            // pclLabel
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(132, 16);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(28, 13);
-            this.label15.TabIndex = 3;
-            this.label15.Text = "RP0";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.rp0Label);
-            this.groupBox2.Controls.Add(this.toLabel);
-            this.groupBox2.Controls.Add(this.pdLabel);
-            this.groupBox2.Controls.Add(this.zLabel);
-            this.groupBox2.Controls.Add(this.dcLabel);
-            this.groupBox2.Controls.Add(this.cLabel);
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Location = new System.Drawing.Point(6, 19);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(167, 65);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Status";
-            // 
-            // cLabel
-            // 
-            this.cLabel.AutoSize = true;
-            this.cLabel.Location = new System.Drawing.Point(11, 39);
-            this.cLabel.Name = "cLabel";
-            this.cLabel.Size = new System.Drawing.Size(10, 13);
-            this.cLabel.TabIndex = 4;
-            this.cLabel.Text = "-";
-            this.cLabel.Click += new System.EventHandler(this.cLabel_Click);
-            // 
-            // dcLabel
-            // 
-            this.dcLabel.AutoSize = true;
-            this.dcLabel.Location = new System.Drawing.Point(34, 39);
-            this.dcLabel.Name = "dcLabel";
-            this.dcLabel.Size = new System.Drawing.Size(10, 13);
-            this.dcLabel.TabIndex = 4;
-            this.dcLabel.Text = "-";
-            this.dcLabel.Click += new System.EventHandler(this.dcLabel_Click);
-            // 
-            // zLabel
-            // 
-            this.zLabel.AutoSize = true;
-            this.zLabel.Location = new System.Drawing.Point(58, 39);
-            this.zLabel.Name = "zLabel";
-            this.zLabel.Size = new System.Drawing.Size(10, 13);
-            this.zLabel.TabIndex = 4;
-            this.zLabel.Text = "-";
-            this.zLabel.Click += new System.EventHandler(this.zLabel_Click);
-            // 
-            // pdLabel
-            // 
-            this.pdLabel.AutoSize = true;
-            this.pdLabel.Location = new System.Drawing.Point(82, 39);
-            this.pdLabel.Name = "pdLabel";
-            this.pdLabel.Size = new System.Drawing.Size(10, 13);
-            this.pdLabel.TabIndex = 4;
-            this.pdLabel.Text = "-";
-            this.pdLabel.Click += new System.EventHandler(this.pdLabel_Click);
-            // 
-            // toLabel
-            // 
-            this.toLabel.AutoSize = true;
-            this.toLabel.Location = new System.Drawing.Point(109, 39);
-            this.toLabel.Name = "toLabel";
-            this.toLabel.Size = new System.Drawing.Size(10, 13);
-            this.toLabel.TabIndex = 4;
-            this.toLabel.Text = "-";
-            this.toLabel.Click += new System.EventHandler(this.toLabel_Click);
-            // 
-            // rp0Label
-            // 
-            this.rp0Label.AutoSize = true;
-            this.rp0Label.Location = new System.Drawing.Point(139, 39);
-            this.rp0Label.Name = "rp0Label";
-            this.rp0Label.Size = new System.Drawing.Size(10, 13);
-            this.rp0Label.TabIndex = 4;
-            this.rp0Label.Text = "-";
-            this.rp0Label.Click += new System.EventHandler(this.rp0Label_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(191, 34);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(89, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Program Counter:";
-            // 
-            // pcLabel
-            // 
-            this.pcLabel.AutoSize = true;
-            this.pcLabel.Location = new System.Drawing.Point(287, 34);
-            this.pcLabel.Name = "pcLabel";
-            this.pcLabel.Size = new System.Drawing.Size(10, 13);
-            this.pcLabel.TabIndex = 6;
-            this.pcLabel.Text = "-";
+            this.pclLabel.AutoSize = true;
+            this.pclLabel.Location = new System.Drawing.Point(57, 89);
+            this.pclLabel.Name = "pclLabel";
+            this.pclLabel.Size = new System.Drawing.Size(10, 13);
+            this.pclLabel.TabIndex = 10;
+            this.pclLabel.Text = "-";
             // 
             // Form1
             // 
@@ -1029,9 +1093,10 @@
             this.Spezialregister.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.storageGridView)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.storageGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stackGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1124,6 +1189,12 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label pcLabel;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label stackLabel;
+        private System.Windows.Forms.DataGridView stackGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stackColumn;
+        private System.Windows.Forms.Label pclLabel;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label pclLabel1;
     }
 }
 

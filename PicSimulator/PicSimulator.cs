@@ -15,6 +15,7 @@ namespace PicSimulator
         private int startLine;
         private int endLine;
         private int programCounter;
+        private Stack<int> stack = new Stack<int>();
 
         private int wRegister;
         public event PropertyChangedEventHandler PropertyChanged;
@@ -329,14 +330,66 @@ namespace PicSimulator
                 {
                     programCounter = Int32.Parse(value);
                     //Console.Write("Programmcounter: " + programCounter);
-                    NotifyPropertyChanged("ProgramCounter");
                 }
+                if (programCounter == -1)
+                {
+                    // ugly workaround for GOTO 0
+                    programCounter = 0;
+                    NotifyPropertyChanged("ProgramCounter");
+                    PCL = programCounter.ToString("X2");
+                    programCounter = -1;
+                } else
+                {
+                    NotifyPropertyChanged("ProgramCounter");
+                    PCL = programCounter.ToString("X2");
+                }
+                
             }
         }
 
         public RegisterSet GetRegisterSet()
         {
             return registerSet;
+        }
+
+        public int Stack
+        {
+            get
+            {
+                int value = stack.Pop();
+                Program.mainForm.UpdateStack(stack);
+                return value;
+            }
+            set
+            {
+                if (stack.Count() == 8)
+                {
+                    // case muss nicht impl. werden (wir zeigen das 9. element einfach nicht an :))
+                }
+                stack.Push(value);
+
+                Program.mainForm.UpdateStack(stack);
+            }
+        }
+        
+        public string PCL
+        {
+            get
+            {
+                return registerSet.GetRegister()[(int)RegisterType.PCL].ToString("X2");
+            }
+            set
+            {
+                if (registerSet.GetRegister()[(int)RegisterType.PCL] == Int32.Parse(value))
+                {
+                    // do nothing
+                } else
+                {
+                    registerSet.SetRegisterAtAddress((int)RegisterType.PCL, Int32.Parse(value));
+                    NotifyPropertyChanged("PCL");
+                }
+                
+            }
         }
     }
 }

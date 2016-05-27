@@ -160,10 +160,10 @@ namespace PicSimulator
             // TODO implement
             return false;
         }
-        private static bool NOP()
+        public bool NOP(PicSimulator picSim)
         {
-            // TODO implement
-            return false;
+            // Do Nothing
+            return true;
         }
         private static bool RLF()
         {
@@ -255,6 +255,26 @@ namespace PicSimulator
             return true;
         }
 
+        public bool CALL(PicSimulator picSim)
+        {
+            picSim.Stack = Int32.Parse(picSim.ProgramCounter) + 1;
+            picSim.ProgramCounter = (firstArgument - 1).ToString("0000");
+            return true;
+        }
+
+        public bool RETURN(PicSimulator picSim)
+        {
+            picSim.ProgramCounter = (picSim.Stack - 1).ToString("0000");
+            return true;
+        }
+
+        public bool RETLW(PicSimulator picSim)
+        {
+            picSim.WRegister = firstArgument.ToString("X2");
+            picSim.ProgramCounter = (picSim.Stack - 1).ToString("0000");
+            return true;
+        }
+
         private void ResetBits(PicSimulator picSim)
         {
             picSim.ZBit = "0";
@@ -286,5 +306,6 @@ namespace PicSimulator
                 picSim.CBit = "1";
             }
         }
+
     }
 }

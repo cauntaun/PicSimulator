@@ -77,5 +77,10 @@ namespace PicSimulator
                 return 0;
             }
         }
+
+        public void SetRegisterAtAddress(int address, int value)
+        {
+            register[address] = value;
+        }
     }
 }
