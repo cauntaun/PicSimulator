@@ -583,11 +583,11 @@ namespace PicSimulator
             {
                 if (((argument & 0x0F) + ((~wRegister + 1) & 0x0F)) > 0x0F)
                 {
-                    picSim.CBit = "1";
+                    picSim.DCBit = "1";
                 }
                 else
                 {
-                    picSim.CBit = "0";
+                    picSim.DCBit = "0";
                 }
             }
         }

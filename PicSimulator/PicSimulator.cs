@@ -359,6 +359,46 @@ namespace PicSimulator
             }
         }
 
+        public string PS0Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 0) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 0) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 0) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.OPTION_REG, 0);
+                    }
+                    NotifyPropertyChanged("PS0Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.OPTION_REG, 0);
+                    NotifyPropertyChanged("PS0Bit");
+                }
+            }
+        }
+
+
         public string ProgramCounter
         {
             get
