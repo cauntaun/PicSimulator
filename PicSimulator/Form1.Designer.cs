@@ -85,6 +85,12 @@
             this.irp_Checkbox = new System.Windows.Forms.CheckBox();
             this.rp1_Checkbox = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pclLabel = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pclLabel1 = new System.Windows.Forms.Label();
+            this.stackLabel = new System.Windows.Forms.Label();
+            this.stackGridView = new System.Windows.Forms.DataGridView();
+            this.stackColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pcLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -114,20 +120,16 @@
             this.btn_nextStep = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.stackGridView = new System.Windows.Forms.DataGridView();
-            this.stackColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stackLabel = new System.Windows.Forms.Label();
-            this.pclLabel1 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.pclLabel = new System.Windows.Forms.Label();
+            this.label_time = new System.Windows.Forms.Label();
+            this.timeLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Lst)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.Spezialregister.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stackGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.storageGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stackGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -719,6 +721,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.timeLabel);
+            this.groupBox1.Controls.Add(this.label_time);
             this.groupBox1.Controls.Add(this.pclLabel);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.pclLabel1);
@@ -735,6 +739,58 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Spezialregister";
+            // 
+            // pclLabel
+            // 
+            this.pclLabel.AutoSize = true;
+            this.pclLabel.Location = new System.Drawing.Point(57, 89);
+            this.pclLabel.Name = "pclLabel";
+            this.pclLabel.Size = new System.Drawing.Size(10, 13);
+            this.pclLabel.TabIndex = 10;
+            this.pclLabel.Text = "-";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 105);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(52, 13);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "PCLATH:";
+            // 
+            // pclLabel1
+            // 
+            this.pclLabel1.AutoSize = true;
+            this.pclLabel1.Location = new System.Drawing.Point(3, 89);
+            this.pclLabel1.Name = "pclLabel1";
+            this.pclLabel1.Size = new System.Drawing.Size(30, 13);
+            this.pclLabel1.TabIndex = 9;
+            this.pclLabel1.Text = "PCL:";
+            // 
+            // stackLabel
+            // 
+            this.stackLabel.AutoSize = true;
+            this.stackLabel.Location = new System.Drawing.Point(176, 89);
+            this.stackLabel.Name = "stackLabel";
+            this.stackLabel.Size = new System.Drawing.Size(35, 13);
+            this.stackLabel.TabIndex = 8;
+            this.stackLabel.Text = "Stack";
+            // 
+            // stackGridView
+            // 
+            this.stackGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.stackGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.stackColumn});
+            this.stackGridView.Location = new System.Drawing.Point(179, 105);
+            this.stackGridView.Name = "stackGridView";
+            this.stackGridView.Size = new System.Drawing.Size(151, 120);
+            this.stackGridView.TabIndex = 7;
+            // 
+            // stackColumn
+            // 
+            this.stackColumn.HeaderText = "Stack-Value";
+            this.stackColumn.Name = "stackColumn";
+            this.stackColumn.Width = 105;
             // 
             // pcLabel
             // 
@@ -1013,57 +1069,23 @@
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // stackGridView
+            // label_time
             // 
-            this.stackGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.stackGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.stackColumn});
-            this.stackGridView.Location = new System.Drawing.Point(179, 105);
-            this.stackGridView.Name = "stackGridView";
-            this.stackGridView.Size = new System.Drawing.Size(151, 120);
-            this.stackGridView.TabIndex = 7;
+            this.label_time.AutoSize = true;
+            this.label_time.Location = new System.Drawing.Point(7, 180);
+            this.label_time.Name = "label_time";
+            this.label_time.Size = new System.Drawing.Size(36, 13);
+            this.label_time.TabIndex = 11;
+            this.label_time.Text = "Time: ";
             // 
-            // stackColumn
+            // timeLabel
             // 
-            this.stackColumn.HeaderText = "Stack-Value";
-            this.stackColumn.Name = "stackColumn";
-            this.stackColumn.Width = 105;
-            // 
-            // stackLabel
-            // 
-            this.stackLabel.AutoSize = true;
-            this.stackLabel.Location = new System.Drawing.Point(176, 89);
-            this.stackLabel.Name = "stackLabel";
-            this.stackLabel.Size = new System.Drawing.Size(35, 13);
-            this.stackLabel.TabIndex = 8;
-            this.stackLabel.Text = "Stack";
-            // 
-            // pclLabel1
-            // 
-            this.pclLabel1.AutoSize = true;
-            this.pclLabel1.Location = new System.Drawing.Point(3, 89);
-            this.pclLabel1.Name = "pclLabel1";
-            this.pclLabel1.Size = new System.Drawing.Size(30, 13);
-            this.pclLabel1.TabIndex = 9;
-            this.pclLabel1.Text = "PCL:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 105);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 13);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "PCLATH:";
-            // 
-            // pclLabel
-            // 
-            this.pclLabel.AutoSize = true;
-            this.pclLabel.Location = new System.Drawing.Point(57, 89);
-            this.pclLabel.Name = "pclLabel";
-            this.pclLabel.Size = new System.Drawing.Size(10, 13);
-            this.pclLabel.TabIndex = 10;
-            this.pclLabel.Text = "-";
+            this.timeLabel.AutoSize = true;
+            this.timeLabel.Location = new System.Drawing.Point(49, 180);
+            this.timeLabel.Name = "timeLabel";
+            this.timeLabel.Size = new System.Drawing.Size(10, 13);
+            this.timeLabel.TabIndex = 12;
+            this.timeLabel.Text = "-";
             // 
             // Form1
             // 
@@ -1093,10 +1115,10 @@
             this.Spezialregister.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stackGridView)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.storageGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stackGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1195,6 +1217,8 @@
         private System.Windows.Forms.Label pclLabel;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label pclLabel1;
+        private System.Windows.Forms.Label label_time;
+        private System.Windows.Forms.Label timeLabel;
     }
 }
 

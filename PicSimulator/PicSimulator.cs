@@ -18,6 +18,8 @@ namespace PicSimulator
         private Stack<int> stack = new Stack<int>();
 
         private int wRegister;
+        private int cycleCounter = 0;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void NotifyPropertyChanged(String propertyName)
@@ -60,7 +62,8 @@ namespace PicSimulator
 
         public void NextStep()
         {
-            instructionSet.Execute(programCounter, this);
+            int cycles = instructionSet.Execute(programCounter, this);
+            CycleCounter += cycles;
             ProgramCounter = (programCounter + 1).ToString();
             Program.mainForm.HighlightLine(instructionSet.GetInstruction(programCounter).GetLineNumber());
         }
@@ -389,6 +392,25 @@ namespace PicSimulator
                     NotifyPropertyChanged("PCL");
                 }
                 
+            }
+        }
+
+        public int CycleCounter
+        {
+            get
+            {
+                return cycleCounter;
+            }
+            set
+            {
+                if (value == cycleCounter)
+                {
+                    // do nothing
+                } else {
+                    cycleCounter = value;
+                    NotifyPropertyChanged("CycleCounter");
+                }
+
             }
         }
     }

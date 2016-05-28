@@ -47,9 +47,9 @@ namespace PicSimulator
             return instructions[index];
         }
 
-        public void Execute(int programCounter, PicSimulator picSim)
+        public int Execute(int programCounter, PicSimulator picSim)
         {
-            instructions[programCounter].Execute(picSim);
+            return instructions[programCounter].Execute(picSim);
         }
     }
 }
