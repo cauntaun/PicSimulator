@@ -66,3 +66,9 @@ N:\Henning\DHBW\Semester_4\PicSim\PicSimulator\bin\Debug\PicSimulator.exe.config
 N:\Henning\DHBW\Semester_4\PicSim\PicSimulator\bin\Debug\PicSimulator.XML
 N:\Henning\DHBW\Semester_4\PicSim\PicSimulator\obj\Debug\PicSimulator.exe
 N:\Henning\DHBW\Semester_4\PicSim\PicSimulator\obj\Debug\PicSimulator.pdb
+N:\Henning\DHBW\Semester_4\PicSim\PicSimulator\bin\Debug\PicSimulator.exe
+N:\Henning\DHBW\Semester_4\PicSim\PicSimulator\bin\Debug\PicSimulator.pdb
+N:\Henning\DHBW\Semester_4\PicSim\PicSimulator\obj\Debug\PicSimulator.csprojResolveAssemblyReference.cache
+N:\Henning\DHBW\Semester_4\PicSim\PicSimulator\obj\Debug\PicSimulator.Form1.resources
+N:\Henning\DHBW\Semester_4\PicSim\PicSimulator\obj\Debug\PicSimulator.Properties.Resources.resources
+N:\Henning\DHBW\Semester_4\PicSim\PicSimulator\obj\Debug\PicSimulator.csproj.GenerateResource.Cache

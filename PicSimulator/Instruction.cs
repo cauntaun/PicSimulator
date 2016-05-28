@@ -131,7 +131,7 @@ namespace PicSimulator
         public int CLRF(PicSimulator picSim)
         {
             picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, firstArgument), 0x00);
-            picSim.ZBit = "0";
+            picSim.ZBit = "1";
             return 1;
         }
 
@@ -557,7 +557,7 @@ namespace PicSimulator
 
         private void CheckDCBit(PicSimulator picSim, InstructionType type, int wRegister, int argument)
         {
-            if (type == InstructionType.ADDLW || type == InstructionType.ADDWF)
+            if (type == InstructionType.ADDLW)
             {
                 if ((wRegister & 0x0F + argument & 0x0F) > 0xFF)
                 {
@@ -568,9 +568,9 @@ namespace PicSimulator
                     picSim.DCBit = "0";
                 }
             }
-            else if (type == InstructionType.SUBLW || type == InstructionType.SUBWF)
+            else if (type == InstructionType.SUBLW)
             {
-                if ((argument & 0x0F) + ((~wRegister + 1) & 0x0F) > 0x0F)
+                if (((argument & 0x0F) + ((~wRegister + 1) & 0x0F)) > 0x0F)
                 {
                     picSim.DCBit = "1";
                 }
@@ -579,25 +579,50 @@ namespace PicSimulator
                     picSim.DCBit = "0";
                 }
             }
+            else if (type == InstructionType.SUBWF)
+            {
+                if (((argument & 0x0F) + ((~wRegister + 1) & 0x0F)) > 0x0F)
+                {
+                    picSim.CBit = "1";
+                }
+                else
+                {
+                    picSim.CBit = "0";
+                }
+            }
         }
 
         private void CheckCBit(PicSimulator picSim, InstructionType type, int wRegister, int argument)
         {
-            if (type == InstructionType.SUBLW || type == InstructionType.SUBWF)
+            if (type == InstructionType.SUBLW)
             {
-                if (argument + ((~wRegister + 1) & 0x1FF) > 0xFF)
+                if (argument + (((~wRegister + 1) & 0xFF) & 0x1FF) > 0xFF)
                 {
                     picSim.CBit = "1";
-                } else
+                }
+                else
                 {
                     picSim.CBit = "0";
                 }
-            } else if (type == InstructionType.ADDLW || type == InstructionType.ADDWF)
+            }
+            else if (type == InstructionType.ADDLW)
             {
                 if ((wRegister + argument) > 0xFF)
                 {
                     picSim.CBit = "1";
-                } else
+                }
+                else
+                {
+                    picSim.CBit = "0";
+                }
+            }
+            else if (type == InstructionType.SUBWF)
+            {
+                if (argument + (((~wRegister + 1) & 0xFF) & 0x1FF) > 0xFF)
+                {
+                    picSim.CBit = "1";
+                }
+                else
                 {
                     picSim.CBit = "0";
                 }
