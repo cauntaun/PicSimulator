@@ -380,12 +380,12 @@ namespace PicSimulator
             }
             set
             {
-                if (registerSet.GetRegister()[(int)RegisterType.PCL] == Int32.Parse(value))
+                if (registerSet.GetRegister()[(int)RegisterType.PCL] == Int32.Parse(value) + 1)
                 {
                     // do nothing
                 } else
                 {
-                    registerSet.SetRegisterAtAddress((int)RegisterType.PCL, Int32.Parse(value));
+                    registerSet.SetRegisterAtAddress((int)RegisterType.PCL, Int32.Parse(value) + 1);
                     NotifyPropertyChanged("PCL");
                 }
                 

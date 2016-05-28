@@ -151,6 +151,11 @@ namespace PicSimulator
             {
                 return new Instruction(type, hexValue & 0x007F);
             }
+            if (type == InstructionType.ADDWF || type == InstructionType.ANDWF)
+            {
+                return new Instruction(type, hexValue & 0x0080, hexValue & 0x007F);
+            }
+            //Console.Write("Instruction with no argument line 154");
             return new Instruction(type);
         }
 

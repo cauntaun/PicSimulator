@@ -152,6 +152,7 @@ namespace PicSimulator
 
         public bool ADDWF(PicSimulator picSim)
         {
+            Console.Write("First Argument: " + firstArgument);
             int result = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber) + secondArgument;
             if (firstArgument == 0)
             {
@@ -217,7 +218,7 @@ namespace PicSimulator
             int result = (wRegister + firstArgument);
             CheckZBit(picSim, result);
             CheckCBit(picSim, InstructionType.ADDLW, result);
-            CheckDCBit(picSim, wRegister, firstArgument);
+            CheckDCBit(picSim, InstructionType.ADDLW, wRegister, firstArgument);
             picSim.WRegister = result.ToString("X2");
             return true;
         }
@@ -236,7 +237,7 @@ namespace PicSimulator
             int wRegister = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber);
             int result = firstArgument - wRegister;
             CheckCBit(picSim, InstructionType.SUBLW, result);
-            CheckDCBit(picSim, wRegister, firstArgument);
+            CheckDCBit(picSim, InstructionType.SUBLW, wRegister, firstArgument);
             CheckZBit(picSim, result);
             picSim.WRegister = result.ToString("X2");
             return true;
@@ -292,9 +293,9 @@ namespace PicSimulator
             }
         }
 
-        private void CheckDCBit(PicSimulator picSim, int wRegister, int argument)
+        private void CheckDCBit(PicSimulator picSim, InstructionType type, int wRegister, int argument)
         {
-            if ((wRegister & 0x0F + argument & 0x0F) > 15)
+            if ((wRegister & 0x0F + argument & 0x0F) > 0xF)
             {
                 picSim.DCBit = "1";
             }
@@ -304,16 +305,23 @@ namespace PicSimulator
         {
             if (type == InstructionType.SUBLW)
             {
-                if (result >= 0)
+                if ((result & 0x00) >= 0)
                 {
                     picSim.CBit = "1";
                 }
-            }
-            else if (type == InstructionType.ADDLW)
+                else
+                {
+                    picSim.CBit = "0";
+                }
+            } else if (type == InstructionType.ADDLW)
             {
                 if (result > 0xFF)
                 {
                     picSim.CBit = "1";
+                }
+                else
+                {
+                    picSim.CBit = "0";
                 }
             }
         }
