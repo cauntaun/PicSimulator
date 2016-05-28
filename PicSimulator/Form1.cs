@@ -87,15 +87,28 @@ namespace PicSimulator
             {
 
                 int n = storageGridView.Rows.Add();
-
-                storageGridView.Rows[n].Cells[0].Value = storage[8 * i + 0].ToString("X2");
-                storageGridView.Rows[n].Cells[1].Value = storage[8 * i + 1].ToString("X2");
-                storageGridView.Rows[n].Cells[2].Value = storage[8 * i + 2].ToString("X2");
-                storageGridView.Rows[n].Cells[3].Value = storage[8 * i + 3].ToString("X2");
-                storageGridView.Rows[n].Cells[4].Value = storage[8 * i + 4].ToString("X2");
-                storageGridView.Rows[n].Cells[5].Value = storage[8 * i + 5].ToString("X2");
-                storageGridView.Rows[n].Cells[6].Value = storage[8 * i + 6].ToString("X2");
-                storageGridView.Rows[n].Cells[7].Value = storage[8 * i + 7].ToString("X2");
+                if (i != 16)
+                {
+                    storageGridView.Rows[n].Cells[0].Value = storage[8 * i + 0].ToString("X2");
+                    storageGridView.Rows[n].Cells[1].Value = storage[8 * i + 1].ToString("X2");
+                    storageGridView.Rows[n].Cells[2].Value = storage[8 * i + 2].ToString("X2");
+                    storageGridView.Rows[n].Cells[3].Value = storage[8 * i + 3].ToString("X2");
+                    storageGridView.Rows[n].Cells[4].Value = storage[8 * i + 4].ToString("X2");
+                    storageGridView.Rows[n].Cells[5].Value = storage[8 * i + 5].ToString("X2");
+                    storageGridView.Rows[n].Cells[6].Value = storage[8 * i + 6].ToString("X2");
+                    storageGridView.Rows[n].Cells[7].Value = storage[8 * i + 7].ToString("X2");
+                }
+                else
+                {
+                    storageGridView.Rows[n].Cells[0].Value = storage[0].ToString("X2");
+                    storageGridView.Rows[n].Cells[1].Value = storage[8 * i + 1].ToString("X2");
+                    storageGridView.Rows[n].Cells[2].Value = storage[2].ToString("X2");
+                    storageGridView.Rows[n].Cells[3].Value = storage[3].ToString("X2");
+                    storageGridView.Rows[n].Cells[4].Value = storage[4].ToString("X2");
+                    storageGridView.Rows[n].Cells[5].Value = storage[5].ToString("X2");
+                    storageGridView.Rows[n].Cells[6].Value = storage[8 * i + 6].ToString("X2");
+                    storageGridView.Rows[n].Cells[7].Value = storage[8 * i + 7].ToString("X2");
+                }
             }
             int counter = 0;
             for (int i = 0; i <= 31; i++)
@@ -111,14 +124,28 @@ namespace PicSimulator
             Console.Write("[+] Updating Storage\n");
             for (int i = 0; i < storage.Length/8; i++)
             {
-                storageGridView.Rows[i].Cells[0].Value = storage[8 * i + 0].ToString("X2");
-                storageGridView.Rows[i].Cells[1].Value = storage[8 * i + 1].ToString("X2");
-                storageGridView.Rows[i].Cells[2].Value = storage[8 * i + 2].ToString("X2");
-                storageGridView.Rows[i].Cells[3].Value = storage[8 * i + 3].ToString("X2");
-                storageGridView.Rows[i].Cells[4].Value = storage[8 * i + 4].ToString("X2");
-                storageGridView.Rows[i].Cells[5].Value = storage[8 * i + 5].ToString("X2");
-                storageGridView.Rows[i].Cells[6].Value = storage[8 * i + 6].ToString("X2");
-                storageGridView.Rows[i].Cells[7].Value = storage[8 * i + 7].ToString("X2");
+                if (i != 16)
+                {
+                    storageGridView.Rows[i].Cells[0].Value = storage[8 * i + 0].ToString("X2");
+                    storageGridView.Rows[i].Cells[1].Value = storage[8 * i + 1].ToString("X2");
+                    storageGridView.Rows[i].Cells[2].Value = storage[8 * i + 2].ToString("X2");
+                    storageGridView.Rows[i].Cells[3].Value = storage[8 * i + 3].ToString("X2");
+                    storageGridView.Rows[i].Cells[4].Value = storage[8 * i + 4].ToString("X2");
+                    storageGridView.Rows[i].Cells[5].Value = storage[8 * i + 5].ToString("X2");
+                    storageGridView.Rows[i].Cells[6].Value = storage[8 * i + 6].ToString("X2");
+                    storageGridView.Rows[i].Cells[7].Value = storage[8 * i + 7].ToString("X2");
+                }
+                else
+                {
+                    storageGridView.Rows[i].Cells[0].Value = storage[0].ToString("X2");
+                    storageGridView.Rows[i].Cells[1].Value = storage[8 * i + 1].ToString("X2");
+                    storageGridView.Rows[i].Cells[2].Value = storage[2].ToString("X2");
+                    storageGridView.Rows[i].Cells[3].Value = storage[3].ToString("X2");
+                    storageGridView.Rows[i].Cells[4].Value = storage[4].ToString("X2");
+                    storageGridView.Rows[i].Cells[5].Value = storage[5].ToString("X2");
+                    storageGridView.Rows[i].Cells[6].Value = storage[8 * i + 6].ToString("X2");
+                    storageGridView.Rows[i].Cells[7].Value = storage[8 * i + 7].ToString("X2");
+                }
             }
         }
 

@@ -530,7 +530,7 @@ namespace PicSimulator
 
         private void ResetBits(PicSimulator picSim)
         {
-            picSim.ZBit = "0";
+            //picSim.ZBit = "0";
         }
 
         private void CheckZBit(PicSimulator picSim, int result)
@@ -539,6 +539,9 @@ namespace PicSimulator
             {
                 // Set ZBit to 1
                 picSim.ZBit = "1";
+            } else
+            {
+                picSim.ZBit = "0";
             }
         }
 
@@ -593,7 +596,10 @@ namespace PicSimulator
 
         private int GetIndirectAddress(PicSimulator picSim, int address)
         {
-            if (address == 0x03)
+            if (address == 0x00)
+            {
+                return picSim.GetRegister(0x04);
+            } else if (address == 0x03)
             {
                 return address;
             } else
