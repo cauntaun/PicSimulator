@@ -160,7 +160,11 @@ namespace PicSimulator
 
         public bool SUBWF(PicSimulator picSim)
         {
-            int result = picSim.GetRegisterSet().GetRegister()[secondArgument] - Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber);
+            int wRegister = picSim.GetRegisterSet().GetRegister()[secondArgument];
+            int fRegister = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber);
+            int result = (fRegister - wRegister) & 0xFF;
+            CheckCBit(picSim, InstructionType.SUBWF, result);
+            CheckDCBit(picSim, InstructionType.SUBWF, wRegister, fRegister);
             if (firstArgument == 0)
             {
                 picSim.WRegister = (result & 0xFF).ToString("X2");
@@ -269,12 +273,11 @@ namespace PicSimulator
 
         public bool ADDWF(PicSimulator picSim)
         {
-            //Console.Write("First Argument: " + firstArgument);
-            //Console.Write("Second Argument: " + secondArgument);
-            //Console.Write("Registerwert: " + picSim.GetRegisterSet().GetRegister()[secondArgument] + " in Hex: " + picSim.GetRegisterSet().GetRegister()[secondArgument].ToString("X2"));
-            int result = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber) + picSim.GetRegisterSet().GetRegister()[secondArgument];
-            //Console.Write("Wregister: " + Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber) + " in Hex: " + Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber).ToString("X2"));
-            //Console.Write("Result: " + result + " in Hex: " + result.ToString("X2"));
+            int wRegister = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber);
+            int fRegister = picSim.GetRegisterSet().GetRegister()[secondArgument];
+            int result = wRegister + fRegister;
+            CheckCBit(picSim, InstructionType.ADDWF, result);
+            CheckDCBit(picSim, InstructionType.ADDWF, wRegister, fRegister);
             if (firstArgument == 0)
             {
                 picSim.WRegister = result.ToString("X2");
