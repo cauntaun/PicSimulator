@@ -59,6 +59,7 @@ namespace PicSimulator
             pdLabel.DataBindings.Add("Text", picSimulator, "PDBit");
             toLabel.DataBindings.Add("Text", picSimulator, "TOBit");
             rp0Label.DataBindings.Add("Text", picSimulator, "RP0Bit");
+            rp1Label.DataBindings.Add("Text", picSimulator, "RP1Bit");
             pclLabel.DataBindings.Add("Text", picSimulator, "PCL");
             timeLabel.DataBindings.Add("Text", picSimulator, "CycleCounter");
 

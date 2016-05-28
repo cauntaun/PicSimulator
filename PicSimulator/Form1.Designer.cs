@@ -122,6 +122,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label_time = new System.Windows.Forms.Label();
             this.timeLabel = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.rp1Label = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Lst)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -795,7 +797,7 @@
             // pcLabel
             // 
             this.pcLabel.AutoSize = true;
-            this.pcLabel.Location = new System.Drawing.Point(287, 34);
+            this.pcLabel.Location = new System.Drawing.Point(303, 34);
             this.pcLabel.Name = "pcLabel";
             this.pcLabel.Size = new System.Drawing.Size(10, 13);
             this.pcLabel.TabIndex = 6;
@@ -804,7 +806,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(191, 34);
+            this.label7.Location = new System.Drawing.Point(207, 34);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 13);
             this.label7.TabIndex = 5;
@@ -812,12 +814,14 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.rp1Label);
             this.groupBox2.Controls.Add(this.rp0Label);
             this.groupBox2.Controls.Add(this.toLabel);
             this.groupBox2.Controls.Add(this.pdLabel);
             this.groupBox2.Controls.Add(this.zLabel);
             this.groupBox2.Controls.Add(this.dcLabel);
             this.groupBox2.Controls.Add(this.cLabel);
+            this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label14);
@@ -826,7 +830,7 @@
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Location = new System.Drawing.Point(6, 19);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(167, 65);
+            this.groupBox2.Size = new System.Drawing.Size(205, 65);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Status";
@@ -1087,6 +1091,25 @@
             this.timeLabel.TabIndex = 12;
             this.timeLabel.Text = "-";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(166, 16);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(28, 13);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "RP1";
+            // 
+            // rp1Label
+            // 
+            this.rp1Label.AutoSize = true;
+            this.rp1Label.Location = new System.Drawing.Point(173, 39);
+            this.rp1Label.Name = "rp1Label";
+            this.rp1Label.Size = new System.Drawing.Size(10, 13);
+            this.rp1Label.TabIndex = 4;
+            this.rp1Label.Text = "-";
+            this.rp1Label.Click += new System.EventHandler(this.rp0Label_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1219,6 +1242,8 @@
         private System.Windows.Forms.Label pclLabel1;
         private System.Windows.Forms.Label label_time;
         private System.Windows.Forms.Label timeLabel;
+        private System.Windows.Forms.Label rp1Label;
+        private System.Windows.Forms.Label label9;
     }
 }
 
