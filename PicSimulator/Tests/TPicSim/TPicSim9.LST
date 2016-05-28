@@ -1,10 +1,10 @@
-                    00001           ;TPicSim9
+﻿                    00001           ;TPicSim9
                     00002           ;Programm zum Test des 16F84-Simulators.
                     00003           ;Funktion: SLEEP-Befehl
                     00004           ;(c) St. Lehmann   Ersterstellung: 31.03.2016
                     00005           ;Definition einiger Symbole
                     00006           
-                    00007           list c=132          ;Zeilenl�nge im LST auf 132 Zeichen setzen
+                    00007           list c=132          ;Zeilenlänge im LST auf 132 Zeichen setzen
                     00008           
                     00009           status   equ       03h
                     00010           rb       equ       06h
