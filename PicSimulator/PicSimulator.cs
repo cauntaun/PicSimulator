@@ -336,12 +336,12 @@ namespace PicSimulator
                     // ugly workaround for GOTO 0
                     programCounter = 0;
                     NotifyPropertyChanged("ProgramCounter");
-                    PCL = programCounter.ToString("X2");
+                    PCL = programCounter.ToString();
                     programCounter = -1;
                 } else
                 {
                     NotifyPropertyChanged("ProgramCounter");
-                    PCL = programCounter.ToString("X2");
+                    PCL = programCounter.ToString();
                 }
                 
             }
