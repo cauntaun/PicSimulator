@@ -97,7 +97,7 @@ namespace PicSimulator
         public int ADDWF(PicSimulator picSim)
         {
             int wRegister = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber);
-            int fRegister = picSim.GetRegisterSet().GetRegister()[secondArgument];
+            int fRegister = picSim.GetRegister(GetIndirectAddress(picSim, secondArgument));
             int result = (wRegister + fRegister) & 0xFF;
             CheckCBit(picSim, InstructionType.ADDWF, wRegister, fRegister);
             CheckDCBit(picSim, InstructionType.ADDWF, wRegister, fRegister);
@@ -107,28 +107,28 @@ namespace PicSimulator
             }
             else if (firstArgument == 1)
             {
-                picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, result);
+                picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, secondArgument), result);
             }
             return 1;
         }
 
         public int ANDWF(PicSimulator picSim)
         {
-            int result = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber) & picSim.GetRegisterSet().GetRegister()[secondArgument];
+            int result = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber) & picSim.GetRegister(GetIndirectAddress(picSim, secondArgument));
             if (firstArgument == 0)
             {
                 picSim.WRegister = result.ToString("X2");
             }
             else if (firstArgument == 1)
             {
-                picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, result);
+                picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, secondArgument), result);
             }
             return 1;
         }
 
         public int CLRF(PicSimulator picSim)
         {
-            picSim.GetRegisterSet().SetRegisterAtAddress(firstArgument, 0x00);
+            picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, firstArgument), 0x00);
             picSim.ZBit = "0";
             return 1;
         }
@@ -142,28 +142,28 @@ namespace PicSimulator
 
         public int COMF(PicSimulator picSim)
         {
-            int result = ~picSim.GetRegisterSet().GetRegister()[secondArgument];
+            int result = ~picSim.GetRegister(GetIndirectAddress(picSim, secondArgument));
             if (firstArgument == 0)
             {
                 picSim.WRegister = (result & 0xFF).ToString("X2");
             }
             else if (firstArgument == 1)
             {
-                picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, result & 0xFF);
+                picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, secondArgument), result & 0xFF);
             }
             return 1;
         }
 
         public int DECF(PicSimulator picSim)
         {
-            int result = (picSim.GetRegisterSet().GetRegister()[secondArgument] - 1) & 0xFF;
+            int result = (picSim.GetRegister(GetIndirectAddress(picSim, secondArgument)) - 1) & 0xFF;
             if (firstArgument == 0)
             {
                 picSim.WRegister = (result & 0xFF).ToString("X2");
             }
             else if (firstArgument == 1)
             {
-                picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, (result & 0xFF));
+                picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, secondArgument), (result & 0xFF));
             }
             return 1;
         }
@@ -171,7 +171,7 @@ namespace PicSimulator
         public int DECFSZ(PicSimulator picSim)
         {
             int cycles = 1;
-            int result = (picSim.GetRegisterSet().GetRegister()[secondArgument] - 1) & 0xFF;
+            int result = (picSim.GetRegister(GetIndirectAddress(picSim, secondArgument)) - 1) & 0xFF;
             if (result == 0)
             {
                 // skip next execution if 0
@@ -184,21 +184,21 @@ namespace PicSimulator
             }
             else if (firstArgument == 1)
             {
-                picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, (result & 0xFF));
+                picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, secondArgument), (result & 0xFF));
             }
             return cycles;
         }
 
         public int INCF(PicSimulator picSim)
         {
-            int result = (picSim.GetRegisterSet().GetRegister()[secondArgument] + 1) & 0xFF;
+            int result = (picSim.GetRegister(GetIndirectAddress(picSim, secondArgument)) + 1) & 0xFF;
             if (firstArgument == 0)
             {
                 picSim.WRegister = result.ToString("X2");
             }
             else if (firstArgument == 1)
             {
-                picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, result);
+                picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, secondArgument), result);
             }
             return 1;
         }
@@ -206,7 +206,7 @@ namespace PicSimulator
         public int INCFSZ(PicSimulator picSim)
         {
             int cycles = 1;
-            int result = (picSim.GetRegisterSet().GetRegister()[secondArgument] + 1) & 0xFF;
+            int result = (picSim.GetRegister(GetIndirectAddress(picSim, secondArgument)) + 1) & 0xFF;
             if (result == 0)
             {
                 // skip next execution if 0
@@ -219,42 +219,42 @@ namespace PicSimulator
             }
             else if (firstArgument == 1)
             {
-                picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, result);
+                picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, secondArgument), result);
             }
             return cycles;
         }
 
         public int IORWF(PicSimulator picSim)
         {
-            int result = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber) | picSim.GetRegisterSet().GetRegister()[secondArgument];
+            int result = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber) | picSim.GetRegister(GetIndirectAddress(picSim, secondArgument));
             if (firstArgument == 0)
             {
                 picSim.WRegister = result.ToString("X2");
             }
             else if (firstArgument == 1)
             {
-                picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, result);
+                picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, secondArgument), result);
             }
             return 1;
         }
 
         public int MOVF(PicSimulator picSim)
         {
-            int result = picSim.GetRegisterSet().GetRegister()[secondArgument];
+            int result = picSim.GetRegister(GetIndirectAddress(picSim, secondArgument));
             if (firstArgument == 0)
             {
                 picSim.WRegister = result.ToString("X2");
             }
             else if (firstArgument == 1)
             {
-                picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, result);
+                picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, secondArgument), result);
             }
             return 1;
         }
 
         public int MOVWF(PicSimulator picSim)
         {
-            picSim.GetRegisterSet().SetRegisterAtAddress(firstArgument, Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber));
+            picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, firstArgument), Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber));
             return 1;
         }
 
@@ -267,7 +267,7 @@ namespace PicSimulator
         public int RLF(PicSimulator picSim)
         {
             int cFlag = Int32.Parse(picSim.CBit);
-            int fRegister = picSim.GetRegisterSet().GetRegister()[secondArgument];
+            int fRegister = picSim.GetRegister(GetIndirectAddress(picSim, secondArgument));
             fRegister <<= 1;
             if ((fRegister & 0x100) > 0)
             {
@@ -292,7 +292,7 @@ namespace PicSimulator
             }
             else if (firstArgument == 1)
             {
-                picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, result);
+                picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, secondArgument), result);
             }
             return 1;
         }
@@ -300,7 +300,7 @@ namespace PicSimulator
         public int RRF(PicSimulator picSim)
         {
             int cFlag = Int32.Parse(picSim.CBit);
-            int fRegister = picSim.GetRegisterSet().GetRegister()[secondArgument];
+            int fRegister = picSim.GetRegister(GetIndirectAddress(picSim, secondArgument));
             if ((fRegister & 0x1) > 0)
             {
                 picSim.CBit = "1";
@@ -325,14 +325,14 @@ namespace PicSimulator
             }
             else if (firstArgument == 1)
             {
-                picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, result);
+                picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, secondArgument), result);
             }
             return 1;
         }
 
         public int SUBWF(PicSimulator picSim)
         {
-            int fRegister = picSim.GetRegisterSet().GetRegister()[secondArgument];
+            int fRegister = picSim.GetRegister(GetIndirectAddress(picSim, secondArgument));
             int wRegister = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber);
             int result = (fRegister - wRegister) & 0xFF;
             CheckCBit(picSim, InstructionType.SUBWF, wRegister, fRegister);
@@ -343,14 +343,14 @@ namespace PicSimulator
             }
             else if (firstArgument == 1)
             {
-                picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, (result & 0xFF));
+                picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, secondArgument), (result & 0xFF));
             }
             return 1;
         }
 
         public int SWAPF(PicSimulator picSim)
         {
-            int registerF = picSim.GetRegisterSet().GetRegister()[secondArgument];
+            int registerF = picSim.GetRegister(GetIndirectAddress(picSim, secondArgument));
             int upperNipples = registerF & 0xF0;
             int lowerNipples = registerF & 0x0F;
             lowerNipples <<= 4;
@@ -362,42 +362,42 @@ namespace PicSimulator
             }
             else if (firstArgument == 1)
             {
-                picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, (result & 0xFF));
+                picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, secondArgument), (result & 0xFF));
             }
             return 1;
         }
 
         public int XORWF(PicSimulator picSim)
         {
-            int result = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber) ^ picSim.GetRegisterSet().GetRegister()[secondArgument];
+            int result = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber) ^ picSim.GetRegister(GetIndirectAddress(picSim, secondArgument));
             if (firstArgument == 0)
             {
                 picSim.WRegister = result.ToString("X2");
             }
             else if (firstArgument == 1)
             {
-                picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, result);
+                picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, secondArgument), result);
             }
             return 1;
         }
 
         public int BCF(PicSimulator picSim)
         {
-            int fRegister = picSim.GetRegisterSet().GetRegister()[secondArgument];
-            picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, fRegister & ~(0x01 << firstArgument));
+            int fRegister = picSim.GetRegister(GetIndirectAddress(picSim, secondArgument));
+            picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, secondArgument), fRegister & ~(0x01 << firstArgument));
             return 1;
         }
 
         public int BSF(PicSimulator picSim)
         {
-            int fRegister = picSim.GetRegisterSet().GetRegister()[secondArgument];
-            picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, fRegister ^ (0x01 << firstArgument));
+            int fRegister = picSim.GetRegister(GetIndirectAddress(picSim, secondArgument));
+            picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, secondArgument), fRegister ^ (0x01 << firstArgument));
             return 1;
         }
 
         public int BTFSC(PicSimulator picSim)
         {
-            int fRegister = picSim.GetRegisterSet().GetRegister()[secondArgument];
+            int fRegister = picSim.GetRegister(GetIndirectAddress(picSim, secondArgument));
             int result = fRegister & (0x01 << firstArgument);
             if (result > 0)
             {
@@ -414,7 +414,7 @@ namespace PicSimulator
 
         public int BTFSS(PicSimulator picSim)
         {
-            int fRegister = picSim.GetRegisterSet().GetRegister()[secondArgument];
+            int fRegister = picSim.GetRegister(GetIndirectAddress(picSim, secondArgument));
             int result = fRegister & (0x01 << firstArgument);
             if (result > 0)
             {
@@ -544,7 +544,7 @@ namespace PicSimulator
 
         private void CheckDCBit(PicSimulator picSim, InstructionType type, int wRegister, int argument)
         {
-            if (type == InstructionType.ADDLW)
+            if (type == InstructionType.ADDLW || type == InstructionType.ADDWF)
             {
                 if ((wRegister & 0x0F + argument & 0x0F) > 0xFF)
                 {
@@ -555,7 +555,7 @@ namespace PicSimulator
                     picSim.DCBit = "0";
                 }
             }
-            else if (type == InstructionType.SUBLW)
+            else if (type == InstructionType.SUBLW || type == InstructionType.SUBWF)
             {
                 if ((argument & 0x0F) + ((~wRegister + 1) & 0x0F) > 0x0F)
                 {
@@ -566,21 +566,11 @@ namespace PicSimulator
                     picSim.DCBit = "0";
                 }
             }
-            else if (type == InstructionType.SUBWF)
-            {
-                if (((argument & 0x0F) + ((~wRegister + 1) & 0x0F)) > 0x0F)
-                {
-                    picSim.DCBit = "1";
-                } else
-                {
-                    picSim.DCBit = "0";
-                }
-            }
         }
 
         private void CheckCBit(PicSimulator picSim, InstructionType type, int wRegister, int argument)
         {
-            if (type == InstructionType.SUBLW)
+            if (type == InstructionType.SUBLW || type == InstructionType.SUBWF)
             {
                 if (argument + ((~wRegister + 1) & 0x1FF) > 0xFF)
                 {
@@ -589,18 +579,9 @@ namespace PicSimulator
                 {
                     picSim.CBit = "0";
                 }
-            } else if (type == InstructionType.ADDLW)
+            } else if (type == InstructionType.ADDLW || type == InstructionType.ADDWF)
             {
                 if ((wRegister + argument) > 0xFF)
-                {
-                    picSim.CBit = "1";
-                } else
-                {
-                    picSim.CBit = "0";
-                }
-            } else if (type == InstructionType.SUBWF)
-            {
-                if (argument + (((~wRegister + 1) & 0xFF) & 0x1FF) > 0xFF)
                 {
                     picSim.CBit = "1";
                 } else

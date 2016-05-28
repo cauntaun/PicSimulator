@@ -451,5 +451,10 @@ namespace PicSimulator
 
             }
         }
+
+        public int GetRegister(int address)
+        {
+            return registerSet.GetRegister()[address];
+        }
     }
 }
