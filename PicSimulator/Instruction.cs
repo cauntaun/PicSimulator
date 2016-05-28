@@ -101,6 +101,7 @@ namespace PicSimulator
             int result = (wRegister + fRegister) & 0xFF;
             CheckCBit(picSim, InstructionType.ADDWF, wRegister, fRegister);
             CheckDCBit(picSim, InstructionType.ADDWF, wRegister, fRegister);
+            CheckZBit(picSim, result);
             if (firstArgument == 0)
             {
                 picSim.WRegister = result.ToString("X2");
@@ -115,6 +116,7 @@ namespace PicSimulator
         public int ANDWF(PicSimulator picSim)
         {
             int result = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber) & picSim.GetRegister(GetIndirectAddress(picSim, secondArgument));
+            CheckZBit(picSim, result);
             if (firstArgument == 0)
             {
                 picSim.WRegister = result.ToString("X2");
@@ -143,6 +145,7 @@ namespace PicSimulator
         public int COMF(PicSimulator picSim)
         {
             int result = ~picSim.GetRegister(GetIndirectAddress(picSim, secondArgument));
+            CheckZBit(picSim, result);
             if (firstArgument == 0)
             {
                 picSim.WRegister = (result & 0xFF).ToString("X2");
@@ -157,6 +160,7 @@ namespace PicSimulator
         public int DECF(PicSimulator picSim)
         {
             int result = (picSim.GetRegister(GetIndirectAddress(picSim, secondArgument)) - 1) & 0xFF;
+            CheckZBit(picSim, result);
             if (firstArgument == 0)
             {
                 picSim.WRegister = (result & 0xFF).ToString("X2");
@@ -192,6 +196,7 @@ namespace PicSimulator
         public int INCF(PicSimulator picSim)
         {
             int result = (picSim.GetRegister(GetIndirectAddress(picSim, secondArgument)) + 1) & 0xFF;
+            CheckZBit(picSim, result);
             if (firstArgument == 0)
             {
                 picSim.WRegister = result.ToString("X2");
@@ -227,6 +232,7 @@ namespace PicSimulator
         public int IORWF(PicSimulator picSim)
         {
             int result = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber) | picSim.GetRegister(GetIndirectAddress(picSim, secondArgument));
+            CheckZBit(picSim, result);
             if (firstArgument == 0)
             {
                 picSim.WRegister = result.ToString("X2");
@@ -241,6 +247,7 @@ namespace PicSimulator
         public int MOVF(PicSimulator picSim)
         {
             int result = picSim.GetRegister(GetIndirectAddress(picSim, secondArgument));
+            CheckZBit(picSim, result);
             if (firstArgument == 0)
             {
                 picSim.WRegister = result.ToString("X2");
@@ -337,6 +344,7 @@ namespace PicSimulator
             int result = (fRegister - wRegister) & 0xFF;
             CheckCBit(picSim, InstructionType.SUBWF, wRegister, fRegister);
             CheckDCBit(picSim, InstructionType.SUBWF, wRegister, fRegister);
+            CheckZBit(picSim, result);
             if (firstArgument == 0)
             {
                 picSim.WRegister = (result & 0xFF).ToString("X2");
@@ -370,6 +378,7 @@ namespace PicSimulator
         public int XORWF(PicSimulator picSim)
         {
             int result = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber) ^ picSim.GetRegister(GetIndirectAddress(picSim, secondArgument));
+            CheckZBit(picSim, result);
             if (firstArgument == 0)
             {
                 picSim.WRegister = result.ToString("X2");
@@ -437,6 +446,7 @@ namespace PicSimulator
             CheckCBit(picSim, InstructionType.ADDLW, wRegister, firstArgument);
             CheckDCBit(picSim, InstructionType.ADDLW, wRegister, firstArgument);
             picSim.WRegister = result.ToString("X2");
+            CheckZBit(picSim, result);
             return 1;
         }
 
