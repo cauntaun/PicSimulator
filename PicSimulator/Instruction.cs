@@ -91,39 +91,14 @@ namespace PicSimulator
             }
             return result;
         }
-
         
-        
-        
-        private static bool DECF()
-        {
-            // TODO implement
-            return false;
-        }
-        private static bool DECFSZ()
-        {
-            // TODO implement
-            return false;
-        }
-        private static bool INCF()
-        {
-            // TODO implement
-            return false;
-        }
-        private static bool INCFSZ()
-        {
-            // TODO implement
-            return false;
-        }
-
         public bool CLRW(PicSimulator picSim)
         {
             picSim.WRegister = 0.ToString("X2");
             picSim.ZBit = "1";
             return true;
         }
-
-
+        
         public bool XORWF(PicSimulator picSim)
         {
             int result = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber) ^ picSim.GetRegisterSet().GetRegister()[secondArgument];
@@ -163,7 +138,7 @@ namespace PicSimulator
             int wRegister = picSim.GetRegisterSet().GetRegister()[secondArgument];
             int fRegister = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber);
             int result = (fRegister - wRegister) & 0xFF;
-            CheckCBit(picSim, InstructionType.SUBWF, result);
+            CheckCBit(picSim, InstructionType.SUBWF, wRegister, fRegister);
             CheckDCBit(picSim, InstructionType.SUBWF, wRegister, fRegister);
             if (firstArgument == 0)
             {
@@ -276,7 +251,7 @@ namespace PicSimulator
             int wRegister = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber);
             int fRegister = picSim.GetRegisterSet().GetRegister()[secondArgument];
             int result = wRegister + fRegister;
-            CheckCBit(picSim, InstructionType.ADDWF, result);
+            CheckCBit(picSim, InstructionType.ADDWF, wRegister, fRegister);
             CheckDCBit(picSim, InstructionType.ADDWF, wRegister, fRegister);
             if (firstArgument == 0)
             {
@@ -293,17 +268,43 @@ namespace PicSimulator
             // Do Nothing
             return true;
         }
-        private static bool RLF()
-        {
-            // TODO implement
-            return false;
-        }
+        
         private static bool RRF()
         {
             // TODO implement
             return false;
         }
-        
+
+        public bool RLF(PicSimulator picSim)
+        {
+            int cFlag = Int32.Parse(picSim.CBit);
+            int fRegister = picSim.GetRegisterSet().GetRegister()[secondArgument];
+            fRegister <<= 1;
+            if ((fRegister & 0x100) > 0)
+            {
+                picSim.CBit = "1";
+            } else if ((fRegister & 0x100) == 0)
+            {
+                picSim.CBit = "0";
+            }
+            if (cFlag == 1)
+            {
+                fRegister ^= 0x01;
+            } else if (cFlag == 0)
+            {
+                // nothing to do here
+            }
+            int result = fRegister & 0xFF;
+            if (firstArgument == 0)
+            {
+                picSim.WRegister = result.ToString("X2");
+            }
+            else if (firstArgument == 1)
+            {
+                picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, result);
+            }
+            return true;
+        }
 
         public bool MOVLW(PicSimulator picSim)
         {
@@ -327,7 +328,7 @@ namespace PicSimulator
             int wRegister = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber);
             int result = (wRegister + firstArgument);
             CheckZBit(picSim, result);
-            CheckCBit(picSim, InstructionType.ADDLW, result);
+            CheckCBit(picSim, InstructionType.ADDLW, wRegister, firstArgument);
             CheckDCBit(picSim, InstructionType.ADDLW, wRegister, firstArgument);
             picSim.WRegister = result.ToString("X2");
             return true;
@@ -346,7 +347,7 @@ namespace PicSimulator
         {
             int wRegister = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber);
             int result = firstArgument - wRegister;
-            CheckCBit(picSim, InstructionType.SUBLW, result);
+            CheckCBit(picSim, InstructionType.SUBLW, wRegister, firstArgument);
             CheckDCBit(picSim, InstructionType.SUBLW, wRegister, firstArgument);
             CheckZBit(picSim, result);
             picSim.WRegister = result.ToString("X2");
@@ -427,7 +428,7 @@ namespace PicSimulator
             }
         }
 
-        private void CheckCBit(PicSimulator picSim, InstructionType type, int result)
+        private void CheckCBit(PicSimulator picSim, InstructionType type, int wRegister, int argument)
         {
             if (type == InstructionType.SUBLW)
             {
