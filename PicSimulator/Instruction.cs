@@ -198,7 +198,7 @@ namespace PicSimulator
             int result = (picSim.GetRegisterSet().GetRegister()[secondArgument] + 1) & 0xFF;
             if (result == 0)
             {
-                // skip next executen if 0
+                // skip next execution if 0
                 picSim.ProgramCounter = (Int32.Parse(picSim.ProgramCounter) + 1).ToString("0000");
                 cycles++;
             }
@@ -233,7 +233,7 @@ namespace PicSimulator
             int result = (picSim.GetRegisterSet().GetRegister()[secondArgument] - 1) & 0xFF;
             if (result == 0)
             {
-                // skip next executen if 0
+                // skip next execution if 0
                 picSim.ProgramCounter = (Int32.Parse(picSim.ProgramCounter) + 1).ToString("0000");
                 cycles = 2;
             }
@@ -466,6 +466,53 @@ namespace PicSimulator
             return 2;
         }
 
+        public int BCF(PicSimulator picSim)
+        {
+            int fRegister = picSim.GetRegisterSet().GetRegister()[secondArgument];
+            picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, fRegister & ~(0x01 << firstArgument));
+            return 1;
+        }
+
+        public int BSF(PicSimulator picSim)
+        {
+            int fRegister = picSim.GetRegisterSet().GetRegister()[secondArgument];
+            picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, fRegister ^ (0x01 << firstArgument));
+            return 1;
+        }
+
+        public int BTFSC(PicSimulator picSim)
+        {
+            int fRegister = picSim.GetRegisterSet().GetRegister()[secondArgument];
+            int result = fRegister & (0x01 << firstArgument);
+            if (result > 0)
+            {
+                return 1;
+            } else if (result == 0)
+            {
+                // skip next execution if 0
+                picSim.ProgramCounter = (Int32.Parse(picSim.ProgramCounter) + 1).ToString("0000");
+                return 2;
+            }
+            return 1;
+        }
+
+        public int BTFSS(PicSimulator picSim)
+        {
+            int fRegister = picSim.GetRegisterSet().GetRegister()[secondArgument];
+            int result = fRegister & (0x01 << firstArgument);
+            if (result > 0)
+            {
+                // skip next execution if 1
+                picSim.ProgramCounter = (Int32.Parse(picSim.ProgramCounter) + 1).ToString("0000");
+                return 2;
+            }
+            else if (result == 0)
+            {
+                return 1;
+            }
+            return 1;
+        }
+
         private void ResetBits(PicSimulator picSim)
         {
             picSim.ZBit = "0";
@@ -484,7 +531,7 @@ namespace PicSimulator
         {
             if (type == InstructionType.ADDLW)
             {
-                if ((wRegister & 0x0F + argument & 0x0F) > 0xF)
+                if ((wRegister & 0x0F + argument & 0x0F) > 0xFF)
                 {
                     picSim.DCBit = "1";
                 }
@@ -492,12 +539,14 @@ namespace PicSimulator
                 {
                     picSim.DCBit = "0";
                 }
-            } else if (type == InstructionType.SUBLW)
+            }
+            else if (type == InstructionType.SUBLW)
             {
-                if (((argument & 0xFF + 1) & 0x0F) + (wRegister & 0x0F) > 0xF)
+                if ((argument & 0x0F) + ((~wRegister + 1) & 0x0F) > 0x0F)
                 {
                     picSim.DCBit = "1";
-                } else
+                }
+                else
                 {
                     picSim.DCBit = "0";
                 }
@@ -506,27 +555,25 @@ namespace PicSimulator
 
         private void CheckCBit(PicSimulator picSim, InstructionType type, int wRegister, int argument)
         {
-            //if (type == InstructionType.SUBLW)
-            //{
-            //    if ((result & 0x00) >= 0)
-            //    {
-            //        picSim.CBit = "1";
-            //    }
-            //    else
-            //    {
-            //        picSim.CBit = "0";
-            //    }
-            //} else if (type == InstructionType.ADDLW)
-            //{
-            //    if (result > 0xFF)
-            //    {
-            //        picSim.CBit = "1";
-            //    }
-            //    else
-            //    {
-            //        picSim.CBit = "0";
-            //    }
-            //}
+            if (type == InstructionType.SUBLW)
+            {
+                if (argument + ((~wRegister + 1) & 0x1FF) > 0xFF)
+                {
+                    picSim.CBit = "1";
+                } else
+                {
+                    picSim.CBit = "0";
+                }
+            } else if (type == InstructionType.ADDLW)
+            {
+                if ((wRegister + argument) > 0xFF)
+                {
+                    picSim.CBit = "1";
+                } else
+                {
+                    picSim.CBit = "0";
+                }
+            }
         }
 
     }

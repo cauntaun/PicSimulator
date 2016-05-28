@@ -165,6 +165,7 @@ namespace PicSimulator
             // Check for bit-oriented operations
             if (Enum.IsDefined(typeof(InstructionType), hexValue & 0x3C00))
             {
+                Console.Write("Bit oriented detected: ");
                 type = (InstructionType)(hexValue & 0x3C00);
             }
             else
@@ -174,7 +175,8 @@ namespace PicSimulator
             }
             //Console.WriteLine("Instruction: " + type.ToString());
             // TODO return correct types -> with arguments maybe
-            int argument1 = Convert.ToInt32(Convert.ToString(hexValue, 2).Substring(6, 3), 2);
+            int argument1 = ((hexValue & 0x380) >> 7);
+                //Convert.ToInt32(Convert.ToString(hexValue, 2).Substring(6, 3), 2);
             return new Instruction(type, argument1, hexValue & 0x007F);
         }
 
