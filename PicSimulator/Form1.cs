@@ -60,7 +60,17 @@ namespace PicSimulator
             toLabel.DataBindings.Add("Text", picSimulator, "TOBit");
             rp0Label.DataBindings.Add("Text", picSimulator, "RP0Bit");
             rp1Label.DataBindings.Add("Text", picSimulator, "RP1Bit");
+            irpLabel.DataBindings.Add("Text", picSimulator, "IRPBit");
             pclLabel.DataBindings.Add("Text", picSimulator, "PCL");
+            ps0Label.DataBindings.Add("Text", picSimulator, "PS0Bit");
+            ps1Label.DataBindings.Add("Text", picSimulator, "PS1Bit");
+            ps2Label.DataBindings.Add("Text", picSimulator, "PS2Bit");
+            psaLabel.DataBindings.Add("Text", picSimulator, "PSABit");
+            t0seLabel.DataBindings.Add("Text", picSimulator, "T0SEBit");
+            t0csLabel.DataBindings.Add("Text", picSimulator, "T0CSBit");
+            intedgLabel.DataBindings.Add("Text", picSimulator, "INTEDGBit");
+            rbpuLabel.DataBindings.Add("Text", picSimulator, "RBPUBit");
+
             timeLabel.DataBindings.Add("Text", picSimulator, "CycleCounter");
 
             log = new Log(consoleLog);

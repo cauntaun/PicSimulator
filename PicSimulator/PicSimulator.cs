@@ -359,6 +359,45 @@ namespace PicSimulator
             }
         }
 
+        public string IRPBit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.STATUS] & 1 << 7) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.STATUS] & 1 << 7) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.STATUS] & 1 << 7) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.STATUS, 7);
+                    }
+                    NotifyPropertyChanged("IRPBit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.STATUS, 7);
+                    NotifyPropertyChanged("IRPBit");
+                }
+            }
+        }
+
         public string PS0Bit
         {
             get
@@ -398,6 +437,278 @@ namespace PicSimulator
             }
         }
 
+        public string PS1Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 1) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 1) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 1) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.OPTION_REG, 1);
+                    }
+                    NotifyPropertyChanged("PS1Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.OPTION_REG, 1);
+                    NotifyPropertyChanged("PS1Bit");
+                }
+            }
+        }
+
+        public string PS2Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 2) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 2) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 2) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.OPTION_REG, 2);
+                    }
+                    NotifyPropertyChanged("PS2Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.OPTION_REG, 2);
+                    NotifyPropertyChanged("PS2Bit");
+                }
+            }
+        }
+
+        public string PSABit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 3) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 3) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 3) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.OPTION_REG, 3);
+                    }
+                    NotifyPropertyChanged("PSABit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.OPTION_REG, 3);
+                    NotifyPropertyChanged("PSABit");
+                }
+            }
+        }
+
+        public string T0SEBit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 4) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 4) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 4) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.OPTION_REG, 4);
+                    }
+                    NotifyPropertyChanged("T0SEBit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.OPTION_REG, 4);
+                    NotifyPropertyChanged("T0SEBit");
+                }
+            }
+        }
+
+        public string T0CSBit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 5) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 5) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 5) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.OPTION_REG, 5);
+                    }
+                    NotifyPropertyChanged("T0CSBit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.OPTION_REG, 5);
+                    NotifyPropertyChanged("T0CSBit");
+                }
+            }
+        }
+
+        public string INTEDGBit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 6) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 6) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 6) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.OPTION_REG, 6);
+                    }
+                    NotifyPropertyChanged("INTEDGBit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.OPTION_REG, 6);
+                    NotifyPropertyChanged("INTEDGBit");
+                }
+            }
+        }
+
+        public string RBPUBit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 7) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 7) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.OPTION_REG] & 1 << 7) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.OPTION_REG, 7);
+                    }
+                    NotifyPropertyChanged("RBPUBit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.OPTION_REG, 7);
+                    NotifyPropertyChanged("RBPUBit");
+                }
+            }
+        }
 
         public string ProgramCounter
         {

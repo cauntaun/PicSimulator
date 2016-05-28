@@ -581,7 +581,7 @@ namespace PicSimulator
             }
             else if (type == InstructionType.SUBWF)
             {
-                if (((argument & 0x0F) + ((~wRegister + 1) & 0x0F)) > 0x0F)
+                if ((((argument & 0x0F) + ((~wRegister + 1) & 0x0F))) > 0x0F)
                 {
                     picSim.DCBit = "1";
                 }
