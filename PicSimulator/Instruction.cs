@@ -135,8 +135,8 @@ namespace PicSimulator
 
         public bool SUBWF(PicSimulator picSim)
         {
-            int wRegister = picSim.GetRegisterSet().GetRegister()[secondArgument];
-            int fRegister = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber);
+            int fRegister = picSim.GetRegisterSet().GetRegister()[secondArgument];
+            int wRegister = Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber);
             int result = (fRegister - wRegister) & 0xFF;
             CheckCBit(picSim, InstructionType.SUBWF, wRegister, fRegister);
             CheckDCBit(picSim, InstructionType.SUBWF, wRegister, fRegister);
@@ -306,6 +306,39 @@ namespace PicSimulator
             return true;
         }
 
+        public bool RRF(PicSimulator picSim)
+        {
+            int cFlag = Int32.Parse(picSim.CBit);
+            int fRegister = picSim.GetRegisterSet().GetRegister()[secondArgument];
+            if ((fRegister & 0x1) > 0)
+            {
+                picSim.CBit = "1";
+            }
+            else if ((fRegister & 0x1) == 0)
+            {
+                picSim.CBit = "0";
+            }
+            fRegister >>= 1;
+            if (cFlag == 1)
+            {
+                fRegister ^= 0x80;
+            }
+            else if (cFlag == 0)
+            {
+                fRegister &= 0x07F;
+            }
+            int result = fRegister & 0xFF;
+            if (firstArgument == 0)
+            {
+                picSim.WRegister = result.ToString("X2");
+            }
+            else if (firstArgument == 1)
+            {
+                picSim.GetRegisterSet().SetRegisterAtAddress(secondArgument, result);
+            }
+            return true;
+        }
+
         public bool MOVLW(PicSimulator picSim)
         {
             int result = firstArgument;
@@ -430,27 +463,27 @@ namespace PicSimulator
 
         private void CheckCBit(PicSimulator picSim, InstructionType type, int wRegister, int argument)
         {
-            if (type == InstructionType.SUBLW)
-            {
-                if ((result & 0x00) >= 0)
-                {
-                    picSim.CBit = "1";
-                }
-                else
-                {
-                    picSim.CBit = "0";
-                }
-            } else if (type == InstructionType.ADDLW)
-            {
-                if (result > 0xFF)
-                {
-                    picSim.CBit = "1";
-                }
-                else
-                {
-                    picSim.CBit = "0";
-                }
-            }
+            //if (type == InstructionType.SUBLW)
+            //{
+            //    if ((result & 0x00) >= 0)
+            //    {
+            //        picSim.CBit = "1";
+            //    }
+            //    else
+            //    {
+            //        picSim.CBit = "0";
+            //    }
+            //} else if (type == InstructionType.ADDLW)
+            //{
+            //    if (result > 0xFF)
+            //    {
+            //        picSim.CBit = "1";
+            //    }
+            //    else
+            //    {
+            //        picSim.CBit = "0";
+            //    }
+            //}
         }
 
     }
