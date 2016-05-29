@@ -32,6 +32,8 @@ namespace PicSimulator
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(propertyName));
+                //PropertyChanged()
+                //Action action = () => handler(this, new PropertyChangedEventArgs(propertyName), Program.mainForm.Invoke(action));
             }
         }
 
@@ -85,7 +87,7 @@ namespace PicSimulator
                 if (value != this.wRegister.ToString("X2"))
                 {
                     this.wRegister = Int32.Parse(value, System.Globalization.NumberStyles.HexNumber);
-                    NotifyPropertyChanged("wRegister");
+                    NotifyPropertyChanged("WRegister");
                 }
             }
         }
@@ -752,8 +754,28 @@ namespace PicSimulator
             {
                 if (timerdelay <= 0)
                 {
-                    
-                    timer = value;
+                    // external clock
+                    if (Int32.Parse(T0CSBit) == 0)
+                    {
+                        timer = value;
+                    } else
+                    {
+                        if (Int32.Parse(T0SEBit) == 0)
+                        {
+                            // -4 => von 0 auf 1, low-to-high
+                            if (value == -4)
+                            {
+                                timer += 1;
+                            }
+                        } else
+                        {
+                            if (value == -5)
+                            {
+                                timer += 1;
+                            }
+                        }
+
+                    }
                     if (timerdelay == -1)
                     {
                         Console.Write("Timerdelay war: -1 also + 1 fuer timer");
@@ -801,7 +823,8 @@ namespace PicSimulator
                             T0IFBit = "1";
                             // Setze TMR0IF in INTCON
                             ZBit = "1";
-                        } else
+                        }
+                        else
                         {
                             //T0IFBit = "0";
                         }
@@ -816,7 +839,8 @@ namespace PicSimulator
                         timer = 0;
                     }
                     NotifyPropertyChanged("Timer");
-                } else
+                }
+                else
                 {
                     Console.Write("1 Delay: " + timerdelay);
                     Console.Write("TMR0: " + GetRegister((int)RegisterType.TMR0));
@@ -1223,9 +1247,644 @@ namespace PicSimulator
             }
         }
 
-        public RegisterSet GetRegisterSet()
+        public string RA0Bit
         {
-            return registerSet;
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.PORTA] & 1 << 0) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.PORTA] & 1 << 0) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.PORTA, 0);
+                    }
+                    NotifyPropertyChanged("RA0Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.PORTA, 0);
+                    NotifyPropertyChanged("RA0Bit");
+                }
+            }
+        }
+
+        public string RA1Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.PORTA] & 1 << 1) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.PORTA] & 1 << 1) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.PORTA, 1);
+                    }
+                    NotifyPropertyChanged("RA1Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.PORTA, 1);
+                    NotifyPropertyChanged("RA1Bit");
+                }
+            }
+        }
+
+        public string RA2Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.PORTA] & 1 << 2) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.PORTA] & 1 << 2) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.PORTA, 2);
+                    }
+                    NotifyPropertyChanged("RA2Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.PORTA, 2);
+                    NotifyPropertyChanged("RA2Bit");
+                }
+            }
+        }
+
+        public string RA3Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.PORTA] & 1 << 3) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.PORTA] & 1 << 3) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.PORTA, 3);
+                    }
+                    NotifyPropertyChanged("RA3Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.PORTA, 3);
+                    NotifyPropertyChanged("RA3Bit");
+                }
+            }
+        }
+
+        public string RA4Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.PORTA] & 1 << 4) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.PORTA] & 1 << 4) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.PORTA, 4);
+                    }
+                    NotifyPropertyChanged("RA4Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.PORTA, 4);
+                    NotifyPropertyChanged("RA4Bit");
+                }
+            }
+        }
+
+        public string RA5Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.PORTA] & 1 << 5) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.PORTA] & 1 << 5) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.PORTA, 5);
+                    }
+                    NotifyPropertyChanged("RA5Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.PORTA, 5);
+                    NotifyPropertyChanged("RA5Bit");
+                }
+            }
+        }
+
+        public string RA6Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.PORTA] & 1 << 6) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.PORTA] & 1 << 6) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.PORTA, 6);
+                    }
+                    NotifyPropertyChanged("RA6Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.PORTA, 6);
+                    NotifyPropertyChanged("RA6Bit");
+                }
+            }
+        }
+
+        public string RA7Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.PORTA] & 1 << 7) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.PORTA] & 1 << 7) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.PORTA, 7);
+                    }
+                    NotifyPropertyChanged("RA7Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.PORTA, 7);
+                    NotifyPropertyChanged("RA7Bit");
+                }
+            }
+        }
+
+        public string RB0Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.PORTB] & 1 << 0) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.PORTB] & 1 << 0) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.PORTB, 0);
+                    }
+                    NotifyPropertyChanged("RB0Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.PORTB, 0);
+                    NotifyPropertyChanged("RB0Bit");
+                }
+            }
+        }
+
+        public string RB1Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.PORTB] & 1 << 1) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.PORTB] & 1 << 1) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.PORTB, 1);
+                    }
+                    NotifyPropertyChanged("RB1Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.PORTB, 1);
+                    NotifyPropertyChanged("RB1Bit");
+                }
+            }
+        }
+
+        public string RB2Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.PORTB] & 1 << 2) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.PORTB] & 1 << 2) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.PORTB, 2);
+                    }
+                    NotifyPropertyChanged("RB2Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.PORTB, 2);
+                    NotifyPropertyChanged("RB2Bit");
+                }
+            }
+        }
+
+        public string RB3Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.PORTB] & 1 << 3) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.PORTB] & 1 << 3) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.PORTB, 3);
+                    }
+                    NotifyPropertyChanged("RB3Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.PORTB, 3);
+                    NotifyPropertyChanged("RB3Bit");
+                }
+            }
+        }
+
+        public string RB4Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.PORTB] & 1 << 4) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.PORTB] & 1 << 4) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.PORTB, 4);
+                    }
+                    NotifyPropertyChanged("RB4Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.PORTB, 4);
+                    NotifyPropertyChanged("RB4Bit");
+                }
+            }
+        }
+
+        public string RB5Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.PORTB] & 1 << 5) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.PORTB] & 1 << 5) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.PORTB, 5);
+                    }
+                    NotifyPropertyChanged("RB5Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.PORTB, 5);
+                    NotifyPropertyChanged("RB5Bit");
+                }
+            }
+        }
+
+        public string RB6Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.PORTB] & 1 << 6) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.PORTB] & 1 << 6) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.PORTB, 6);
+                    }
+                    NotifyPropertyChanged("RB6Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.PORTB, 6);
+                    NotifyPropertyChanged("RB6Bit");
+                }
+            }
+        }
+
+        public string RB7Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.PORTB] & 1 << 7) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.PORTB] & 1 << 7) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.PORTB, 7);
+                    }
+                    NotifyPropertyChanged("RB7Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.PORTB, 7);
+                    NotifyPropertyChanged("RB7Bit");
+                }
+            }
         }
 
         public int Stack
@@ -1290,6 +1949,11 @@ namespace PicSimulator
         public int GetRegister(int address)
         {
             return registerSet.GetRegister()[address];
+        }
+
+        public RegisterSet GetRegisterSet()
+        {
+            return registerSet;
         }
     }
 }

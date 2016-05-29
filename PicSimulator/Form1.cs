@@ -19,7 +19,8 @@ namespace PicSimulator
         private PicSimulator picSimulator;
         private Log log = null;
         private int test = 1;
-
+        private Task loopTask;
+        private bool run = false;
         public Form1()
         {
             InitializeComponent();
@@ -79,6 +80,20 @@ namespace PicSimulator
             t0ifLabel.DataBindings.Add("Text", picSimulator, "T0IFBit");
             intfLabel.DataBindings.Add("Text", picSimulator, "INTFBit");
             rbifLabel.DataBindings.Add("Text", picSimulator, "RBIFBit");
+            ra0Label.DataBindings.Add("Text", picSimulator, "RA0Bit");
+            ra1Label.DataBindings.Add("Text", picSimulator, "RA1Bit");
+            ra2Label.DataBindings.Add("Text", picSimulator, "RA2Bit");
+            ra3Label.DataBindings.Add("Text", picSimulator, "RA3Bit");
+            ra4Label.DataBindings.Add("Text", picSimulator, "RA4Bit");
+
+            rb0Label.DataBindings.Add("Text", picSimulator, "RB0Bit");
+            rb1Label.DataBindings.Add("Text", picSimulator, "RB1Bit");
+            rb2Label.DataBindings.Add("Text", picSimulator, "RB2Bit");
+            rb3Label.DataBindings.Add("Text", picSimulator, "RB3Bit");
+            rb4Label.DataBindings.Add("Text", picSimulator, "RB4Bit");
+            rb5Label.DataBindings.Add("Text", picSimulator, "RB5Bit");
+            rb6Label.DataBindings.Add("Text", picSimulator, "RB6Bit");
+            rb7Label.DataBindings.Add("Text", picSimulator, "RB7Bit");
 
             timeLabel.DataBindings.Add("Text", picSimulator, "CycleCounter");
 
@@ -332,5 +347,100 @@ namespace PicSimulator
         {
             picSimulator.RBIFBit = "";
         }
+
+        private void ra4Label_Click(object sender, EventArgs e)
+        {
+            if (Int32.Parse(picSimulator.RA4Bit) == 0)
+            {
+                picSimulator.Timer = -4;
+            } else
+            {
+                picSimulator.Timer = -5;
+            }
+            picSimulator.RA4Bit = "";
+
+        }
+
+        private void ra3Label_Click(object sender, EventArgs e)
+        {
+            picSimulator.RA3Bit = "";
+        }
+
+        private void ra2Label_Click(object sender, EventArgs e)
+        {
+            picSimulator.RA2Bit = "";
+        }
+
+        private void ra1Label_Click(object sender, EventArgs e)
+        {
+            picSimulator.RA1Bit = "";
+        }
+
+        private void ra0Label_Click(object sender, EventArgs e)
+        {
+            picSimulator.RA0Bit = "";
+        }
+
+        private void rb7Label_Click(object sender, EventArgs e)
+        {
+            picSimulator.RB7Bit = "";
+        }
+
+        private void rb6Label_Click(object sender, EventArgs e)
+        {
+            picSimulator.RB6Bit = "";
+        }
+
+        private void rb5Label_Click(object sender, EventArgs e)
+        {
+            picSimulator.RB5Bit = "";
+        }
+
+        private void rb4Label_Click(object sender, EventArgs e)
+        {
+            picSimulator.RB4Bit = "";
+        }
+
+        private void rb3Label_Click(object sender, EventArgs e)
+        {
+            picSimulator.RB3Bit = "";
+        }
+
+        private void rb2Label_Click(object sender, EventArgs e)
+        {
+            picSimulator.RB2Bit = "";
+        }
+
+        private void rb1Label_Click(object sender, EventArgs e)
+        {
+            picSimulator.RB1Bit = "";
+        }
+
+        private void rb0Label_Click(object sender, EventArgs e)
+        {
+            picSimulator.RB0Bit = "";
+        }
+
+        private void runBtn_Click(object sender, EventArgs e)
+        {
+            run = true;
+            loopTask = new Task(Run);
+            loopTask.Start();
+        }
+
+        private void stopBtn_Click(object sender, EventArgs e)
+        {
+            run = false;
+        }
+
+        private void Run()
+        {
+            while (run)
+            {
+                picSimulator.NextStep();
+                loopTask.Wait(10);
+            }
+        }
+
     }
 }

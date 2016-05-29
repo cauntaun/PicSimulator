@@ -15,6 +15,7 @@ namespace PicSimulator
         private int firstArgument = -1;
         private int secondArgument = -1;
 
+
         public Instruction(InstructionType type)
         {
             this.type = type;
@@ -131,6 +132,12 @@ namespace PicSimulator
         public int CLRF(PicSimulator picSim)
         {
             picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, firstArgument), 0x00);
+            if (((Int32.Parse(picSim.RP0Bit) << 8) == 0) && (firstArgument == (int)RegisterType.TMR0))
+            {
+                // First 2 instructions don't count
+                picSim.Timer = 0;
+                picSim.SetDelay(3);
+            }
             picSim.ZBit = "1";
             return 1;
         }
