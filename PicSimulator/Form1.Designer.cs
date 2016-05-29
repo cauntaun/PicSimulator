@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menueToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.dateiLadenToolStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -179,6 +179,9 @@
             this.setDelayBtn = new System.Windows.Forms.Button();
             this.delayLabel = new System.Windows.Forms.Label();
             this.illegalDelayLabel = new System.Windows.Forms.Label();
+            this.breakpointGridView = new System.Windows.Forms.DataGridView();
+            this.pcCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label47 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Lst)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -190,6 +193,7 @@
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.breakpointGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -259,14 +263,14 @@
             this.dataGridView_Lst.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Lst.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Sourcecode});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_Lst.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_Lst.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView_Lst.Location = new System.Drawing.Point(354, 264);
             this.dataGridView_Lst.MultiSelect = false;
             this.dataGridView_Lst.Name = "dataGridView_Lst";
@@ -274,6 +278,7 @@
             this.dataGridView_Lst.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_Lst.Size = new System.Drawing.Size(929, 553);
             this.dataGridView_Lst.TabIndex = 5;
+            this.dataGridView_Lst.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Lst_CellDoubleClick);
             // 
             // Sourcecode
             // 
@@ -1712,11 +1717,43 @@
             this.illegalDelayLabel.Size = new System.Drawing.Size(0, 15);
             this.illegalDelayLabel.TabIndex = 18;
             // 
+            // breakpointGridView
+            // 
+            this.breakpointGridView.AllowUserToAddRows = false;
+            this.breakpointGridView.AllowUserToDeleteRows = false;
+            this.breakpointGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.breakpointGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pcCell});
+            this.breakpointGridView.Location = new System.Drawing.Point(1289, 308);
+            this.breakpointGridView.Name = "breakpointGridView";
+            this.breakpointGridView.ReadOnly = true;
+            this.breakpointGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.breakpointGridView.Size = new System.Drawing.Size(151, 166);
+            this.breakpointGridView.TabIndex = 19;
+            this.breakpointGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.breakpointGridView_CellDoubleClick);
+            // 
+            // pcCell
+            // 
+            this.pcCell.HeaderText = "PC";
+            this.pcCell.Name = "pcCell";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(1293, 289);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(84, 16);
+            this.label47.TabIndex = 20;
+            this.label47.Text = "BreakPoints:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1456, 829);
+            this.Controls.Add(this.label47);
+            this.Controls.Add(this.breakpointGridView);
             this.Controls.Add(this.illegalDelayLabel);
             this.Controls.Add(this.delayLabel);
             this.Controls.Add(this.setDelayBtn);
@@ -1756,6 +1793,7 @@
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.breakpointGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1913,6 +1951,9 @@
         private System.Windows.Forms.Button setDelayBtn;
         private System.Windows.Forms.Label delayLabel;
         private System.Windows.Forms.Label illegalDelayLabel;
+        private System.Windows.Forms.DataGridView breakpointGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pcCell;
+        private System.Windows.Forms.Label label47;
     }
 }
 

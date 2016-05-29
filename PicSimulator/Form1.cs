@@ -30,6 +30,9 @@ namespace PicSimulator
         private int test = 1;
         private Task loopTask;
         private bool run = false;
+
+        private List<int> breakpoints = new List<int>();
+
         public Form1()
         {
             InitializeComponent();
@@ -477,6 +480,39 @@ namespace PicSimulator
             }catch
             {
                 illegalDelayLabel.Text = "Bitte nur int Werte!";
+            }
+        }
+
+        private void dataGridView_Lst_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string pc = dataGridView_Lst.Rows[e.RowIndex].Cells[0].Value.ToString().Substring(0, 4);
+            if (string.IsNullOrWhiteSpace(pc))
+            {
+                MessageBox.Show("Sie können nur Zeilen mit Code für einen Breakpoint verwenden");
+            } else
+            {
+                
+                breakpoints.Add(Int32.Parse(pc, System.Globalization.NumberStyles.HexNumber));
+                UpdateBreakPoints();
+                //MessageBox.Show("PC: " + pc + " hinzugefuegt");
+            }
+        }
+
+        private void breakpointGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int bp = Int32.Parse(breakpointGridView.Rows[e.RowIndex].Cells[0].Value.ToString(), System.Globalization.NumberStyles.HexNumber);
+            //MessageBox.Show("BP: " + bp); 
+            breakpoints.Remove(bp);
+            UpdateBreakPoints();
+        }
+
+        private void UpdateBreakPoints()
+        {
+            breakpointGridView.Rows.Clear();
+            for (int i = 0; i < breakpoints.Count; i++)
+            {
+                int n = breakpointGridView.Rows.Add();
+                breakpointGridView.Rows[n].Cells[0].Value = breakpoints[i].ToString("X4");
             }
         }
     }
