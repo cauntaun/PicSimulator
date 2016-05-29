@@ -102,7 +102,12 @@
         <member name="P:PicSimulator.Properties.Resources.Culture">
             <summary>
               Überschreibt die CurrentUICulture-Eigenschaft des aktuellen Threads für alle
-              Ressourcenlookups, die diese stark typisierte Ressourcenklasse verwenden.
+              Ressourcenzuordnungen, die diese stark typisierte Ressourcenklasse verwenden.
+            </summary>
+        </member>
+        <member name="P:PicSimulator.Properties.Resources.Hilfe">
+            <summary>
+              Sucht eine lokalisierte Ressource vom Typ System.Byte[].
             </summary>
         </member>
         <member name="M:LineNumbers.LineNumbers_For_RichTextBox.Update_SizeAndPosition">

@@ -10,7 +10,7 @@ using System.IO;
 using System.Xml.Linq;
 using PicSimulator;
 using System.Text.RegularExpressions;
-
+using System.Diagnostics;
 
 namespace PicSimulator
 {
@@ -527,6 +527,14 @@ namespace PicSimulator
                 int n = breakpointGridView.Rows.Add();
                 breakpointGridView.Rows[n].Cells[0].Value = breakpoints[i].ToString("X4");
             }
+        }
+
+        private void hilfeToolStrip_Click(object sender, EventArgs e)
+        {
+            string locationToSavePdf = Path.Combine(Path.GetTempPath(), "Hilfe.pdf"); 
+            File.WriteAllBytes(locationToSavePdf, Properties.Resources.Hilfe);   
+            Process.Start(locationToSavePdf);   
+            
         }
     }
 }
