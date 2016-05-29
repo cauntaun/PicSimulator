@@ -70,6 +70,7 @@ namespace PicSimulator
             t0csLabel.DataBindings.Add("Text", picSimulator, "T0CSBit");
             intedgLabel.DataBindings.Add("Text", picSimulator, "INTEDGBit");
             rbpuLabel.DataBindings.Add("Text", picSimulator, "RBPUBit");
+            tmr0Label.DataBindings.Add("Text", picSimulator, "Timer");
 
             timeLabel.DataBindings.Add("Text", picSimulator, "CycleCounter");
 
@@ -233,6 +234,55 @@ namespace PicSimulator
                 stackGridView.Rows[n].Cells[0].Value = stackarr[i-1].ToString("0000");
             }
         }
-        
+
+        private void rpbuLabel_Click(object sender, EventArgs e)
+        {
+            picSimulator.RBPUBit = "";
+        }
+
+        private void intedgLabel_Click(object sender, EventArgs e)
+        {
+            picSimulator.INTEDGBit = "";
+        }
+
+        private void t0csLabel_Click(object sender, EventArgs e)
+        {
+            picSimulator.T0CSBit = "";
+        }
+
+        private void t0seLabel_Click(object sender, EventArgs e)
+        {
+            picSimulator.T0SEBit = "";
+        }
+
+        private void psaLabel_Click(object sender, EventArgs e)
+        {
+            picSimulator.PSABit = "";
+        }
+
+        private void ps2Label_Click(object sender, EventArgs e)
+        {
+            picSimulator.PS2Bit = "";
+        }
+
+        private void ps1Label_Click(object sender, EventArgs e)
+        {
+            picSimulator.PS1Bit = "";
+        }
+
+        private void ps0Label_Click(object sender, EventArgs e)
+        {
+            picSimulator.PS0Bit = "";
+        }
+
+        private void rp1Label_Click(object sender, EventArgs e)
+        {
+            picSimulator.RP1Bit = "";
+        }
+
+        private void irpLabel_Click(object sender, EventArgs e)
+        {
+            picSimulator.IRPBit = "";
+        }
     }
 }

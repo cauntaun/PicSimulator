@@ -99,6 +99,8 @@
             this.ps1Label = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.ps0Label = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tmr0Label = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Lst)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -350,7 +352,7 @@
             this.rp1Label.Size = new System.Drawing.Size(10, 13);
             this.rp1Label.TabIndex = 4;
             this.rp1Label.Text = "-";
-            this.rp1Label.Click += new System.EventHandler(this.rp0Label_Click);
+            this.rp1Label.Click += new System.EventHandler(this.rp1Label_Click);
             // 
             // rp0Label
             // 
@@ -603,6 +605,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.tmr0Label);
+            this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.stackLabel);
             this.groupBox3.Controls.Add(this.stackGridView);
             this.groupBox3.Controls.Add(this.groupBox4);
@@ -646,7 +650,7 @@
             this.t0csLabel.Size = new System.Drawing.Size(10, 13);
             this.t0csLabel.TabIndex = 4;
             this.t0csLabel.Text = "-";
-            this.t0csLabel.Click += new System.EventHandler(this.zLabel_Click);
+            this.t0csLabel.Click += new System.EventHandler(this.t0csLabel_Click);
             // 
             // intedgLabel
             // 
@@ -656,7 +660,7 @@
             this.intedgLabel.Size = new System.Drawing.Size(10, 13);
             this.intedgLabel.TabIndex = 4;
             this.intedgLabel.Text = "-";
-            this.intedgLabel.Click += new System.EventHandler(this.dcLabel_Click);
+            this.intedgLabel.Click += new System.EventHandler(this.intedgLabel_Click);
             // 
             // rbpuLabel
             // 
@@ -666,7 +670,7 @@
             this.rbpuLabel.Size = new System.Drawing.Size(10, 13);
             this.rbpuLabel.TabIndex = 4;
             this.rbpuLabel.Text = "-";
-            this.rbpuLabel.Click += new System.EventHandler(this.cLabel_Click);
+            this.rbpuLabel.Click += new System.EventHandler(this.rpbuLabel_Click);
             // 
             // label20
             // 
@@ -713,7 +717,7 @@
             this.irpLabel.Size = new System.Drawing.Size(10, 13);
             this.irpLabel.TabIndex = 4;
             this.irpLabel.Text = "-";
-            this.irpLabel.Click += new System.EventHandler(this.rp0Label_Click);
+            this.irpLabel.Click += new System.EventHandler(this.irpLabel_Click);
             // 
             // label1
             // 
@@ -732,7 +736,7 @@
             this.t0seLabel.Size = new System.Drawing.Size(10, 13);
             this.t0seLabel.TabIndex = 4;
             this.t0seLabel.Text = "-";
-            this.t0seLabel.Click += new System.EventHandler(this.zLabel_Click);
+            this.t0seLabel.Click += new System.EventHandler(this.t0seLabel_Click);
             // 
             // label2
             // 
@@ -751,7 +755,7 @@
             this.psaLabel.Size = new System.Drawing.Size(10, 13);
             this.psaLabel.TabIndex = 4;
             this.psaLabel.Text = "-";
-            this.psaLabel.Click += new System.EventHandler(this.zLabel_Click);
+            this.psaLabel.Click += new System.EventHandler(this.psaLabel_Click);
             // 
             // label3
             // 
@@ -770,7 +774,7 @@
             this.ps2Label.Size = new System.Drawing.Size(10, 13);
             this.ps2Label.TabIndex = 4;
             this.ps2Label.Text = "-";
-            this.ps2Label.Click += new System.EventHandler(this.zLabel_Click);
+            this.ps2Label.Click += new System.EventHandler(this.ps2Label_Click);
             // 
             // label4
             // 
@@ -789,7 +793,7 @@
             this.ps1Label.Size = new System.Drawing.Size(10, 13);
             this.ps1Label.TabIndex = 4;
             this.ps1Label.Text = "-";
-            this.ps1Label.Click += new System.EventHandler(this.zLabel_Click);
+            this.ps1Label.Click += new System.EventHandler(this.ps1Label_Click);
             // 
             // label5
             // 
@@ -808,7 +812,25 @@
             this.ps0Label.Size = new System.Drawing.Size(10, 13);
             this.ps0Label.TabIndex = 4;
             this.ps0Label.Text = "-";
-            this.ps0Label.Click += new System.EventHandler(this.zLabel_Click);
+            this.ps0Label.Click += new System.EventHandler(this.ps0Label_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(489, 34);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(40, 13);
+            this.label16.TabIndex = 9;
+            this.label16.Text = "TMR0:";
+            // 
+            // tmr0Label
+            // 
+            this.tmr0Label.AutoSize = true;
+            this.tmr0Label.Location = new System.Drawing.Point(536, 34);
+            this.tmr0Label.Name = "tmr0Label";
+            this.tmr0Label.Size = new System.Drawing.Size(10, 13);
+            this.tmr0Label.TabIndex = 10;
+            this.tmr0Label.Text = "-";
             // 
             // Form1
             // 
@@ -920,6 +942,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label tmr0Label;
     }
 }
 

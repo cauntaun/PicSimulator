@@ -262,6 +262,12 @@ namespace PicSimulator
         public int MOVWF(PicSimulator picSim)
         {
             picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, firstArgument), Int32.Parse(picSim.WRegister, System.Globalization.NumberStyles.HexNumber));
+            if (((Int32.Parse(picSim.RP0Bit) << 8) == 0) && (firstArgument == (int)RegisterType.TMR0))
+            {
+                // First 2 instructions don't count
+                picSim.Timer = 0;
+                picSim.SetDelay(3);
+            }
             return 1;
         }
 
@@ -495,6 +501,7 @@ namespace PicSimulator
             int result = firstArgument;
             CheckZBit(picSim, result);
             picSim.WRegister = result.ToString("X2");
+            
             return 1;
         }
 
@@ -637,9 +644,9 @@ namespace PicSimulator
             } else if (address == 0x03)
             {
                 return address;
-            } else
-            {
-                
+            } 
+            else
+            {    
                 int rp0 = Int32.Parse(picSim.RP0Bit) << 7;
                 int rp1 = Int32.Parse(picSim.RP1Bit) << 8;
                 Console.Write("Adressiere Bank " + rp0);

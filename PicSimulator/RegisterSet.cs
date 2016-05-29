@@ -59,7 +59,7 @@ namespace PicSimulator
 
         public int ToggleBit(int address, int bit)
         {
-            Console.Write("[+] Toggling Bit " + bit + " on address " + address + "\n");
+            Console.Write("[+] Toggling Bit " + bit + " on address 0x" + address.ToString("X2") + "\n");
             Console.Write(" + Address Before: 0x" + register[address].ToString("X2") + "\n");
             register[address] ^= 1 << bit;
             Console.Write(" + Address After: 0x" + register[address].ToString("X2") + "\n");
@@ -80,7 +80,7 @@ namespace PicSimulator
 
         public void SetRegisterAtAddress(int address, int value)
         {
-            register[address] = value;
+            register[address] = value & 0xFF;
         }
     }
 }

@@ -15,10 +15,13 @@ namespace PicSimulator
         private int startLine;
         private int endLine;
         private int programCounter;
+        private int timer = 0;
         private Stack<int> stack = new Stack<int>();
 
         private int wRegister;
         private int cycleCounter = 0;
+
+        private int timerdelay = 0;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -63,7 +66,10 @@ namespace PicSimulator
         public void NextStep()
         {
             int cycles = instructionSet.Execute(programCounter, this);
+            Console.Write("Ausgefuehrt mit Cycle: " + cycles);
             CycleCounter += cycles;
+            Timer += cycles;
+            Console.Write("Timer: " + Timer);
             ProgramCounter = (programCounter + 1).ToString();
             Program.mainForm.HighlightLine(instructionSet.GetInstruction(programCounter).GetLineNumber());
         }
@@ -83,8 +89,6 @@ namespace PicSimulator
                 }
             }
         }
-
-        
 
         public string CBit
         {
@@ -735,8 +739,172 @@ namespace PicSimulator
                     NotifyPropertyChanged("ProgramCounter");
                     PCL = programCounter.ToString();
                 }
-                
             }
+        }
+
+        public int Timer
+        {
+            get
+            {
+                return timer;
+            }
+            set
+            {
+                if (timerdelay <= 0)
+                {
+                    
+                    timer = value;
+                    if (timerdelay == -1)
+                    {
+                        Console.Write("Timerdelay war: -1 also + 1 fuer timer");
+                        timer += 1;
+                    }
+                    int scaler = 1;
+                    if (Int32.Parse(PSABit) == 0)
+                    {
+                        int bitvalue = (Int32.Parse(PS2Bit) << 2) + (Int32.Parse(PS1Bit) << 1) + (Int32.Parse(PS0Bit));
+                        switch (bitvalue)
+                        {
+                            case 0:
+                                scaler = 2;
+                                break;
+                            case 1:
+                                scaler = 4;
+                                break;
+                            case 2:
+                                scaler = 8;
+                                break;
+                            case 3:
+                                scaler = 16;
+                                break;
+                            case 4:
+                                scaler = 32;
+                                break;
+                            case 5:
+                                scaler = 64;
+                                break;
+                            case 6:
+                                scaler = 128;
+                                break;
+                            case 7:
+                                scaler = 256;
+                                break;
+                            default:
+                                scaler = 1;
+                                break;
+                        }
+                    }
+                    if ((timer / scaler) == 1)
+                    {
+                        if (((GetRegister((int)RegisterType.TMR0) + 1) & 0x100) > 0)
+                        {
+                            // Setze TMR0IF in INTCON
+                            ZBit = "1";
+                        }
+                        GetRegisterSet().SetRegisterAtAddress((int)RegisterType.TMR0, GetRegister((int)RegisterType.TMR0) + 1);
+                        timer = timer % scaler;
+                        Console.Write("Neuer timer = " + timer);
+                    }
+                    else if ((timer / scaler) == 2)
+                    {
+                        Console.Write("Timer + Scaler war 2");
+                        GetRegisterSet().SetRegisterAtAddress((int)RegisterType.TMR0, GetRegister((int)RegisterType.TMR0) + 2);
+                        timer = 0;
+                    }
+                    NotifyPropertyChanged("Timer");
+                } else
+                {
+                    Console.Write("1 Delay: " + timerdelay);
+                    Console.Write("TMR0: " + GetRegister((int)RegisterType.TMR0));
+                    timerdelay -= value;
+                }
+
+                Program.mainForm.UpdateStorageSet();
+                
+            
+                
+                    //if (value == timer)
+                    //{
+                    //    // do nothing
+                    //}
+                    //else if (value == -1)
+                    //{
+                    //    timerdelay = 2;
+                    //}
+                    //else
+                    //{
+                    //    int scaler = 1;
+                    //    int bitvalue = 0;
+                    //    if (Int32.Parse(PSABit) == 0)
+                    //    {
+                    //        bitvalue = (Int32.Parse(PS2Bit) << 2) + (Int32.Parse(PS1Bit) << 1) + (Int32.Parse(PS0Bit));
+                    //        switch (bitvalue)
+                    //        {
+                    //            case 0:
+                    //                scaler = 2;
+                    //                break;
+                    //            case 1:
+                    //                scaler = 4;
+                    //                break;
+                    //            case 2:
+                    //                scaler = 8;
+                    //                break;
+                    //            case 3:
+                    //                scaler = 16;
+                    //                break;
+                    //            case 4:
+                    //                scaler = 32;
+                    //                break;
+                    //            case 5:
+                    //                scaler = 64;
+                    //                break;
+                    //            case 6:
+                    //                scaler = 128;
+                    //                break;
+                    //            case 7:
+                    //                scaler = 256;
+                    //                break;
+                    //            default:
+                    //                scaler = 1;
+                    //                break;
+                    //        }
+                    //    }
+                    //    if (timerdelay > 0)
+                    //    {
+                    //        Console.Write("1 Delay: " + timerdelay);
+                    //        Console.Write("TMR0: " + GetRegister((int)RegisterType.TMR0));
+                    //        timerdelay -= value;
+                    //        if (timerdelay == -1)
+                    //        {
+                    //            timer = GetRegister((int)RegisterType.TMR0) * scaler + 1;
+                    //        }
+                    //        else
+                    //        {
+                    //            timer = GetRegister((int)RegisterType.TMR0) * scaler;
+                    //        }
+                    //        NotifyPropertyChanged("Timer");
+                    //    }
+                    //    else
+                    //    {
+
+                    //        Console.Write("Nutze Skaler " + scaler + " und bekomme wert: " + value);
+                    //        timer = value;
+                    //        if (((timer / scaler) & 0x100) > 1)
+                    //        {
+                    //            // setze TMR0IF in INTCON
+                    //            //timer = ((timer / scaler) & 0xFF);
+                    //        }
+                    //        GetRegisterSet().SetRegisterAtAddress((int)RegisterType.TMR0, (timer) / scaler);
+                    //        NotifyPropertyChanged("Timer");
+                    //    }
+                    //}
+
+            }
+        }
+
+        public void SetDelay(int delayBy)
+        {
+            timerdelay = delayBy;
         }
 
         public RegisterSet GetRegisterSet()
