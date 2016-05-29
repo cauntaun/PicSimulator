@@ -30,6 +30,7 @@ namespace PicSimulator
         private int test = 1;
         private Task loopTask;
         private bool run = false;
+        private bool firstRun = true;
 
         private List<int> breakpoints = new List<int>();
 
@@ -440,6 +441,7 @@ namespace PicSimulator
         private void runBtn_Click(object sender, EventArgs e)
         {
             run = true;
+            firstRun = true;
             loopTask = new Task(Run);
             loopTask.Start();
         }
@@ -447,14 +449,22 @@ namespace PicSimulator
         private void stopBtn_Click(object sender, EventArgs e)
         {
             run = false;
+            firstRun = true;
         }
 
         private void Run()
         {
             while (run)
             {
-                picSimulator.NextStep();
-                loopTask.Wait(stepdelay);
+                if (breakpoints.Contains(Int32.Parse(picSimulator.ProgramCounter)) && !firstRun)
+                {
+                    run = false;
+                } else
+                {
+                    picSimulator.NextStep();
+                    loopTask.Wait(stepdelay);
+                }
+                firstRun = false;
             }
         }
 
@@ -491,8 +501,11 @@ namespace PicSimulator
                 MessageBox.Show("Sie können nur Zeilen mit Code für einen Breakpoint verwenden");
             } else
             {
+                if (!breakpoints.Contains(Int32.Parse(pc, System.Globalization.NumberStyles.HexNumber)))
+                {
+                    breakpoints.Add(Int32.Parse(pc, System.Globalization.NumberStyles.HexNumber));
+                }
                 
-                breakpoints.Add(Int32.Parse(pc, System.Globalization.NumberStyles.HexNumber));
                 UpdateBreakPoints();
                 //MessageBox.Show("PC: " + pc + " hinzugefuegt");
             }
