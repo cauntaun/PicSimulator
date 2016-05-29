@@ -14,9 +14,18 @@ using System.Text.RegularExpressions;
 
 namespace PicSimulator
 {
-    public partial class Form1 : Form
+    public interface ISynchronousCall
+    {
+        void Invoke(Delegate method, params object[] args);
+        void Invoke(Action action);
+    }
+
+    public partial class Form1 : Form, ISynchronousCall
     {
         private PicSimulator picSimulator;
+        public delegate void Highlight(int linenumber);
+        public Highlight mydelegate;
+        private int stepdelay = 10;
         private Log log = null;
         private int test = 1;
         private Task loopTask;
@@ -94,8 +103,12 @@ namespace PicSimulator
             rb5Label.DataBindings.Add("Text", picSimulator, "RB5Bit");
             rb6Label.DataBindings.Add("Text", picSimulator, "RB6Bit");
             rb7Label.DataBindings.Add("Text", picSimulator, "RB7Bit");
-
+            
             timeLabel.DataBindings.Add("Text", picSimulator, "CycleCounter");
+
+            CheckForIllegalCrossThreadCalls = false;
+
+            mydelegate = new Highlight(HighlightLine);
 
             log = new Log(consoleLog);
             Console.SetOut(log);
@@ -438,9 +451,33 @@ namespace PicSimulator
             while (run)
             {
                 picSimulator.NextStep();
-                loopTask.Wait(10);
+                loopTask.Wait(stepdelay);
             }
         }
 
+
+        void ISynchronousCall.Invoke(Delegate method, params object[] args)
+        {
+            // Call the provided action on the UI Thread using Control.Invoke()
+            Invoke(method, args);
+        }
+
+        void ISynchronousCall.Invoke(Action action)
+        {
+            // Call the provided action on the UI Thread using Control.Invoke()
+            Invoke(action);
+        }
+
+        private void setDelayBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                stepdelay = Int32.Parse(delayTxtBox.Text);
+                delayLabel.Text = stepdelay + " ms";
+            }catch
+            {
+                illegalDelayLabel.Text = "Bitte nur int Werte!";
+            }
+        }
     }
 }

@@ -174,6 +174,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.delayTxtBox = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.setDelayBtn = new System.Windows.Forms.Button();
+            this.delayLabel = new System.Windows.Forms.Label();
+            this.illegalDelayLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Lst)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -694,7 +699,7 @@
             // 
             this.btn_nextStep.Location = new System.Drawing.Point(1289, 480);
             this.btn_nextStep.Name = "btn_nextStep";
-            this.btn_nextStep.Size = new System.Drawing.Size(151, 23);
+            this.btn_nextStep.Size = new System.Drawing.Size(155, 23);
             this.btn_nextStep.TabIndex = 10;
             this.btn_nextStep.Text = "Next Step";
             this.btn_nextStep.UseVisualStyleBackColor = true;
@@ -704,7 +709,7 @@
             // 
             this.runBtn.Location = new System.Drawing.Point(1289, 509);
             this.runBtn.Name = "runBtn";
-            this.runBtn.Size = new System.Drawing.Size(151, 23);
+            this.runBtn.Size = new System.Drawing.Size(155, 23);
             this.runBtn.TabIndex = 11;
             this.runBtn.Text = "Run";
             this.runBtn.UseVisualStyleBackColor = true;
@@ -714,7 +719,7 @@
             // 
             this.stopBtn.Location = new System.Drawing.Point(1289, 538);
             this.stopBtn.Name = "stopBtn";
-            this.stopBtn.Size = new System.Drawing.Size(151, 23);
+            this.stopBtn.Size = new System.Drawing.Size(155, 23);
             this.stopBtn.TabIndex = 12;
             this.stopBtn.Text = "Stop";
             this.stopBtn.UseVisualStyleBackColor = true;
@@ -1662,11 +1667,61 @@
             this.label24.TabIndex = 3;
             this.label24.Text = "T0CS";
             // 
+            // delayTxtBox
+            // 
+            this.delayTxtBox.Location = new System.Drawing.Point(1290, 636);
+            this.delayTxtBox.Name = "delayTxtBox";
+            this.delayTxtBox.Size = new System.Drawing.Size(154, 20);
+            this.delayTxtBox.TabIndex = 14;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(1290, 617);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(147, 13);
+            this.label36.TabIndex = 15;
+            this.label36.Text = "Delay zwischen Steps (in ms):";
+            // 
+            // setDelayBtn
+            // 
+            this.setDelayBtn.Location = new System.Drawing.Point(1369, 662);
+            this.setDelayBtn.Name = "setDelayBtn";
+            this.setDelayBtn.Size = new System.Drawing.Size(75, 23);
+            this.setDelayBtn.TabIndex = 16;
+            this.setDelayBtn.Text = "Set Delay";
+            this.setDelayBtn.UseVisualStyleBackColor = true;
+            this.setDelayBtn.Click += new System.EventHandler(this.setDelayBtn_Click);
+            // 
+            // delayLabel
+            // 
+            this.delayLabel.AutoSize = true;
+            this.delayLabel.Location = new System.Drawing.Point(1290, 667);
+            this.delayLabel.Name = "delayLabel";
+            this.delayLabel.Size = new System.Drawing.Size(32, 13);
+            this.delayLabel.TabIndex = 17;
+            this.delayLabel.Text = "10ms";
+            // 
+            // illegalDelayLabel
+            // 
+            this.illegalDelayLabel.AutoSize = true;
+            this.illegalDelayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.illegalDelayLabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.illegalDelayLabel.Location = new System.Drawing.Point(1289, 693);
+            this.illegalDelayLabel.Name = "illegalDelayLabel";
+            this.illegalDelayLabel.Size = new System.Drawing.Size(0, 15);
+            this.illegalDelayLabel.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1456, 829);
+            this.Controls.Add(this.illegalDelayLabel);
+            this.Controls.Add(this.delayLabel);
+            this.Controls.Add(this.setDelayBtn);
+            this.Controls.Add(this.label36);
+            this.Controls.Add(this.delayTxtBox);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.stopBtn);
             this.Controls.Add(this.runBtn);
@@ -1853,6 +1908,11 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox delayTxtBox;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Button setDelayBtn;
+        private System.Windows.Forms.Label delayLabel;
+        private System.Windows.Forms.Label illegalDelayLabel;
     }
 }
 

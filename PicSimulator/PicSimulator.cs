@@ -23,10 +23,16 @@ namespace PicSimulator
 
         private int timerdelay = 0;
 
+        private ISynchronousCall synchronousInvoker = Program.mainForm;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void NotifyPropertyChanged(String propertyName)
         {
+
+            //synchronousInvoker.Invoke(
+            //    () => PropertyChanged(this, new PropertyChangedEventArgs("Status"))
+            //);
             PropertyChangedEventHandler handler = PropertyChanged;
 
             if (handler != null)
@@ -46,6 +52,7 @@ namespace PicSimulator
         public void LoadLST(String filename)
         {
             instructionSet = InstructionDecoder.ReadLst(filename);
+            //synchronousInvoker.Invoke(Form1.Highlight, new object[] { instructionSet.GetFirstInstruction().GetLineNumber() });
             Program.mainForm.HighlightLine(instructionSet.GetFirstInstruction().GetLineNumber());
         }
 
