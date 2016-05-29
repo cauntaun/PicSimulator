@@ -71,6 +71,14 @@ namespace PicSimulator
             intedgLabel.DataBindings.Add("Text", picSimulator, "INTEDGBit");
             rbpuLabel.DataBindings.Add("Text", picSimulator, "RBPUBit");
             tmr0Label.DataBindings.Add("Text", picSimulator, "Timer");
+            gieLabel.DataBindings.Add("Text", picSimulator, "GIEBit");
+            eeieLabel.DataBindings.Add("Text", picSimulator, "EEIEBit");
+            t0ieLabel.DataBindings.Add("Text", picSimulator, "T0IEBit");
+            inteLabel.DataBindings.Add("Text", picSimulator, "INTEBit");
+            rbieLabel.DataBindings.Add("Text", picSimulator, "RBIEBit");
+            t0ifLabel.DataBindings.Add("Text", picSimulator, "T0IFBit");
+            intfLabel.DataBindings.Add("Text", picSimulator, "INTFBit");
+            rbifLabel.DataBindings.Add("Text", picSimulator, "RBIFBit");
 
             timeLabel.DataBindings.Add("Text", picSimulator, "CycleCounter");
 
@@ -283,6 +291,46 @@ namespace PicSimulator
         private void irpLabel_Click(object sender, EventArgs e)
         {
             picSimulator.IRPBit = "";
+        }
+
+        private void gieLabel_Click(object sender, EventArgs e)
+        {
+            picSimulator.GIEBit = "";
+        }
+
+        private void eeieLabel_Click(object sender, EventArgs e)
+        {
+            picSimulator.EEIEBit = "";
+        }
+
+        private void t0ieLabelLabel_Click(object sender, EventArgs e)
+        {
+            picSimulator.T0IEBit = "";
+        }
+
+        private void inteLabel_Click(object sender, EventArgs e)
+        {
+            picSimulator.INTEBit = "";
+        }
+
+        private void rbieLabel_Click(object sender, EventArgs e)
+        {
+            picSimulator.RBIEBit = "";
+        }
+
+        private void t0ifLabel_Click(object sender, EventArgs e)
+        {
+            picSimulator.T0IFBit = "";
+        }
+
+        private void intfLabel_Click(object sender, EventArgs e)
+        {
+            picSimulator.INTFBit = "";
+        }
+
+        private void rbifLabel_Click(object sender, EventArgs e)
+        {
+            picSimulator.RBIFBit = "";
         }
     }
 }

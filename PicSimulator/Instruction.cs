@@ -641,7 +641,7 @@ namespace PicSimulator
             if (address == 0x00)
             {
                 return picSim.GetRegister(0x04);
-            } else if (address == 0x03)
+            } else if (address == 0x03 || address == 0x02 || address == 0x04 || address == 0x0A || address == 0x0B)
             {
                 return address;
             } 

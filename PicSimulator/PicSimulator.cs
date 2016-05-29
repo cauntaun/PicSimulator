@@ -798,8 +798,12 @@ namespace PicSimulator
                     {
                         if (((GetRegister((int)RegisterType.TMR0) + 1) & 0x100) > 0)
                         {
+                            T0IFBit = "1";
                             // Setze TMR0IF in INTCON
                             ZBit = "1";
+                        } else
+                        {
+                            //T0IFBit = "0";
                         }
                         GetRegisterSet().SetRegisterAtAddress((int)RegisterType.TMR0, GetRegister((int)RegisterType.TMR0) + 1);
                         timer = timer % scaler;
@@ -905,6 +909,318 @@ namespace PicSimulator
         public void SetDelay(int delayBy)
         {
             timerdelay = delayBy;
+        }
+
+        public string GIEBit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 7) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 7) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 7) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.INTCON, 7);
+                    }
+                    NotifyPropertyChanged("GIEBit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.INTCON, 7);
+                    NotifyPropertyChanged("GIEBit");
+                }
+            }
+        }
+
+        public string EEIEBit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 6) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 6) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 6) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.INTCON, 6);
+                    }
+                    NotifyPropertyChanged("EEIEBit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.INTCON, 6);
+                    NotifyPropertyChanged("EEIEBit");
+                }
+            }
+        }
+
+        public string T0IEBit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 5) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 5) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 5) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.INTCON, 5);
+                    }
+                    NotifyPropertyChanged("T0IEBit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.INTCON, 5);
+                    NotifyPropertyChanged("T0IEBit");
+                }
+            }
+        }
+
+        public string INTEBit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 4) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 4) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 4) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.INTCON, 4);
+                    }
+                    NotifyPropertyChanged("INTEBit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.INTCON, 4);
+                    NotifyPropertyChanged("INTEBit");
+                }
+            }
+        }
+
+        public string RBIEBit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 3) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 3) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 3) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.INTCON, 3);
+                    }
+                    NotifyPropertyChanged("RBIEBit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.INTCON, 3);
+                    NotifyPropertyChanged("RBIEBit");
+                }
+            }
+        }
+
+        public string T0IFBit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 2) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 2) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 2) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.INTCON, 2);
+                    }
+                    NotifyPropertyChanged("T0IFBit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.INTCON, 2);
+                    NotifyPropertyChanged("T0IFBit");
+                }
+            }
+        }
+
+        public string INTFBit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 1) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 1) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 1) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.INTCON, 1);
+                    }
+                    NotifyPropertyChanged("INTFBit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.INTCON, 1);
+                    NotifyPropertyChanged("INTFBit");
+                }
+            }
+        }
+
+        public string RBIFBit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 0) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 0) > 0))
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0 && ((registerSet.GetRegister()[(int)RegisterType.INTCON] & 1 << 0) == 0)))
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.INTCON, 0);
+                    }
+                    NotifyPropertyChanged("RBIFBit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.INTCON, 0);
+                    NotifyPropertyChanged("RBIFBit");
+                }
+            }
         }
 
         public RegisterSet GetRegisterSet()

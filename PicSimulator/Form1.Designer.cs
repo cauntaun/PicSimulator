@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menueToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.dateiLadenToolStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,28 +45,30 @@
             this.pclLabel = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.pclLabel1 = new System.Windows.Forms.Label();
-            this.stackLabel = new System.Windows.Forms.Label();
-            this.stackGridView = new System.Windows.Forms.DataGridView();
-            this.stackColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pcLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.irpLabel = new System.Windows.Forms.Label();
             this.rp1Label = new System.Windows.Forms.Label();
             this.rp0Label = new System.Windows.Forms.Label();
+            this.zLabel = new System.Windows.Forms.Label();
             this.toLabel = new System.Windows.Forms.Label();
             this.pdLabel = new System.Windows.Forms.Label();
-            this.zLabel = new System.Windows.Forms.Label();
             this.dcLabel = new System.Windows.Forms.Label();
             this.cLabel = new System.Windows.Forms.Label();
+            this.labelirp = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.wLabel = new System.Windows.Forms.Label();
+            this.stackLabel = new System.Windows.Forms.Label();
+            this.stackGridView = new System.Windows.Forms.DataGridView();
+            this.stackColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.storageGridView = new System.Windows.Forms.DataGridView();
             this.spalte00 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.spalte01 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,35 +82,51 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tmr0Label = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.ps0Label = new System.Windows.Forms.Label();
+            this.ps1Label = new System.Windows.Forms.Label();
+            this.ps2Label = new System.Windows.Forms.Label();
+            this.psaLabel = new System.Windows.Forms.Label();
+            this.t0seLabel = new System.Windows.Forms.Label();
             this.t0csLabel = new System.Windows.Forms.Label();
             this.intedgLabel = new System.Windows.Forms.Label();
             this.rbpuLabel = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.labelirp = new System.Windows.Forms.Label();
-            this.irpLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.t0seLabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.psaLabel = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ps2Label = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.ps1Label = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.ps0Label = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.tmr0Label = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.rbifLabel = new System.Windows.Forms.Label();
+            this.intfLabel = new System.Windows.Forms.Label();
+            this.t0ifLabel = new System.Windows.Forms.Label();
+            this.rbieLabel = new System.Windows.Forms.Label();
+            this.inteLabel = new System.Windows.Forms.Label();
+            this.t0ieLabel = new System.Windows.Forms.Label();
+            this.eeieLabel = new System.Windows.Forms.Label();
+            this.gieLabel = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Lst)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.stackGridView)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stackGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageGridView)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -178,14 +196,14 @@
             this.dataGridView_Lst.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Lst.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Sourcecode});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_Lst.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_Lst.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView_Lst.Location = new System.Drawing.Point(354, 264);
             this.dataGridView_Lst.MultiSelect = false;
             this.dataGridView_Lst.Name = "dataGridView_Lst";
@@ -275,32 +293,6 @@
             this.pclLabel1.TabIndex = 9;
             this.pclLabel1.Text = "PCL:";
             // 
-            // stackLabel
-            // 
-            this.stackLabel.AutoSize = true;
-            this.stackLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stackLabel.Location = new System.Drawing.Point(59, 19);
-            this.stackLabel.Name = "stackLabel";
-            this.stackLabel.Size = new System.Drawing.Size(42, 16);
-            this.stackLabel.TabIndex = 8;
-            this.stackLabel.Text = "Stack";
-            // 
-            // stackGridView
-            // 
-            this.stackGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.stackGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.stackColumn});
-            this.stackGridView.Location = new System.Drawing.Point(6, 35);
-            this.stackGridView.Name = "stackGridView";
-            this.stackGridView.Size = new System.Drawing.Size(151, 185);
-            this.stackGridView.TabIndex = 7;
-            // 
-            // stackColumn
-            // 
-            this.stackColumn.HeaderText = "Stack-Value";
-            this.stackColumn.Name = "stackColumn";
-            this.stackColumn.Width = 105;
-            // 
             // pcLabel
             // 
             this.pcLabel.AutoSize = true;
@@ -344,6 +336,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Status";
             // 
+            // irpLabel
+            // 
+            this.irpLabel.AutoSize = true;
+            this.irpLabel.Location = new System.Drawing.Point(16, 39);
+            this.irpLabel.Name = "irpLabel";
+            this.irpLabel.Size = new System.Drawing.Size(10, 13);
+            this.irpLabel.TabIndex = 4;
+            this.irpLabel.Text = "-";
+            this.irpLabel.Click += new System.EventHandler(this.irpLabel_Click);
+            // 
             // rp1Label
             // 
             this.rp1Label.AutoSize = true;
@@ -363,6 +365,16 @@
             this.rp0Label.TabIndex = 4;
             this.rp0Label.Text = "-";
             this.rp0Label.Click += new System.EventHandler(this.rp0Label_Click);
+            // 
+            // zLabel
+            // 
+            this.zLabel.AutoSize = true;
+            this.zLabel.Location = new System.Drawing.Point(164, 40);
+            this.zLabel.Name = "zLabel";
+            this.zLabel.Size = new System.Drawing.Size(10, 13);
+            this.zLabel.TabIndex = 4;
+            this.zLabel.Text = "-";
+            this.zLabel.Click += new System.EventHandler(this.zLabel_Click);
             // 
             // toLabel
             // 
@@ -384,16 +396,6 @@
             this.pdLabel.Text = "-";
             this.pdLabel.Click += new System.EventHandler(this.pdLabel_Click);
             // 
-            // zLabel
-            // 
-            this.zLabel.AutoSize = true;
-            this.zLabel.Location = new System.Drawing.Point(164, 40);
-            this.zLabel.Name = "zLabel";
-            this.zLabel.Size = new System.Drawing.Size(10, 13);
-            this.zLabel.TabIndex = 4;
-            this.zLabel.Text = "-";
-            this.zLabel.Click += new System.EventHandler(this.zLabel_Click);
-            // 
             // dcLabel
             // 
             this.dcLabel.AutoSize = true;
@@ -414,6 +416,15 @@
             this.cLabel.Text = "-";
             this.cLabel.Click += new System.EventHandler(this.cLabel_Click);
             // 
+            // labelirp
+            // 
+            this.labelirp.AutoSize = true;
+            this.labelirp.Location = new System.Drawing.Point(9, 16);
+            this.labelirp.Name = "labelirp";
+            this.labelirp.Size = new System.Drawing.Size(25, 13);
+            this.labelirp.TabIndex = 3;
+            this.labelirp.Text = "IRP";
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -423,14 +434,14 @@
             this.label9.TabIndex = 3;
             this.label9.Text = "RP1";
             // 
-            // label15
+            // label14
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(74, 17);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(28, 13);
-            this.label15.TabIndex = 3;
-            this.label15.Text = "RP0";
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(103, 17);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(22, 13);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "TO";
             // 
             // label10
             // 
@@ -441,14 +452,23 @@
             this.label10.TabIndex = 3;
             this.label10.Text = "C";
             // 
-            // label14
+            // label12
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(103, 17);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(22, 13);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "TO";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(162, 17);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(14, 13);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "Z";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(74, 17);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(28, 13);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "RP0";
             // 
             // label11
             // 
@@ -467,15 +487,6 @@
             this.label13.Size = new System.Drawing.Size(22, 13);
             this.label13.TabIndex = 3;
             this.label13.Text = "PD";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(162, 17);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(14, 13);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "Z";
             // 
             // label6
             // 
@@ -496,6 +507,32 @@
             this.wLabel.Size = new System.Drawing.Size(16, 24);
             this.wLabel.TabIndex = 1;
             this.wLabel.Text = "-";
+            // 
+            // stackLabel
+            // 
+            this.stackLabel.AutoSize = true;
+            this.stackLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stackLabel.Location = new System.Drawing.Point(59, 19);
+            this.stackLabel.Name = "stackLabel";
+            this.stackLabel.Size = new System.Drawing.Size(42, 16);
+            this.stackLabel.TabIndex = 8;
+            this.stackLabel.Text = "Stack";
+            // 
+            // stackGridView
+            // 
+            this.stackGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.stackGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.stackColumn});
+            this.stackGridView.Location = new System.Drawing.Point(6, 35);
+            this.stackGridView.Name = "stackGridView";
+            this.stackGridView.Size = new System.Drawing.Size(151, 185);
+            this.stackGridView.TabIndex = 7;
+            // 
+            // stackColumn
+            // 
+            this.stackColumn.HeaderText = "Stack-Value";
+            this.stackColumn.Name = "stackColumn";
+            this.stackColumn.Width = 105;
             // 
             // storageGridView
             // 
@@ -609,6 +646,7 @@
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.stackLabel);
             this.groupBox3.Controls.Add(this.stackGridView);
+            this.groupBox3.Controls.Add(this.groupBox5);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Location = new System.Drawing.Point(354, 27);
             this.groupBox3.Name = "groupBox3";
@@ -616,6 +654,24 @@
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Sonstiges";
+            // 
+            // tmr0Label
+            // 
+            this.tmr0Label.AutoSize = true;
+            this.tmr0Label.Location = new System.Drawing.Point(536, 34);
+            this.tmr0Label.Name = "tmr0Label";
+            this.tmr0Label.Size = new System.Drawing.Size(10, 13);
+            this.tmr0Label.TabIndex = 10;
+            this.tmr0Label.Text = "-";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(489, 34);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(40, 13);
+            this.label16.TabIndex = 9;
+            this.label16.Text = "TMR0:";
             // 
             // groupBox4
             // 
@@ -641,6 +697,56 @@
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Option";
+            // 
+            // ps0Label
+            // 
+            this.ps0Label.AutoSize = true;
+            this.ps0Label.Location = new System.Drawing.Point(294, 39);
+            this.ps0Label.Name = "ps0Label";
+            this.ps0Label.Size = new System.Drawing.Size(10, 13);
+            this.ps0Label.TabIndex = 4;
+            this.ps0Label.Text = "-";
+            this.ps0Label.Click += new System.EventHandler(this.ps0Label_Click);
+            // 
+            // ps1Label
+            // 
+            this.ps1Label.AutoSize = true;
+            this.ps1Label.Location = new System.Drawing.Point(261, 39);
+            this.ps1Label.Name = "ps1Label";
+            this.ps1Label.Size = new System.Drawing.Size(10, 13);
+            this.ps1Label.TabIndex = 4;
+            this.ps1Label.Text = "-";
+            this.ps1Label.Click += new System.EventHandler(this.ps1Label_Click);
+            // 
+            // ps2Label
+            // 
+            this.ps2Label.AutoSize = true;
+            this.ps2Label.Location = new System.Drawing.Point(228, 39);
+            this.ps2Label.Name = "ps2Label";
+            this.ps2Label.Size = new System.Drawing.Size(10, 13);
+            this.ps2Label.TabIndex = 4;
+            this.ps2Label.Text = "-";
+            this.ps2Label.Click += new System.EventHandler(this.ps2Label_Click);
+            // 
+            // psaLabel
+            // 
+            this.psaLabel.AutoSize = true;
+            this.psaLabel.Location = new System.Drawing.Point(194, 39);
+            this.psaLabel.Name = "psaLabel";
+            this.psaLabel.Size = new System.Drawing.Size(10, 13);
+            this.psaLabel.TabIndex = 4;
+            this.psaLabel.Text = "-";
+            this.psaLabel.Click += new System.EventHandler(this.psaLabel_Click);
+            // 
+            // t0seLabel
+            // 
+            this.t0seLabel.AutoSize = true;
+            this.t0seLabel.Location = new System.Drawing.Point(157, 39);
+            this.t0seLabel.Name = "t0seLabel";
+            this.t0seLabel.Size = new System.Drawing.Size(10, 13);
+            this.t0seLabel.TabIndex = 4;
+            this.t0seLabel.Text = "-";
+            this.t0seLabel.Click += new System.EventHandler(this.t0seLabel_Click);
             // 
             // t0csLabel
             // 
@@ -691,90 +797,14 @@
             this.label22.TabIndex = 3;
             this.label22.Text = "INTEDG";
             // 
-            // label24
+            // label5
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(105, 16);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(34, 13);
-            this.label24.TabIndex = 3;
-            this.label24.Text = "T0CS";
-            // 
-            // labelirp
-            // 
-            this.labelirp.AutoSize = true;
-            this.labelirp.Location = new System.Drawing.Point(9, 16);
-            this.labelirp.Name = "labelirp";
-            this.labelirp.Size = new System.Drawing.Size(25, 13);
-            this.labelirp.TabIndex = 3;
-            this.labelirp.Text = "IRP";
-            // 
-            // irpLabel
-            // 
-            this.irpLabel.AutoSize = true;
-            this.irpLabel.Location = new System.Drawing.Point(16, 39);
-            this.irpLabel.Name = "irpLabel";
-            this.irpLabel.Size = new System.Drawing.Size(10, 13);
-            this.irpLabel.TabIndex = 4;
-            this.irpLabel.Text = "-";
-            this.irpLabel.Click += new System.EventHandler(this.irpLabel_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(145, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "T0SE";
-            // 
-            // t0seLabel
-            // 
-            this.t0seLabel.AutoSize = true;
-            this.t0seLabel.Location = new System.Drawing.Point(157, 39);
-            this.t0seLabel.Name = "t0seLabel";
-            this.t0seLabel.Size = new System.Drawing.Size(10, 13);
-            this.t0seLabel.TabIndex = 4;
-            this.t0seLabel.Text = "-";
-            this.t0seLabel.Click += new System.EventHandler(this.t0seLabel_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(185, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(28, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "PSA";
-            // 
-            // psaLabel
-            // 
-            this.psaLabel.AutoSize = true;
-            this.psaLabel.Location = new System.Drawing.Point(194, 39);
-            this.psaLabel.Name = "psaLabel";
-            this.psaLabel.Size = new System.Drawing.Size(10, 13);
-            this.psaLabel.TabIndex = 4;
-            this.psaLabel.Text = "-";
-            this.psaLabel.Click += new System.EventHandler(this.psaLabel_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(219, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(27, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "PS2";
-            // 
-            // ps2Label
-            // 
-            this.ps2Label.AutoSize = true;
-            this.ps2Label.Location = new System.Drawing.Point(228, 39);
-            this.ps2Label.Name = "ps2Label";
-            this.ps2Label.Size = new System.Drawing.Size(10, 13);
-            this.ps2Label.TabIndex = 4;
-            this.ps2Label.Text = "-";
-            this.ps2Label.Click += new System.EventHandler(this.ps2Label_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(285, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(27, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "PS0";
             // 
             // label4
             // 
@@ -785,52 +815,219 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "PS1";
             // 
-            // ps1Label
+            // label3
             // 
-            this.ps1Label.AutoSize = true;
-            this.ps1Label.Location = new System.Drawing.Point(261, 39);
-            this.ps1Label.Name = "ps1Label";
-            this.ps1Label.Size = new System.Drawing.Size(10, 13);
-            this.ps1Label.TabIndex = 4;
-            this.ps1Label.Text = "-";
-            this.ps1Label.Click += new System.EventHandler(this.ps1Label_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(219, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(27, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "PS2";
             // 
-            // label5
+            // label2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(285, 17);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(27, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "PS0";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(185, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(28, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "PSA";
             // 
-            // ps0Label
+            // label1
             // 
-            this.ps0Label.AutoSize = true;
-            this.ps0Label.Location = new System.Drawing.Point(294, 39);
-            this.ps0Label.Name = "ps0Label";
-            this.ps0Label.Size = new System.Drawing.Size(10, 13);
-            this.ps0Label.TabIndex = 4;
-            this.ps0Label.Text = "-";
-            this.ps0Label.Click += new System.EventHandler(this.ps0Label_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(145, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "T0SE";
             // 
-            // label16
+            // label24
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(489, 34);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(40, 13);
-            this.label16.TabIndex = 9;
-            this.label16.Text = "TMR0:";
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(105, 16);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(34, 13);
+            this.label24.TabIndex = 3;
+            this.label24.Text = "T0CS";
             // 
-            // tmr0Label
+            // groupBox5
             // 
-            this.tmr0Label.AutoSize = true;
-            this.tmr0Label.Location = new System.Drawing.Point(536, 34);
-            this.tmr0Label.Name = "tmr0Label";
-            this.tmr0Label.Size = new System.Drawing.Size(10, 13);
-            this.tmr0Label.TabIndex = 10;
-            this.tmr0Label.Text = "-";
+            this.groupBox5.Controls.Add(this.rbifLabel);
+            this.groupBox5.Controls.Add(this.intfLabel);
+            this.groupBox5.Controls.Add(this.t0ifLabel);
+            this.groupBox5.Controls.Add(this.rbieLabel);
+            this.groupBox5.Controls.Add(this.inteLabel);
+            this.groupBox5.Controls.Add(this.t0ieLabel);
+            this.groupBox5.Controls.Add(this.eeieLabel);
+            this.groupBox5.Controls.Add(this.gieLabel);
+            this.groupBox5.Controls.Add(this.label28);
+            this.groupBox5.Controls.Add(this.label29);
+            this.groupBox5.Controls.Add(this.label30);
+            this.groupBox5.Controls.Add(this.label31);
+            this.groupBox5.Controls.Add(this.label32);
+            this.groupBox5.Controls.Add(this.label33);
+            this.groupBox5.Controls.Add(this.label34);
+            this.groupBox5.Controls.Add(this.label35);
+            this.groupBox5.Location = new System.Drawing.Point(163, 90);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(320, 65);
+            this.groupBox5.TabIndex = 4;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Intcon";
+            // 
+            // rbifLabel
+            // 
+            this.rbifLabel.AutoSize = true;
+            this.rbifLabel.Location = new System.Drawing.Point(265, 37);
+            this.rbifLabel.Name = "rbifLabel";
+            this.rbifLabel.Size = new System.Drawing.Size(10, 13);
+            this.rbifLabel.TabIndex = 4;
+            this.rbifLabel.Text = "-";
+            this.rbifLabel.Click += new System.EventHandler(this.rbifLabel_Click);
+            // 
+            // intfLabel
+            // 
+            this.intfLabel.AutoSize = true;
+            this.intfLabel.Location = new System.Drawing.Point(228, 37);
+            this.intfLabel.Name = "intfLabel";
+            this.intfLabel.Size = new System.Drawing.Size(10, 13);
+            this.intfLabel.TabIndex = 4;
+            this.intfLabel.Text = "-";
+            this.intfLabel.Click += new System.EventHandler(this.intfLabel_Click);
+            // 
+            // t0ifLabel
+            // 
+            this.t0ifLabel.AutoSize = true;
+            this.t0ifLabel.Location = new System.Drawing.Point(197, 37);
+            this.t0ifLabel.Name = "t0ifLabel";
+            this.t0ifLabel.Size = new System.Drawing.Size(10, 13);
+            this.t0ifLabel.TabIndex = 4;
+            this.t0ifLabel.Text = "-";
+            this.t0ifLabel.Click += new System.EventHandler(this.t0ifLabel_Click);
+            // 
+            // rbieLabel
+            // 
+            this.rbieLabel.AutoSize = true;
+            this.rbieLabel.Location = new System.Drawing.Point(159, 37);
+            this.rbieLabel.Name = "rbieLabel";
+            this.rbieLabel.Size = new System.Drawing.Size(10, 13);
+            this.rbieLabel.TabIndex = 4;
+            this.rbieLabel.Text = "-";
+            this.rbieLabel.Click += new System.EventHandler(this.rbieLabel_Click);
+            // 
+            // inteLabel
+            // 
+            this.inteLabel.AutoSize = true;
+            this.inteLabel.Location = new System.Drawing.Point(124, 38);
+            this.inteLabel.Name = "inteLabel";
+            this.inteLabel.Size = new System.Drawing.Size(10, 13);
+            this.inteLabel.TabIndex = 4;
+            this.inteLabel.Text = "-";
+            this.inteLabel.Click += new System.EventHandler(this.inteLabel_Click);
+            // 
+            // t0ieLabel
+            // 
+            this.t0ieLabel.AutoSize = true;
+            this.t0ieLabel.Location = new System.Drawing.Point(85, 38);
+            this.t0ieLabel.Name = "t0ieLabel";
+            this.t0ieLabel.Size = new System.Drawing.Size(10, 13);
+            this.t0ieLabel.TabIndex = 4;
+            this.t0ieLabel.Text = "-";
+            this.t0ieLabel.Click += new System.EventHandler(this.t0ieLabelLabel_Click);
+            // 
+            // eeieLabel
+            // 
+            this.eeieLabel.AutoSize = true;
+            this.eeieLabel.Location = new System.Drawing.Point(51, 39);
+            this.eeieLabel.Name = "eeieLabel";
+            this.eeieLabel.Size = new System.Drawing.Size(10, 13);
+            this.eeieLabel.TabIndex = 4;
+            this.eeieLabel.Text = "-";
+            this.eeieLabel.Click += new System.EventHandler(this.eeieLabel_Click);
+            // 
+            // gieLabel
+            // 
+            this.gieLabel.AutoSize = true;
+            this.gieLabel.Location = new System.Drawing.Point(16, 39);
+            this.gieLabel.Name = "gieLabel";
+            this.gieLabel.Size = new System.Drawing.Size(10, 13);
+            this.gieLabel.TabIndex = 4;
+            this.gieLabel.Text = "-";
+            this.gieLabel.Click += new System.EventHandler(this.gieLabel_Click);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(8, 16);
+            this.label28.Name = "label28";
+            this.label28.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label28.Size = new System.Drawing.Size(25, 13);
+            this.label28.TabIndex = 3;
+            this.label28.Text = "GIE";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(39, 16);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(31, 13);
+            this.label29.TabIndex = 3;
+            this.label29.Text = "EEIE";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(256, 15);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(31, 13);
+            this.label30.TabIndex = 3;
+            this.label30.Text = "RBIF";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(219, 15);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(31, 13);
+            this.label31.TabIndex = 3;
+            this.label31.Text = "INTF";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(188, 15);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(29, 13);
+            this.label32.TabIndex = 3;
+            this.label32.Text = "T0IF";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(150, 15);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(32, 13);
+            this.label33.TabIndex = 3;
+            this.label33.Text = "RBIE";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(112, 15);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(32, 13);
+            this.label34.TabIndex = 3;
+            this.label34.Text = "INTE";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(76, 15);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(30, 13);
+            this.label35.TabIndex = 3;
+            this.label35.Text = "T0IE";
             // 
             // Form1
             // 
@@ -857,14 +1054,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Lst)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.stackGridView)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stackGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageGridView)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -944,6 +1143,23 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label tmr0Label;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label rbifLabel;
+        private System.Windows.Forms.Label intfLabel;
+        private System.Windows.Forms.Label t0ifLabel;
+        private System.Windows.Forms.Label rbieLabel;
+        private System.Windows.Forms.Label inteLabel;
+        private System.Windows.Forms.Label t0ieLabel;
+        private System.Windows.Forms.Label eeieLabel;
+        private System.Windows.Forms.Label gieLabel;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
     }
 }
 
