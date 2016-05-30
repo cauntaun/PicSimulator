@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menueToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.dateiLadenToolStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -182,6 +182,11 @@
             this.breakpointGridView = new System.Windows.Forms.DataGridView();
             this.pcCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label47 = new System.Windows.Forms.Label();
+            this.quarzComboBox = new System.Windows.Forms.ComboBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.quarzFaktorLabel = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.resetBtn = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Lst)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -264,14 +269,14 @@
             this.dataGridView_Lst.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Lst.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Sourcecode});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_Lst.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_Lst.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_Lst.Location = new System.Drawing.Point(354, 264);
             this.dataGridView_Lst.MultiSelect = false;
             this.dataGridView_Lst.Name = "dataGridView_Lst";
@@ -300,6 +305,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label49);
+            this.groupBox1.Controls.Add(this.quarzFaktorLabel);
+            this.groupBox1.Controls.Add(this.label48);
+            this.groupBox1.Controls.Add(this.quarzComboBox);
             this.groupBox1.Controls.Add(this.tmr0Label);
             this.groupBox1.Controls.Add(this.timeLabel);
             this.groupBox1.Controls.Add(this.label16);
@@ -331,11 +340,12 @@
             // timeLabel
             // 
             this.timeLabel.AutoSize = true;
-            this.timeLabel.Location = new System.Drawing.Point(46, 142);
+            this.timeLabel.Location = new System.Drawing.Point(109, 189);
             this.timeLabel.Name = "timeLabel";
             this.timeLabel.Size = new System.Drawing.Size(10, 13);
             this.timeLabel.TabIndex = 12;
             this.timeLabel.Text = "-";
+            this.timeLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label16
             // 
@@ -349,11 +359,12 @@
             // label_time
             // 
             this.label_time.AutoSize = true;
-            this.label_time.Location = new System.Drawing.Point(3, 142);
+            this.label_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_time.Location = new System.Drawing.Point(10, 189);
             this.label_time.Name = "label_time";
-            this.label_time.Size = new System.Drawing.Size(36, 13);
+            this.label_time.Size = new System.Drawing.Size(81, 13);
             this.label_time.TabIndex = 11;
-            this.label_time.Text = "Time: ";
+            this.label_time.Text = "Laufzeit (in µs): ";
             // 
             // pclLabel
             // 
@@ -385,7 +396,7 @@
             // pcLabel
             // 
             this.pcLabel.AutoSize = true;
-            this.pcLabel.Location = new System.Drawing.Point(297, 212);
+            this.pcLabel.Location = new System.Drawing.Point(292, 212);
             this.pcLabel.Name = "pcLabel";
             this.pcLabel.Size = new System.Drawing.Size(10, 13);
             this.pcLabel.TabIndex = 6;
@@ -703,7 +714,7 @@
             // 
             // btn_nextStep
             // 
-            this.btn_nextStep.Location = new System.Drawing.Point(1289, 480);
+            this.btn_nextStep.Location = new System.Drawing.Point(1290, 515);
             this.btn_nextStep.Name = "btn_nextStep";
             this.btn_nextStep.Size = new System.Drawing.Size(155, 23);
             this.btn_nextStep.TabIndex = 10;
@@ -713,7 +724,7 @@
             // 
             // runBtn
             // 
-            this.runBtn.Location = new System.Drawing.Point(1289, 509);
+            this.runBtn.Location = new System.Drawing.Point(1290, 544);
             this.runBtn.Name = "runBtn";
             this.runBtn.Size = new System.Drawing.Size(155, 23);
             this.runBtn.TabIndex = 11;
@@ -723,7 +734,7 @@
             // 
             // stopBtn
             // 
-            this.stopBtn.Location = new System.Drawing.Point(1289, 538);
+            this.stopBtn.Location = new System.Drawing.Point(1290, 573);
             this.stopBtn.Name = "stopBtn";
             this.stopBtn.Size = new System.Drawing.Size(155, 23);
             this.stopBtn.TabIndex = 12;
@@ -1725,7 +1736,7 @@
             this.breakpointGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.breakpointGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.pcCell});
-            this.breakpointGridView.Location = new System.Drawing.Point(1289, 308);
+            this.breakpointGridView.Location = new System.Drawing.Point(1289, 283);
             this.breakpointGridView.Name = "breakpointGridView";
             this.breakpointGridView.ReadOnly = true;
             this.breakpointGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1737,16 +1748,64 @@
             // 
             this.pcCell.HeaderText = "PC";
             this.pcCell.Name = "pcCell";
+            this.pcCell.ReadOnly = true;
             // 
             // label47
             // 
             this.label47.AutoSize = true;
             this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.Location = new System.Drawing.Point(1293, 289);
+            this.label47.Location = new System.Drawing.Point(1293, 264);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(84, 16);
             this.label47.TabIndex = 20;
             this.label47.Text = "BreakPoints:";
+            // 
+            // quarzComboBox
+            // 
+            this.quarzComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.quarzComboBox.FormattingEnabled = true;
+            this.quarzComboBox.Location = new System.Drawing.Point(95, 157);
+            this.quarzComboBox.Name = "quarzComboBox";
+            this.quarzComboBox.Size = new System.Drawing.Size(121, 21);
+            this.quarzComboBox.TabIndex = 13;
+            this.quarzComboBox.SelectedIndexChanged += new System.EventHandler(this.quarzComboBox_SelectedIndexChanged);
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(10, 160);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(79, 13);
+            this.label48.TabIndex = 14;
+            this.label48.Text = "Quarzfrequenz:";
+            // 
+            // quarzFaktorLabel
+            // 
+            this.quarzFaktorLabel.AutoSize = true;
+            this.quarzFaktorLabel.Location = new System.Drawing.Point(292, 189);
+            this.quarzFaktorLabel.Name = "quarzFaktorLabel";
+            this.quarzFaktorLabel.Size = new System.Drawing.Size(10, 13);
+            this.quarzFaktorLabel.TabIndex = 15;
+            this.quarzFaktorLabel.Text = "-";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(172, 189);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(92, 13);
+            this.label49.TabIndex = 16;
+            this.label49.Text = "Schrittdauer in µs:";
+            // 
+            // resetBtn
+            // 
+            this.resetBtn.Location = new System.Drawing.Point(1290, 486);
+            this.resetBtn.Name = "resetBtn";
+            this.resetBtn.Size = new System.Drawing.Size(155, 23);
+            this.resetBtn.TabIndex = 10;
+            this.resetBtn.Text = "Reset";
+            this.resetBtn.UseVisualStyleBackColor = true;
+            this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
             // 
             // Form1
             // 
@@ -1763,6 +1822,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.stopBtn);
             this.Controls.Add(this.runBtn);
+            this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.btn_nextStep);
             this.Controls.Add(this.storageGridView);
             this.Controls.Add(this.groupBox1);
@@ -1955,6 +2015,11 @@
         private System.Windows.Forms.DataGridView breakpointGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn pcCell;
         private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.ComboBox quarzComboBox;
+        private System.Windows.Forms.Label quarzFaktorLabel;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Button resetBtn;
     }
 }
 

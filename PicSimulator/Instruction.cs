@@ -186,7 +186,7 @@ namespace PicSimulator
             if (result == 0)
             {
                 // skip next execution if 0
-                picSim.ProgramCounter = (Int32.Parse(picSim.ProgramCounter) + 1).ToString("0000");
+                picSim.ProgramCounter = (Int32.Parse(picSim.ProgramCounter, System.Globalization.NumberStyles.HexNumber) + 1).ToString("X4");
                 cycles = 2;
             }
             if (firstArgument == 0)
@@ -222,7 +222,7 @@ namespace PicSimulator
             if (result == 0)
             {
                 // skip next execution if 0
-                picSim.ProgramCounter = (Int32.Parse(picSim.ProgramCounter) + 1).ToString("0000");
+                picSim.ProgramCounter = (Int32.Parse(picSim.ProgramCounter, System.Globalization.NumberStyles.HexNumber) + 1).ToString("X4");
                 cycles++;
             }
             if (firstArgument == 0)
@@ -428,7 +428,7 @@ namespace PicSimulator
             else if (result == 0)
             {
                 // skip next execution if 0
-                picSim.ProgramCounter = (Int32.Parse(picSim.ProgramCounter) + 1).ToString("0000");
+                picSim.ProgramCounter = (Int32.Parse(picSim.ProgramCounter, System.Globalization.NumberStyles.HexNumber) + 1).ToString("X4");
                 return 2;
             }
             return 1;
@@ -441,7 +441,7 @@ namespace PicSimulator
             if (result > 0)
             {
                 // skip next execution if 1
-                picSim.ProgramCounter = (Int32.Parse(picSim.ProgramCounter) + 1).ToString("0000");
+                picSim.ProgramCounter = (Int32.Parse(picSim.ProgramCounter, System.Globalization.NumberStyles.HexNumber) + 1).ToString("X4");
                 return 2;
             }
             else if (result == 0)
@@ -474,8 +474,8 @@ namespace PicSimulator
 
         public int CALL(PicSimulator picSim)
         {
-            picSim.Stack = Int32.Parse(picSim.ProgramCounter) + 1;
-            picSim.ProgramCounter = (firstArgument - 1).ToString("0000");
+            picSim.Stack = Int32.Parse(picSim.ProgramCounter, System.Globalization.NumberStyles.HexNumber) + 1;
+            picSim.ProgramCounter = (firstArgument - 1).ToString("X4");
             return 2;
         }
 
@@ -490,7 +490,7 @@ namespace PicSimulator
         public int GOTO(PicSimulator picSim)
         {
             //Console.Write("Goto: " + firstArgument.ToString("0000"));
-            picSim.ProgramCounter = (firstArgument - 1).ToString("0000");
+            picSim.ProgramCounter = (firstArgument - 1).ToString("X4");
             return 2;
         }
 
@@ -517,13 +517,13 @@ namespace PicSimulator
         public int RETLW(PicSimulator picSim)
         {
             picSim.WRegister = firstArgument.ToString("X2");
-            picSim.ProgramCounter = (picSim.Stack - 1).ToString("0000");
+            picSim.ProgramCounter = (picSim.Stack - 1).ToString("X4");
             return 2;
         }
 
         public int RETURN(PicSimulator picSim)
         {
-            picSim.ProgramCounter = (picSim.Stack - 1).ToString("0000");
+            picSim.ProgramCounter = (picSim.Stack - 1).ToString("X4");
             return 2;
         }
 

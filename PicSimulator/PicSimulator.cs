@@ -11,12 +11,16 @@ namespace PicSimulator
     {
         private InstructionSet instructionSet;
         private RegisterSet registerSet;
-        
+
         private int startLine;
         private int endLine;
         private int programCounter;
         private int timer = 0;
         private Stack<int> stack = new Stack<int>();
+        private double[] quarzFaktor = {
+            1.2207, 4.00,2.00,1.628,1.333,1.221,1.087,1.085,1,0.977,0.954,0.902,0.814,0.8,0.667,0.651,0.640,0.610,0.5,0.4,0.333,0.25,0.2,0.167,0.125,0.100,0.050
+        };
+        //private float quarzFrequenz = 4;
 
         private int wRegister;
         private int cycleCounter = 0;
@@ -66,10 +70,18 @@ namespace PicSimulator
             this.endLine = endLine;
         }
 
-        public void Reset()
+        public void Reset(bool newFile)
         {
+            
             WRegister = 0.ToString("X2");
-            // TODO implement
+            ProgramCounter = 0.ToString("X4");
+            Timer = 0;
+            CycleCounter = 0;
+            if (!newFile)
+            {
+                Program.mainForm.HighlightLine(instructionSet.GetFirstInstruction().GetLineNumber());
+            }
+
         }
 
         public void NextStep()
@@ -79,7 +91,7 @@ namespace PicSimulator
             CycleCounter += cycles;
             Timer += cycles;
             Console.Write("Timer: " + Timer);
-            ProgramCounter = (programCounter + 1).ToString();
+            ProgramCounter = (programCounter + 1).ToString("X4");
             Program.mainForm.HighlightLine(instructionSet.GetInstruction(programCounter).GetLineNumber());
         }
 
@@ -727,13 +739,13 @@ namespace PicSimulator
         {
             get
             {
-                return this.programCounter.ToString("0000");
+                return this.programCounter.ToString("X4");
             }
             set
             {
-                if (value != programCounter.ToString("0000"))
+                if (value != programCounter.ToString("X4"))
                 {
-                    programCounter = Int32.Parse(value);
+                    programCounter = Int32.Parse(value, System.Globalization.NumberStyles.HexNumber);
                     //Console.Write("Programmcounter: " + programCounter);
                 }
                 if (programCounter == -1)
@@ -1938,6 +1950,9 @@ namespace PicSimulator
         {
             get
             {
+                //return cycleCounter;
+                //Console.Write("Cycle: " + cycleCounter + " Ergebnis: " + quarzFaktor[Program.mainForm.GetFrequencyIndex()] * cycleCounter);
+                //return cycleCounter * quarzFaktor[1];
                 return cycleCounter;
             }
             set
@@ -1947,9 +1962,36 @@ namespace PicSimulator
                     // do nothing
                 } else {
                     cycleCounter = value;
-                    NotifyPropertyChanged("CycleCounter");
+                    NotifyPropertyChanged("CycleCounterDisplayed");
                 }
+            }
+        }
 
+        public double CycleCounterDisplayed
+        {
+            get
+            {
+                //return cycleCounter;
+                //Console.Write("Cycle: " + cycleCounter + " Ergebnis: " + quarzFaktor[Program.mainForm.GetFrequencyIndex()] * cycleCounter);
+                //return cycleCounter * quarzFaktor[1];
+                return cycleCounter * quarzFaktor[Program.mainForm.GetFrequencyIndex()];
+            }
+            set
+            {
+                
+            }
+        }
+
+        public double QuarzFaktor
+        {
+            get
+            {
+                return quarzFaktor[Program.mainForm.GetFrequencyIndex()];
+            }
+            set
+            {
+                Program.mainForm.SetFrequencyIndex((int)value);
+                NotifyPropertyChanged("QuarzFaktor");
             }
         }
 

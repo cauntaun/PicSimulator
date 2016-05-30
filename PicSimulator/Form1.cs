@@ -31,6 +31,11 @@ namespace PicSimulator
         private Task loopTask;
         private bool run = false;
         private bool firstRun = true;
+        private string[] quarzFrequenzen =
+        {
+            "32.768 kHz", "1 MHz", "2 MHz", "2,4576 MHz", "3 MHz", "3,2768 MHz", "3,68 MHz", "3,686411 MHz", "4 MHz", "4,096 MHz", "4,194304 MHz", "4,433619 MHz", "4,9152 MHz", "5 MHz", "6 MHz", "6,144 MHz", "6,25 MHz", "6,5536 MHz", "8 MHz", "10 MHz", "12 MHz", "16 MHz", "20 MHz", "24 MHz", "32 MHz", "40 MHz", "80 MHz"
+        };
+        private int aktuelleFrequenz = 8;
 
         private List<int> breakpoints = new List<int>();
 
@@ -53,8 +58,18 @@ namespace PicSimulator
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
             }
-            picSimulator.Reset();
+            picSimulator.Reset(true);
             picSimulator.LoadLST(ofd.FileName);
+        }
+
+        public int GetFrequencyIndex()
+        {
+            return aktuelleFrequenz;
+        }
+
+        public void SetFrequencyIndex(int index)
+        {
+            aktuelleFrequenz = index;
         }
 
         /// <summary>
@@ -107,8 +122,16 @@ namespace PicSimulator
             rb5Label.DataBindings.Add("Text", picSimulator, "RB5Bit");
             rb6Label.DataBindings.Add("Text", picSimulator, "RB6Bit");
             rb7Label.DataBindings.Add("Text", picSimulator, "RB7Bit");
+
             
-            timeLabel.DataBindings.Add("Text", picSimulator, "CycleCounter");
+
+            quarzFaktorLabel.DataBindings.Add("Text", picSimulator, "QuarzFaktor");
+
+            quarzComboBox.DataSource = quarzFrequenzen;
+            quarzComboBox.SelectedIndex = 8;
+
+
+            timeLabel.DataBindings.Add("Text", picSimulator, "CycleCounterDisplayed");
 
             CheckForIllegalCrossThreadCalls = false;
 
@@ -456,7 +479,7 @@ namespace PicSimulator
         {
             while (run)
             {
-                if (breakpoints.Contains(Int32.Parse(picSimulator.ProgramCounter)) && !firstRun)
+                if (breakpoints.Contains(Int32.Parse(picSimulator.ProgramCounter, System.Globalization.NumberStyles.HexNumber)) && !firstRun)
                 {
                     run = false;
                 } else
@@ -534,6 +557,23 @@ namespace PicSimulator
             string locationToSavePdf = Path.Combine(Path.GetTempPath(), "Hilfe.pdf"); 
             File.WriteAllBytes(locationToSavePdf, Properties.Resources.Hilfe);   
             Process.Start(locationToSavePdf);   
+            
+        }
+
+        private void quarzComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            picSimulator.QuarzFaktor = quarzComboBox.SelectedIndex;
+            Console.Write(picSimulator.QuarzFaktor);
+        }
+
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            // Reset Storage
+            picSimulator.GetRegisterSet().InitializeRegister();
+            picSimulator.Reset(false);
+            HighlightLine(0);
+            breakpoints = new List<int>();
+            breakpointGridView.Rows.Clear();
             
         }
     }
