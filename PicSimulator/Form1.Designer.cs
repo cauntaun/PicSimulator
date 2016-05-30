@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menueToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.dateiLadenToolStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -207,6 +207,11 @@
             this.pcCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label47 = new System.Windows.Forms.Label();
             this.resetBtn = new System.Windows.Forms.Button();
+            this.label41 = new System.Windows.Forms.Label();
+            this.wdtLabel = new System.Windows.Forms.Label();
+            this.wdtCheckBox = new System.Windows.Forms.CheckBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.wdtScaleLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Lst)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -290,14 +295,14 @@
             this.dataGridView_Lst.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Lst.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Sourcecode});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_Lst.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_Lst.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_Lst.Location = new System.Drawing.Point(354, 264);
             this.dataGridView_Lst.MultiSelect = false;
             this.dataGridView_Lst.Name = "dataGridView_Lst";
@@ -326,6 +331,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.wdtScaleLabel);
+            this.groupBox1.Controls.Add(this.label42);
+            this.groupBox1.Controls.Add(this.wdtCheckBox);
+            this.groupBox1.Controls.Add(this.wdtLabel);
+            this.groupBox1.Controls.Add(this.label41);
             this.groupBox1.Controls.Add(this.label40);
             this.groupBox1.Controls.Add(this.label49);
             this.groupBox1.Controls.Add(this.quarzFaktorLabel);
@@ -2029,6 +2039,52 @@
             this.resetBtn.UseVisualStyleBackColor = true;
             this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
             // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(137, 123);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(69, 13);
+            this.label41.TabIndex = 18;
+            this.label41.Text = "WDT (in ms):";
+            // 
+            // wdtLabel
+            // 
+            this.wdtLabel.AutoSize = true;
+            this.wdtLabel.Location = new System.Drawing.Point(251, 123);
+            this.wdtLabel.Name = "wdtLabel";
+            this.wdtLabel.Size = new System.Drawing.Size(10, 13);
+            this.wdtLabel.TabIndex = 18;
+            this.wdtLabel.Text = "-";
+            // 
+            // wdtCheckBox
+            // 
+            this.wdtCheckBox.AutoSize = true;
+            this.wdtCheckBox.Location = new System.Drawing.Point(121, 123);
+            this.wdtCheckBox.Name = "wdtCheckBox";
+            this.wdtCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.wdtCheckBox.TabIndex = 19;
+            this.wdtCheckBox.UseVisualStyleBackColor = true;
+            this.wdtCheckBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(118, 105);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(112, 13);
+            this.label42.TabIndex = 20;
+            this.label42.Text = "WDT resets at (in ms):";
+            // 
+            // wdtScaleLabel
+            // 
+            this.wdtScaleLabel.AutoSize = true;
+            this.wdtScaleLabel.Location = new System.Drawing.Point(251, 104);
+            this.wdtScaleLabel.Name = "wdtScaleLabel";
+            this.wdtScaleLabel.Size = new System.Drawing.Size(10, 13);
+            this.wdtScaleLabel.TabIndex = 21;
+            this.wdtScaleLabel.Text = "-";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2264,6 +2320,11 @@
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Label wdtLabel;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.CheckBox wdtCheckBox;
+        private System.Windows.Forms.Label wdtScaleLabel;
+        private System.Windows.Forms.Label label42;
     }
 }
 

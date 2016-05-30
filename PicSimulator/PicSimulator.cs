@@ -18,12 +18,15 @@ namespace PicSimulator
         private int timer = 0;
         private Stack<int> stack = new Stack<int>();
         private double[] quarzFaktor = {
-            1.2207, 4.00,2.00,1.628,1.333,1.221,1.087,1.085,1,0.977,0.954,0.902,0.814,0.8,0.667,0.651,0.640,0.610,0.5,0.4,0.333,0.25,0.2,0.167,0.125,0.100,0.050
+            1.2207, 8.00, 4.00,2.00,1.628,1.333,1.221,1.087,1.085,1,0.977,0.954,0.902,0.814,0.8,0.667,0.651,0.640,0.610,0.5,0.4,0.333,0.25,0.2,0.167,0.125,0.100,0.050
         };
         //private float quarzFrequenz = 4;
 
         private int wRegister;
         private int cycleCounter = 0;
+        private int runTimeWDT = 0;
+
+        private bool wdtEnabled = false;
 
         private int timerdelay = 0;
 
@@ -77,6 +80,7 @@ namespace PicSimulator
             ProgramCounter = 0.ToString("X4");
             Timer = 0;
             CycleCounter = 0;
+            Program.mainForm.runTimeChecked(false);
             if (!newFile)
             {
                 Program.mainForm.HighlightLine(instructionSet.GetFirstInstruction().GetLineNumber());
@@ -104,8 +108,14 @@ namespace PicSimulator
                 ProgramCounter = (programCounter + 1).ToString("X4");
             }
             
-            
             Program.mainForm.HighlightLine(instructionSet.GetInstruction(programCounter).GetLineNumber());
+
+            int wdt = GetWDTPrescaler();
+            if (((runTimeWDT * quarzFaktor[Program.mainForm.GetFrequencyIndex()]) / 1000) >= wdt)
+            {
+                // WDT!
+                Reset(false);
+            }
         }
 
         private bool HasInterrupt()
@@ -597,11 +607,13 @@ namespace PicSimulator
                         registerSet.ToggleBit((int)RegisterType.OPTION_REG, 3);
                     }
                     NotifyPropertyChanged("PSABit");
+                    NotifyPropertyChanged("WDTScaler");
                 }
                 catch (FormatException)
                 {
                     registerSet.ToggleBit((int)RegisterType.OPTION_REG, 3);
                     NotifyPropertyChanged("PSABit");
+                    NotifyPropertyChanged("WDTScaler");
                 }
             }
         }
@@ -2854,8 +2866,11 @@ namespace PicSimulator
                 {
                     // do nothing
                 } else {
+                    int cycleCounterBefore = cycleCounter;
                     cycleCounter = value;
+                    runTimeWDT += cycleCounter - cycleCounterBefore;
                     NotifyPropertyChanged("CycleCounterDisplayed");
+                    NotifyPropertyChanged("RunTimeWDT");
                 }
             }
         }
@@ -2867,11 +2882,43 @@ namespace PicSimulator
                 //return cycleCounter;
                 //Console.Write("Cycle: " + cycleCounter + " Ergebnis: " + quarzFaktor[Program.mainForm.GetFrequencyIndex()] * cycleCounter);
                 //return cycleCounter * quarzFaktor[1];
+                //RunTimeWDT += cycleCounter * quarzFaktor[Program.mainForm.GetFrequencyIndex()];
                 return cycleCounter * quarzFaktor[Program.mainForm.GetFrequencyIndex()];
             }
             set
             {
                 
+            }
+        }
+
+        public double RunTimeWDT
+        {
+            get
+            {
+                if (wdtEnabled)
+                {
+                    return (runTimeWDT * quarzFaktor[Program.mainForm.GetFrequencyIndex()]) / 1000;
+                } else
+                {
+                    return 0;
+                }
+                
+            }
+            set
+            {
+                runTimeWDT = (int)value;
+            }
+        }
+
+        public int WDTScaler
+        {
+            get
+            {
+                return GetWDTPrescaler();
+            }
+            set
+            {
+
             }
         }
 
@@ -2896,6 +2943,62 @@ namespace PicSimulator
         public RegisterSet GetRegisterSet()
         {
             return registerSet;
+        }
+
+        public void EnableWDT(bool enabled)
+        {
+            if (enabled)
+            {
+                wdtEnabled = true;
+            } else
+            {
+                wdtEnabled = false;
+            }
+        }
+
+        public void ResetWDT()
+        {
+            runTimeWDT = 0;
+        }
+
+        private int GetWDTPrescaler()
+        {
+            int scaler = 1;
+            if (Int32.Parse(PSABit) == 1)
+            {
+                int bitvalue = (Int32.Parse(PS2Bit) << 2) + (Int32.Parse(PS1Bit) << 1) + (Int32.Parse(PS0Bit));
+                switch (bitvalue)
+                {
+                    case 0:
+                        scaler = 1;
+                        break;
+                    case 1:
+                        scaler = 2;
+                        break;
+                    case 2:
+                        scaler = 4;
+                        break;
+                    case 3:
+                        scaler = 8;
+                        break;
+                    case 4:
+                        scaler = 16;
+                        break;
+                    case 5:
+                        scaler = 32;
+                        break;
+                    case 6:
+                        scaler = 64;
+                        break;
+                    case 7:
+                        scaler = 128;
+                        break;
+                    default:
+                        scaler = 1;
+                        break;
+                }
+            }
+            return scaler * 18;
         }
     }
 }

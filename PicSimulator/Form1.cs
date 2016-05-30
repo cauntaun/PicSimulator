@@ -33,9 +33,9 @@ namespace PicSimulator
         private bool firstRun = true;
         private string[] quarzFrequenzen =
         {
-            "32.768 kHz", "1 MHz", "2 MHz", "2,4576 MHz", "3 MHz", "3,2768 MHz", "3,68 MHz", "3,686411 MHz", "4 MHz", "4,096 MHz", "4,194304 MHz", "4,433619 MHz", "4,9152 MHz", "5 MHz", "6 MHz", "6,144 MHz", "6,25 MHz", "6,5536 MHz", "8 MHz", "10 MHz", "12 MHz", "16 MHz", "20 MHz", "24 MHz", "32 MHz", "40 MHz", "80 MHz"
+            "32.768 kHz", "0.5 MHz", "1 MHz", "2 MHz", "2,4576 MHz", "3 MHz", "3,2768 MHz", "3,68 MHz", "3,686411 MHz", "4 MHz", "4,096 MHz", "4,194304 MHz", "4,433619 MHz", "4,9152 MHz", "5 MHz", "6 MHz", "6,144 MHz", "6,25 MHz", "6,5536 MHz", "8 MHz", "10 MHz", "12 MHz", "16 MHz", "20 MHz", "24 MHz", "32 MHz", "40 MHz", "80 MHz"
         };
-        private int aktuelleFrequenz = 8;
+        private int aktuelleFrequenz = 9;
 
         private List<int> breakpoints = new List<int>();
 
@@ -157,6 +157,10 @@ namespace PicSimulator
             latch7Label.DataBindings.Add("Text", picSimulator, "LATCH7Bit");
 
             quarzFaktorLabel.DataBindings.Add("Text", picSimulator, "QuarzFaktor");
+
+            wdtLabel.DataBindings.Add("Text", picSimulator, "RunTimeWDT");
+
+            wdtScaleLabel.DataBindings.Add("Text", picSimulator, "WDTScaler");
 
             quarzComboBox.DataSource = quarzFrequenzen;
             quarzComboBox.SelectedIndex = 8;
@@ -666,6 +670,29 @@ namespace PicSimulator
         private void latch7Label_Click(object sender, EventArgs e)
         {
             //picSimulator.LATCH7Bit = "";
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (wdtCheckBox.Checked)
+            {
+                picSimulator.ResetWDT();
+                picSimulator.EnableWDT(true);
+            } else
+            {
+                picSimulator.EnableWDT(false);
+            }
+        }
+
+        public void runTimeChecked(bool check)
+        {
+            if (check)
+            {
+                wdtCheckBox.Checked = true;
+            } else
+            {
+                wdtCheckBox.Checked = false;
+            }
         }
     }
 }
