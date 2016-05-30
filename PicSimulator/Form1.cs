@@ -108,6 +108,7 @@ namespace PicSimulator
             t0ifLabel.DataBindings.Add("Text", picSimulator, "T0IFBit");
             intfLabel.DataBindings.Add("Text", picSimulator, "INTFBit");
             rbifLabel.DataBindings.Add("Text", picSimulator, "RBIFBit");
+
             ra0Label.DataBindings.Add("Text", picSimulator, "RA0Bit");
             ra1Label.DataBindings.Add("Text", picSimulator, "RA1Bit");
             ra2Label.DataBindings.Add("Text", picSimulator, "RA2Bit");
@@ -123,7 +124,25 @@ namespace PicSimulator
             rb6Label.DataBindings.Add("Text", picSimulator, "RB6Bit");
             rb7Label.DataBindings.Add("Text", picSimulator, "RB7Bit");
 
-            
+            trisa0Label.DataBindings.Add("Text", picSimulator, "TRISA0Bit");
+            trisa1Label.DataBindings.Add("Text", picSimulator, "TRISA1Bit");
+            trisa2Label.DataBindings.Add("Text", picSimulator, "TRISA2Bit");
+            trisa3Label.DataBindings.Add("Text", picSimulator, "TRISA3Bit");
+            trisa4Label.DataBindings.Add("Text", picSimulator, "TRISA4Bit");
+            trisa5Label.DataBindings.Add("Text", picSimulator, "TRISA5Bit");
+            trisa6Label.DataBindings.Add("Text", picSimulator, "TRISA6Bit");
+            trisa7Label.DataBindings.Add("Text", picSimulator, "TRISA7Bit");
+
+            trisb0Label.DataBindings.Add("Text", picSimulator, "TRISB0Bit");
+            trisb1Label.DataBindings.Add("Text", picSimulator, "TRISB1Bit");
+            trisb2Label.DataBindings.Add("Text", picSimulator, "TRISB2Bit");
+            trisb3Label.DataBindings.Add("Text", picSimulator, "TRISB3Bit");
+            trisb4Label.DataBindings.Add("Text", picSimulator, "TRISB4Bit");
+            trisb5Label.DataBindings.Add("Text", picSimulator, "TRISB5Bit");
+            trisb6Label.DataBindings.Add("Text", picSimulator, "TRISB6Bit");
+            trisb7Label.DataBindings.Add("Text", picSimulator, "TRISB7Bit");
+
+
 
             quarzFaktorLabel.DataBindings.Add("Text", picSimulator, "QuarzFaktor");
 
@@ -424,21 +443,38 @@ namespace PicSimulator
         private void rb7Label_Click(object sender, EventArgs e)
         {
             picSimulator.RB7Bit = "";
+            if (IsSetAsInput(7))
+            {
+                picSimulator.RBIFBit = "1";
+            }
+            
         }
 
         private void rb6Label_Click(object sender, EventArgs e)
         {
             picSimulator.RB6Bit = "";
+            if (IsSetAsInput(6))
+            {
+                picSimulator.RBIFBit = "1";
+            }
         }
 
         private void rb5Label_Click(object sender, EventArgs e)
         {
             picSimulator.RB5Bit = "";
+            if (IsSetAsInput(5))
+            {
+                picSimulator.RBIFBit = "1";
+            }
         }
 
         private void rb4Label_Click(object sender, EventArgs e)
         {
             picSimulator.RB4Bit = "";
+            if (IsSetAsInput(4))
+            {
+                picSimulator.RBIFBit = "1";
+            }
         }
 
         private void rb3Label_Click(object sender, EventArgs e)
@@ -458,6 +494,24 @@ namespace PicSimulator
 
         private void rb0Label_Click(object sender, EventArgs e)
         {
+            if (Int32.Parse(picSimulator.INTEDGBit) == 0) {
+                if (Int32.Parse(picSimulator.RB0Bit) == 0)
+                {
+                    // No interrupt
+                } else
+                {
+                    picSimulator.INTFBit = "1";
+                }
+            } else
+            {
+                if (Int32.Parse(picSimulator.RB0Bit) == 0)
+                {
+                    picSimulator.INTFBit = "1";
+                } else
+                {
+                    // No interrupt
+                }
+            }
             picSimulator.RB0Bit = "";
         }
 
@@ -490,7 +544,6 @@ namespace PicSimulator
                 firstRun = false;
             }
         }
-
 
         void ISynchronousCall.Invoke(Delegate method, params object[] args)
         {
@@ -575,6 +628,27 @@ namespace PicSimulator
             breakpoints = new List<int>();
             breakpointGridView.Rows.Clear();
             
+        }
+
+        public void showInterruptMessage(bool show)
+        {
+            if (show)
+            {
+                interruptLabel.Text = "An Interrupt occured!";
+            } else
+            {
+                interruptLabel.Text = "";
+            }
+        }
+
+        private bool IsSetAsInput(int bit)
+        {
+            int trisB = picSimulator.GetRegister((int)RegisterType.TRISB);
+            if ((trisB & (1 << bit)) > 0)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

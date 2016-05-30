@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menueToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.dateiLadenToolStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,25 +89,25 @@
             this.rb0Label = new System.Windows.Forms.Label();
             this.rb1Label = new System.Windows.Forms.Label();
             this.rb2Label = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
+            this.trisb0Label = new System.Windows.Forms.Label();
+            this.trisb1Label = new System.Windows.Forms.Label();
+            this.trisb2Label = new System.Windows.Forms.Label();
             this.rb3Label = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
+            this.trisb3Label = new System.Windows.Forms.Label();
             this.rb4Label = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
-            this.label68 = new System.Windows.Forms.Label();
+            this.trisb4Label = new System.Windows.Forms.Label();
             this.rb5Label = new System.Windows.Forms.Label();
             this.label70 = new System.Windows.Forms.Label();
-            this.label71 = new System.Windows.Forms.Label();
+            this.trisb5Label = new System.Windows.Forms.Label();
             this.rb6Label = new System.Windows.Forms.Label();
             this.label73 = new System.Windows.Forms.Label();
-            this.label74 = new System.Windows.Forms.Label();
+            this.trisb6Label = new System.Windows.Forms.Label();
             this.rb7Label = new System.Windows.Forms.Label();
             this.label76 = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
+            this.trisb7Label = new System.Windows.Forms.Label();
             this.label78 = new System.Windows.Forms.Label();
             this.label79 = new System.Windows.Forms.Label();
             this.label80 = new System.Windows.Forms.Label();
@@ -117,25 +117,25 @@
             this.ra0Label = new System.Windows.Forms.Label();
             this.ra1Label = new System.Windows.Forms.Label();
             this.ra2Label = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
+            this.trisa0Label = new System.Windows.Forms.Label();
+            this.trisa1Label = new System.Windows.Forms.Label();
+            this.trisa2Label = new System.Windows.Forms.Label();
             this.ra3Label = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
+            this.trisa3Label = new System.Windows.Forms.Label();
             this.ra4Label = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
+            this.trisa4Label = new System.Windows.Forms.Label();
             this.ra5Label = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
+            this.trisa5Label = new System.Windows.Forms.Label();
             this.ra6Label = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
+            this.trisa6Label = new System.Windows.Forms.Label();
             this.ra7Label = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
+            this.trisa7Label = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -187,6 +187,7 @@
             this.quarzFaktorLabel = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
             this.resetBtn = new System.Windows.Forms.Button();
+            this.interruptLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Lst)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -269,14 +270,14 @@
             this.dataGridView_Lst.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Lst.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Sourcecode});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_Lst.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_Lst.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView_Lst.Location = new System.Drawing.Point(354, 264);
             this.dataGridView_Lst.MultiSelect = false;
             this.dataGridView_Lst.Name = "dataGridView_Lst";
@@ -744,6 +745,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.interruptLabel);
             this.groupBox3.Controls.Add(this.stackLabel);
             this.groupBox3.Controls.Add(this.stackGridView);
             this.groupBox3.Controls.Add(this.groupBox7);
@@ -763,25 +765,25 @@
             this.groupBox7.Controls.Add(this.rb0Label);
             this.groupBox7.Controls.Add(this.rb1Label);
             this.groupBox7.Controls.Add(this.rb2Label);
-            this.groupBox7.Controls.Add(this.label59);
-            this.groupBox7.Controls.Add(this.label60);
-            this.groupBox7.Controls.Add(this.label61);
+            this.groupBox7.Controls.Add(this.trisb0Label);
+            this.groupBox7.Controls.Add(this.trisb1Label);
+            this.groupBox7.Controls.Add(this.trisb2Label);
             this.groupBox7.Controls.Add(this.rb3Label);
             this.groupBox7.Controls.Add(this.label63);
             this.groupBox7.Controls.Add(this.label64);
-            this.groupBox7.Controls.Add(this.label65);
+            this.groupBox7.Controls.Add(this.trisb3Label);
             this.groupBox7.Controls.Add(this.rb4Label);
             this.groupBox7.Controls.Add(this.label67);
-            this.groupBox7.Controls.Add(this.label68);
+            this.groupBox7.Controls.Add(this.trisb4Label);
             this.groupBox7.Controls.Add(this.rb5Label);
             this.groupBox7.Controls.Add(this.label70);
-            this.groupBox7.Controls.Add(this.label71);
+            this.groupBox7.Controls.Add(this.trisb5Label);
             this.groupBox7.Controls.Add(this.rb6Label);
             this.groupBox7.Controls.Add(this.label73);
-            this.groupBox7.Controls.Add(this.label74);
+            this.groupBox7.Controls.Add(this.trisb6Label);
             this.groupBox7.Controls.Add(this.rb7Label);
             this.groupBox7.Controls.Add(this.label76);
-            this.groupBox7.Controls.Add(this.label77);
+            this.groupBox7.Controls.Add(this.trisb7Label);
             this.groupBox7.Controls.Add(this.label78);
             this.groupBox7.Controls.Add(this.label79);
             this.groupBox7.Controls.Add(this.label80);
@@ -832,32 +834,32 @@
             this.rb2Label.Text = "0";
             this.rb2Label.Click += new System.EventHandler(this.rb2Label_Click);
             // 
-            // label59
+            // trisb0Label
             // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(187, 42);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(13, 13);
-            this.label59.TabIndex = 5;
-            this.label59.Text = "0";
+            this.trisb0Label.AutoSize = true;
+            this.trisb0Label.Location = new System.Drawing.Point(187, 42);
+            this.trisb0Label.Name = "trisb0Label";
+            this.trisb0Label.Size = new System.Drawing.Size(13, 13);
+            this.trisb0Label.TabIndex = 5;
+            this.trisb0Label.Text = "0";
             // 
-            // label60
+            // trisb1Label
             // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(168, 42);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(13, 13);
-            this.label60.TabIndex = 5;
-            this.label60.Text = "0";
+            this.trisb1Label.AutoSize = true;
+            this.trisb1Label.Location = new System.Drawing.Point(168, 42);
+            this.trisb1Label.Name = "trisb1Label";
+            this.trisb1Label.Size = new System.Drawing.Size(13, 13);
+            this.trisb1Label.TabIndex = 5;
+            this.trisb1Label.Text = "0";
             // 
-            // label61
+            // trisb2Label
             // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(149, 42);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(13, 13);
-            this.label61.TabIndex = 5;
-            this.label61.Text = "0";
+            this.trisb2Label.AutoSize = true;
+            this.trisb2Label.Location = new System.Drawing.Point(149, 42);
+            this.trisb2Label.Name = "trisb2Label";
+            this.trisb2Label.Size = new System.Drawing.Size(13, 13);
+            this.trisb2Label.TabIndex = 5;
+            this.trisb2Label.Text = "0";
             // 
             // rb3Label
             // 
@@ -887,14 +889,14 @@
             this.label64.TabIndex = 5;
             this.label64.Text = "1";
             // 
-            // label65
+            // trisb3Label
             // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(130, 42);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(13, 13);
-            this.label65.TabIndex = 5;
-            this.label65.Text = "0";
+            this.trisb3Label.AutoSize = true;
+            this.trisb3Label.Location = new System.Drawing.Point(130, 42);
+            this.trisb3Label.Name = "trisb3Label";
+            this.trisb3Label.Size = new System.Drawing.Size(13, 13);
+            this.trisb3Label.TabIndex = 5;
+            this.trisb3Label.Text = "0";
             // 
             // rb4Label
             // 
@@ -915,14 +917,14 @@
             this.label67.TabIndex = 5;
             this.label67.Text = "2";
             // 
-            // label68
+            // trisb4Label
             // 
-            this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(111, 42);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(13, 13);
-            this.label68.TabIndex = 5;
-            this.label68.Text = "0";
+            this.trisb4Label.AutoSize = true;
+            this.trisb4Label.Location = new System.Drawing.Point(111, 42);
+            this.trisb4Label.Name = "trisb4Label";
+            this.trisb4Label.Size = new System.Drawing.Size(13, 13);
+            this.trisb4Label.TabIndex = 5;
+            this.trisb4Label.Text = "0";
             // 
             // rb5Label
             // 
@@ -943,14 +945,14 @@
             this.label70.TabIndex = 5;
             this.label70.Text = "3";
             // 
-            // label71
+            // trisb5Label
             // 
-            this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(92, 42);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(13, 13);
-            this.label71.TabIndex = 5;
-            this.label71.Text = "0";
+            this.trisb5Label.AutoSize = true;
+            this.trisb5Label.Location = new System.Drawing.Point(92, 42);
+            this.trisb5Label.Name = "trisb5Label";
+            this.trisb5Label.Size = new System.Drawing.Size(13, 13);
+            this.trisb5Label.TabIndex = 5;
+            this.trisb5Label.Text = "0";
             // 
             // rb6Label
             // 
@@ -971,14 +973,14 @@
             this.label73.TabIndex = 5;
             this.label73.Text = "4";
             // 
-            // label74
+            // trisb6Label
             // 
-            this.label74.AutoSize = true;
-            this.label74.Location = new System.Drawing.Point(73, 42);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(13, 13);
-            this.label74.TabIndex = 5;
-            this.label74.Text = "0";
+            this.trisb6Label.AutoSize = true;
+            this.trisb6Label.Location = new System.Drawing.Point(73, 42);
+            this.trisb6Label.Name = "trisb6Label";
+            this.trisb6Label.Size = new System.Drawing.Size(13, 13);
+            this.trisb6Label.TabIndex = 5;
+            this.trisb6Label.Text = "0";
             // 
             // rb7Label
             // 
@@ -999,14 +1001,14 @@
             this.label76.TabIndex = 5;
             this.label76.Text = "5";
             // 
-            // label77
+            // trisb7Label
             // 
-            this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(54, 42);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(13, 13);
-            this.label77.TabIndex = 5;
-            this.label77.Text = "0";
+            this.trisb7Label.AutoSize = true;
+            this.trisb7Label.Location = new System.Drawing.Point(54, 42);
+            this.trisb7Label.Name = "trisb7Label";
+            this.trisb7Label.Size = new System.Drawing.Size(13, 13);
+            this.trisb7Label.TabIndex = 5;
+            this.trisb7Label.Text = "0";
             // 
             // label78
             // 
@@ -1050,25 +1052,25 @@
             this.groupBox6.Controls.Add(this.ra0Label);
             this.groupBox6.Controls.Add(this.ra1Label);
             this.groupBox6.Controls.Add(this.ra2Label);
-            this.groupBox6.Controls.Add(this.label55);
-            this.groupBox6.Controls.Add(this.label46);
-            this.groupBox6.Controls.Add(this.label45);
+            this.groupBox6.Controls.Add(this.trisa0Label);
+            this.groupBox6.Controls.Add(this.trisa1Label);
+            this.groupBox6.Controls.Add(this.trisa2Label);
             this.groupBox6.Controls.Add(this.ra3Label);
             this.groupBox6.Controls.Add(this.label54);
             this.groupBox6.Controls.Add(this.label39);
-            this.groupBox6.Controls.Add(this.label44);
+            this.groupBox6.Controls.Add(this.trisa3Label);
             this.groupBox6.Controls.Add(this.ra4Label);
             this.groupBox6.Controls.Add(this.label38);
-            this.groupBox6.Controls.Add(this.label43);
+            this.groupBox6.Controls.Add(this.trisa4Label);
             this.groupBox6.Controls.Add(this.ra5Label);
             this.groupBox6.Controls.Add(this.label37);
-            this.groupBox6.Controls.Add(this.label42);
+            this.groupBox6.Controls.Add(this.trisa5Label);
             this.groupBox6.Controls.Add(this.ra6Label);
             this.groupBox6.Controls.Add(this.label26);
-            this.groupBox6.Controls.Add(this.label41);
+            this.groupBox6.Controls.Add(this.trisa6Label);
             this.groupBox6.Controls.Add(this.ra7Label);
             this.groupBox6.Controls.Add(this.label25);
-            this.groupBox6.Controls.Add(this.label40);
+            this.groupBox6.Controls.Add(this.trisa7Label);
             this.groupBox6.Controls.Add(this.label23);
             this.groupBox6.Controls.Add(this.label21);
             this.groupBox6.Controls.Add(this.label19);
@@ -1119,32 +1121,32 @@
             this.ra2Label.Text = "0";
             this.ra2Label.Click += new System.EventHandler(this.ra2Label_Click);
             // 
-            // label55
+            // trisa0Label
             // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(187, 42);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(13, 13);
-            this.label55.TabIndex = 5;
-            this.label55.Text = "0";
+            this.trisa0Label.AutoSize = true;
+            this.trisa0Label.Location = new System.Drawing.Point(187, 42);
+            this.trisa0Label.Name = "trisa0Label";
+            this.trisa0Label.Size = new System.Drawing.Size(13, 13);
+            this.trisa0Label.TabIndex = 5;
+            this.trisa0Label.Text = "0";
             // 
-            // label46
+            // trisa1Label
             // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(168, 42);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(13, 13);
-            this.label46.TabIndex = 5;
-            this.label46.Text = "0";
+            this.trisa1Label.AutoSize = true;
+            this.trisa1Label.Location = new System.Drawing.Point(168, 42);
+            this.trisa1Label.Name = "trisa1Label";
+            this.trisa1Label.Size = new System.Drawing.Size(13, 13);
+            this.trisa1Label.TabIndex = 5;
+            this.trisa1Label.Text = "0";
             // 
-            // label45
+            // trisa2Label
             // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(149, 42);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(13, 13);
-            this.label45.TabIndex = 5;
-            this.label45.Text = "0";
+            this.trisa2Label.AutoSize = true;
+            this.trisa2Label.Location = new System.Drawing.Point(149, 42);
+            this.trisa2Label.Name = "trisa2Label";
+            this.trisa2Label.Size = new System.Drawing.Size(13, 13);
+            this.trisa2Label.TabIndex = 5;
+            this.trisa2Label.Text = "0";
             // 
             // ra3Label
             // 
@@ -1174,14 +1176,14 @@
             this.label39.TabIndex = 5;
             this.label39.Text = "1";
             // 
-            // label44
+            // trisa3Label
             // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(130, 42);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(13, 13);
-            this.label44.TabIndex = 5;
-            this.label44.Text = "0";
+            this.trisa3Label.AutoSize = true;
+            this.trisa3Label.Location = new System.Drawing.Point(130, 42);
+            this.trisa3Label.Name = "trisa3Label";
+            this.trisa3Label.Size = new System.Drawing.Size(13, 13);
+            this.trisa3Label.TabIndex = 5;
+            this.trisa3Label.Text = "0";
             // 
             // ra4Label
             // 
@@ -1202,14 +1204,14 @@
             this.label38.TabIndex = 5;
             this.label38.Text = "2";
             // 
-            // label43
+            // trisa4Label
             // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(111, 42);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(13, 13);
-            this.label43.TabIndex = 5;
-            this.label43.Text = "0";
+            this.trisa4Label.AutoSize = true;
+            this.trisa4Label.Location = new System.Drawing.Point(111, 42);
+            this.trisa4Label.Name = "trisa4Label";
+            this.trisa4Label.Size = new System.Drawing.Size(13, 13);
+            this.trisa4Label.TabIndex = 5;
+            this.trisa4Label.Text = "0";
             // 
             // ra5Label
             // 
@@ -1229,14 +1231,14 @@
             this.label37.TabIndex = 5;
             this.label37.Text = "3";
             // 
-            // label42
+            // trisa5Label
             // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(92, 42);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(13, 13);
-            this.label42.TabIndex = 5;
-            this.label42.Text = "0";
+            this.trisa5Label.AutoSize = true;
+            this.trisa5Label.Location = new System.Drawing.Point(92, 42);
+            this.trisa5Label.Name = "trisa5Label";
+            this.trisa5Label.Size = new System.Drawing.Size(13, 13);
+            this.trisa5Label.TabIndex = 5;
+            this.trisa5Label.Text = "0";
             // 
             // ra6Label
             // 
@@ -1256,14 +1258,14 @@
             this.label26.TabIndex = 5;
             this.label26.Text = "4";
             // 
-            // label41
+            // trisa6Label
             // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(73, 42);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(13, 13);
-            this.label41.TabIndex = 5;
-            this.label41.Text = "0";
+            this.trisa6Label.AutoSize = true;
+            this.trisa6Label.Location = new System.Drawing.Point(73, 42);
+            this.trisa6Label.Name = "trisa6Label";
+            this.trisa6Label.Size = new System.Drawing.Size(13, 13);
+            this.trisa6Label.TabIndex = 5;
+            this.trisa6Label.Text = "0";
             // 
             // ra7Label
             // 
@@ -1283,14 +1285,14 @@
             this.label25.TabIndex = 5;
             this.label25.Text = "5";
             // 
-            // label40
+            // trisa7Label
             // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(54, 42);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(13, 13);
-            this.label40.TabIndex = 5;
-            this.label40.Text = "0";
+            this.trisa7Label.AutoSize = true;
+            this.trisa7Label.Location = new System.Drawing.Point(54, 42);
+            this.trisa7Label.Name = "trisa7Label";
+            this.trisa7Label.Size = new System.Drawing.Size(13, 13);
+            this.trisa7Label.TabIndex = 5;
+            this.trisa7Label.Text = "0";
             // 
             // label23
             // 
@@ -1807,6 +1809,16 @@
             this.resetBtn.UseVisualStyleBackColor = true;
             this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
             // 
+            // interruptLabel
+            // 
+            this.interruptLabel.AutoSize = true;
+            this.interruptLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interruptLabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.interruptLabel.Location = new System.Drawing.Point(285, 206);
+            this.interruptLabel.Name = "interruptLabel";
+            this.interruptLabel.Size = new System.Drawing.Size(0, 16);
+            this.interruptLabel.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1956,25 +1968,25 @@
         private System.Windows.Forms.Label rb0Label;
         private System.Windows.Forms.Label rb1Label;
         private System.Windows.Forms.Label rb2Label;
-        private System.Windows.Forms.Label label59;
-        private System.Windows.Forms.Label label60;
-        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label trisb0Label;
+        private System.Windows.Forms.Label trisb1Label;
+        private System.Windows.Forms.Label trisb2Label;
         private System.Windows.Forms.Label rb3Label;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.Label label64;
-        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label trisb3Label;
         private System.Windows.Forms.Label rb4Label;
         private System.Windows.Forms.Label label67;
-        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.Label trisb4Label;
         private System.Windows.Forms.Label rb5Label;
         private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.Label trisb5Label;
         private System.Windows.Forms.Label rb6Label;
         private System.Windows.Forms.Label label73;
-        private System.Windows.Forms.Label label74;
+        private System.Windows.Forms.Label trisb6Label;
         private System.Windows.Forms.Label rb7Label;
         private System.Windows.Forms.Label label76;
-        private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.Label trisb7Label;
         private System.Windows.Forms.Label label78;
         private System.Windows.Forms.Label label79;
         private System.Windows.Forms.Label label80;
@@ -1984,25 +1996,25 @@
         private System.Windows.Forms.Label ra0Label;
         private System.Windows.Forms.Label ra1Label;
         private System.Windows.Forms.Label ra2Label;
-        private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label trisa0Label;
+        private System.Windows.Forms.Label trisa1Label;
+        private System.Windows.Forms.Label trisa2Label;
         private System.Windows.Forms.Label ra3Label;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label trisa3Label;
         private System.Windows.Forms.Label ra4Label;
         private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label trisa4Label;
         private System.Windows.Forms.Label ra5Label;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label trisa5Label;
         private System.Windows.Forms.Label ra6Label;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label trisa6Label;
         private System.Windows.Forms.Label ra7Label;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label trisa7Label;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label19;
@@ -2020,6 +2032,7 @@
         private System.Windows.Forms.Label quarzFaktorLabel;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Button resetBtn;
+        private System.Windows.Forms.Label interruptLabel;
     }
 }
 

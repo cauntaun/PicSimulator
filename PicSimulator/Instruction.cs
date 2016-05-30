@@ -512,7 +512,12 @@ namespace PicSimulator
             return 1;
         }
 
-        // TODO: RETFIE
+        public int RETFIE(PicSimulator picSim)
+        {
+            picSim.ProgramCounter = (picSim.Stack - 1).ToString("X4");
+            picSim.GIEBit = "1";
+            return 2;
+        }
 
         public int RETLW(PicSimulator picSim)
         {

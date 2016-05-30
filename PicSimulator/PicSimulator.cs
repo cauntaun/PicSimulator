@@ -91,8 +91,35 @@ namespace PicSimulator
             CycleCounter += cycles;
             Timer += cycles;
             Console.Write("Timer: " + Timer);
-            ProgramCounter = (programCounter + 1).ToString("X4");
+            if ((Int32.Parse(GIEBit) == 1) && HasInterrupt())
+            {
+                GIEBit = "0";
+                Program.mainForm.showInterruptMessage(true);
+                Stack = programCounter + 1;
+                ProgramCounter = "0004";
+
+            } else
+            {
+                Program.mainForm.showInterruptMessage(false);
+                ProgramCounter = (programCounter + 1).ToString("X4");
+            }
+            
+            
             Program.mainForm.HighlightLine(instructionSet.GetInstruction(programCounter).GetLineNumber());
+        }
+
+        private bool HasInterrupt()
+        {
+            bool timerInterrupt = (Int32.Parse(T0IEBit) == 1) && (Int32.Parse(T0IFBit) == 1);
+            bool inteInterrupt = (Int32.Parse(INTEBit) == 1) && (Int32.Parse(INTFBit) == 1);
+            bool rbifInterrupt = (Int32.Parse(RBIEBit) == 1) && (Int32.Parse(RBIFBit) == 1);
+            if (timerInterrupt || inteInterrupt || rbifInterrupt)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
         }
 
         public string WRegister
@@ -1906,6 +1933,646 @@ namespace PicSimulator
                 {
                     registerSet.ToggleBit((int)RegisterType.PORTB, 7);
                     NotifyPropertyChanged("RB7Bit");
+                }
+            }
+        }
+
+        public string TRISA7Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.TRISA] & 1 << 7) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.TRISA] & 1 << 7) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.TRISA, 7);
+                    }
+                    NotifyPropertyChanged("TRISA7Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.TRISA, 7);
+                    NotifyPropertyChanged("TRISA7Bit");
+                }
+            }
+        }
+
+        public string TRISA6Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.TRISA] & 1 << 6) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.TRISA] & 1 << 6) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.TRISA, 6);
+                    }
+                    NotifyPropertyChanged("TRISA6Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.TRISA, 6);
+                    NotifyPropertyChanged("TRISA6Bit");
+                }
+            }
+        }
+
+        public string TRISA5Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.TRISA] & 1 << 5) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.TRISA] & 1 << 5) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.TRISA, 5);
+                    }
+                    NotifyPropertyChanged("TRISA5Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.TRISA, 5);
+                    NotifyPropertyChanged("TRISA5Bit");
+                }
+            }
+        }
+
+        public string TRISA4Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.TRISA] & 1 << 4) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.TRISA] & 1 << 4) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.TRISA, 4);
+                    }
+                    NotifyPropertyChanged("TRISA4Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.TRISA, 4);
+                    NotifyPropertyChanged("TRISA4Bit");
+                }
+            }
+        }
+
+        public string TRISA3Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.TRISA] & 1 << 3) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.TRISA] & 1 << 3) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.TRISA, 3);
+                    }
+                    NotifyPropertyChanged("TRISA3Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.TRISA, 3);
+                    NotifyPropertyChanged("TRISA3Bit");
+                }
+            }
+        }
+
+        public string TRISA2Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.TRISA] & 1 << 2) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.TRISA] & 1 << 2) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.TRISA, 2);
+                    }
+                    NotifyPropertyChanged("TRISA2Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.TRISA, 2);
+                    NotifyPropertyChanged("TRISA2Bit");
+                }
+            }
+        }
+
+        public string TRISA1Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.TRISA] & 1 << 1) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.TRISA] & 1 << 1) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.TRISA, 1);
+                    }
+                    NotifyPropertyChanged("TRISA1Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.TRISA, 1);
+                    NotifyPropertyChanged("TRISA1Bit");
+                }
+            }
+        }
+
+        public string TRISA0Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.TRISA] & 1 << 0) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.TRISA] & 1 << 0) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.TRISA, 0);
+                    }
+                    NotifyPropertyChanged("TRISA0Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.TRISA, 0);
+                    NotifyPropertyChanged("TRISA0Bit");
+                }
+            }
+        }
+
+        public string TRISB7Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.TRISB] & 1 << 7) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.TRISB] & 1 << 7) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.TRISB, 7);
+                    }
+                    NotifyPropertyChanged("TRISB7Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.TRISB, 7);
+                    NotifyPropertyChanged("TRISB7Bit");
+                }
+            }
+        }
+
+        public string TRISB6Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.TRISB] & 1 << 6) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.TRISB] & 1 << 6) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.TRISB, 6);
+                    }
+                    NotifyPropertyChanged("TRISB6Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.TRISB, 6);
+                    NotifyPropertyChanged("TRISB6Bit");
+                }
+            }
+        }
+
+        public string TRISB5Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.TRISB] & 1 << 5) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.TRISB] & 1 << 5) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.TRISB, 5);
+                    }
+                    NotifyPropertyChanged("TRISB5Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.TRISB, 5);
+                    NotifyPropertyChanged("TRISB5Bit");
+                }
+            }
+        }
+
+        public string TRISB4Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.TRISB] & 1 << 4) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.TRISB] & 1 << 4) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.TRISB, 4);
+                    }
+                    NotifyPropertyChanged("TRISB4Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.TRISB, 4);
+                    NotifyPropertyChanged("TRISB4Bit");
+                }
+            }
+        }
+
+        public string TRISB3Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.TRISB] & 1 << 3) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.TRISB] & 1 << 3) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.TRISB, 3);
+                    }
+                    NotifyPropertyChanged("TRISB3Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.TRISB, 3);
+                    NotifyPropertyChanged("TRISB3Bit");
+                }
+            }
+        }
+
+        public string TRISB2Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.TRISB] & 1 << 2) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.TRISB] & 1 << 2) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.TRISB, 2);
+                    }
+                    NotifyPropertyChanged("TRISB2Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.TRISB, 2);
+                    NotifyPropertyChanged("TRISB2Bit");
+                }
+            }
+        }
+
+        public string TRISB1Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.TRISB] & 1 << 1) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.TRISB] & 1 << 1) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.TRISB, 1);
+                    }
+                    NotifyPropertyChanged("TRISB1Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.TRISB, 1);
+                    NotifyPropertyChanged("TRISB1Bit");
+                }
+            }
+        }
+
+        public string TRISB0Bit
+        {
+            get
+            {
+                if ((registerSet.GetRegister()[(int)RegisterType.TRISB] & 1 << 0) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                bool actualValue = ((registerSet.GetRegister()[(int)RegisterType.TRISB] & 1 << 0) > 0);
+                try
+                {
+                    if ((Int32.Parse(value) == 1) && actualValue)
+                    {
+                        //do nothing
+                    }
+                    else if ((Int32.Parse(value) == 0) && actualValue)
+                    {
+
+                    }
+                    else
+                    {
+                        registerSet.ToggleBit((int)RegisterType.TRISB, 0);
+                    }
+                    NotifyPropertyChanged("TRISB0Bit");
+                }
+                catch (FormatException)
+                {
+                    registerSet.ToggleBit((int)RegisterType.TRISB, 0);
+                    NotifyPropertyChanged("TRISB0Bit");
                 }
             }
         }

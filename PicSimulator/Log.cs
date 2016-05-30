@@ -21,7 +21,7 @@ namespace PicSimulator
         public override void Write(string value)
         {
             base.Write(value);
-            this.output.AppendText(value);
+            this.output.AppendText(value + "\n");
         }
 
         public override void Write(char value)
