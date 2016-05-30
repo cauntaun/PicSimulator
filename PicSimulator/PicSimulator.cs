@@ -16,6 +16,7 @@ namespace PicSimulator
         private int endLine;
         private int programCounter;
         private int timer = 0;
+        private bool firstSleep = true;
         private Stack<int> stack = new Stack<int>();
         private double[] quarzFaktor = {
             1.2207, 8.00, 4.00,2.00,1.628,1.333,1.221,1.087,1.085,1,0.977,0.954,0.902,0.814,0.8,0.667,0.651,0.640,0.610,0.5,0.4,0.333,0.25,0.2,0.167,0.125,0.100,0.050
@@ -113,8 +114,15 @@ namespace PicSimulator
             int wdt = GetWDTPrescaler();
             if (((runTimeWDT * quarzFaktor[Program.mainForm.GetFrequencyIndex()]) / 1000) >= wdt)
             {
-                // WDT!
-                Reset(false);
+                if (Int32.Parse(PDBit) == 0)
+                {
+                    firstSleep = true;
+                    ProgramCounter = (Int32.Parse(ProgramCounter, System.Globalization.NumberStyles.HexNumber) + 1).ToString("X4");
+                } else
+                {
+                    // WDT!
+                    Reset(false);
+                }
             }
         }
 
@@ -2999,6 +3007,15 @@ namespace PicSimulator
                 }
             }
             return scaler * 18;
+        }
+
+        public bool GetFirstSleep()
+        {
+            return firstSleep;
+        }
+        public void SetFirstSleep(bool to)
+        {
+            firstSleep = to;
         }
     }
 }

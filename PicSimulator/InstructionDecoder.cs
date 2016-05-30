@@ -151,7 +151,7 @@ namespace PicSimulator
             {
                 return new Instruction(type, hexValue & 0x007F);
             }
-            if (type == InstructionType.ADDWF || type == InstructionType.ANDWF || type == InstructionType.COMF || type == InstructionType.DECF || type == InstructionType.SUBWF || type == InstructionType.RLF || type == InstructionType.RRF || type == InstructionType.MOVF)
+            if (type == InstructionType.SWAPF || type == InstructionType.ADDWF || type == InstructionType.ANDWF || type == InstructionType.COMF || type == InstructionType.DECF || type == InstructionType.SUBWF || type == InstructionType.RLF || type == InstructionType.RRF || type == InstructionType.MOVF)
             {
                 return new Instruction(type, hexValue & 0x0080, hexValue & 0x007F);
             }

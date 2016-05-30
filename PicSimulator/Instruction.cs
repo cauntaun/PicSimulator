@@ -14,7 +14,7 @@ namespace PicSimulator
         private int arguments = -1;
         private int firstArgument = -1;
         private int secondArgument = -1;
-
+        private bool firstSleep = true;
 
         public Instruction(InstructionType type)
         {
@@ -541,8 +541,22 @@ namespace PicSimulator
             picSim.ProgramCounter = (picSim.Stack - 1).ToString("X4");
             return 2;
         }
+        
+        public int SLEEP(PicSimulator picSim)
+        {
+            picSim.PDBit = "0";
+            picSim.TOBit = "1";
+            if (picSim.GetFirstSleep())
+            {
+                picSim.SetFirstSleep(false);
+                picSim.ResetWDT();
+            }
 
-        // TODO: SLEEP
+            // Loop until WDT triggers
+            picSim.ProgramCounter = (Int32.Parse(picSim.ProgramCounter, System.Globalization.NumberStyles.HexNumber) - 1).ToString("X4");
+            return 1;
+
+        }
 
         public int SUBLW(PicSimulator picSim)
         {
