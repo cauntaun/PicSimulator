@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menueToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.dateiLadenToolStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -188,6 +188,7 @@
             this.label49 = new System.Windows.Forms.Label();
             this.resetBtn = new System.Windows.Forms.Button();
             this.interruptLabel = new System.Windows.Forms.Label();
+            this.pclathLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Lst)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -270,14 +271,14 @@
             this.dataGridView_Lst.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Lst.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Sourcecode});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_Lst.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_Lst.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_Lst.Location = new System.Drawing.Point(354, 264);
             this.dataGridView_Lst.MultiSelect = false;
             this.dataGridView_Lst.Name = "dataGridView_Lst";
@@ -315,6 +316,7 @@
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.label_time);
             this.groupBox1.Controls.Add(this.pclLabel);
+            this.groupBox1.Controls.Add(this.pclathLabel);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.pclLabel1);
             this.groupBox1.Controls.Add(this.pcLabel);
@@ -332,7 +334,7 @@
             // tmr0Label
             // 
             this.tmr0Label.AutoSize = true;
-            this.tmr0Label.Location = new System.Drawing.Point(50, 123);
+            this.tmr0Label.Location = new System.Drawing.Point(67, 122);
             this.tmr0Label.Name = "tmr0Label";
             this.tmr0Label.Size = new System.Drawing.Size(10, 13);
             this.tmr0Label.TabIndex = 10;
@@ -370,7 +372,7 @@
             // pclLabel
             // 
             this.pclLabel.AutoSize = true;
-            this.pclLabel.Location = new System.Drawing.Point(57, 89);
+            this.pclLabel.Location = new System.Drawing.Point(67, 89);
             this.pclLabel.Name = "pclLabel";
             this.pclLabel.Size = new System.Drawing.Size(10, 13);
             this.pclLabel.TabIndex = 10;
@@ -1819,6 +1821,15 @@
             this.interruptLabel.Size = new System.Drawing.Size(0, 16);
             this.interruptLabel.TabIndex = 9;
             // 
+            // pclathLabel
+            // 
+            this.pclathLabel.AutoSize = true;
+            this.pclathLabel.Location = new System.Drawing.Point(67, 105);
+            this.pclathLabel.Name = "pclathLabel";
+            this.pclathLabel.Size = new System.Drawing.Size(10, 13);
+            this.pclathLabel.TabIndex = 9;
+            this.pclathLabel.Text = "-";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2033,6 +2044,7 @@
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.Label interruptLabel;
+        private System.Windows.Forms.Label pclathLabel;
     }
 }
 

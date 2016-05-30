@@ -475,7 +475,10 @@ namespace PicSimulator
         public int CALL(PicSimulator picSim)
         {
             picSim.Stack = Int32.Parse(picSim.ProgramCounter, System.Globalization.NumberStyles.HexNumber) + 1;
-            picSim.ProgramCounter = (firstArgument - 1).ToString("X4");
+            //Console.Write("Verwende PCLATH mit: " + (Int32.Parse(picSim.PCLATH) << 8).ToString("X4"));
+            //int newProgramCounter = (firstArgument - 1) | (Int32.Parse(picSim.PCLATH) << 8);
+            //Console.Write("New Program Counter: " + newProgramCounter.ToString("X4") + " in Normal: " + newProgramCounter);
+            picSim.ProgramCounter = ((firstArgument - 1) | (Int32.Parse(picSim.PCLATH) << 8)).ToString("X4");
             return 2;
         }
 
@@ -490,6 +493,7 @@ namespace PicSimulator
         public int GOTO(PicSimulator picSim)
         {
             //Console.Write("Goto: " + firstArgument.ToString("0000"));
+            //picSim.ProgramCounter = ((firstArgument - 1) | (Int32.Parse(picSim.PCLATH) << 8)).ToString("X4");
             picSim.ProgramCounter = (firstArgument - 1).ToString("X4");
             return 2;
         }

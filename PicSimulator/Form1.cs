@@ -90,7 +90,10 @@ namespace PicSimulator
             rp0Label.DataBindings.Add("Text", picSimulator, "RP0Bit");
             rp1Label.DataBindings.Add("Text", picSimulator, "RP1Bit");
             irpLabel.DataBindings.Add("Text", picSimulator, "IRPBit");
+
             pclLabel.DataBindings.Add("Text", picSimulator, "PCL");
+            pclathLabel.DataBindings.Add("Text", picSimulator, "PCLATH");
+
             ps0Label.DataBindings.Add("Text", picSimulator, "PS0Bit");
             ps1Label.DataBindings.Add("Text", picSimulator, "PS1Bit");
             ps2Label.DataBindings.Add("Text", picSimulator, "PS2Bit");
@@ -99,7 +102,9 @@ namespace PicSimulator
             t0csLabel.DataBindings.Add("Text", picSimulator, "T0CSBit");
             intedgLabel.DataBindings.Add("Text", picSimulator, "INTEDGBit");
             rbpuLabel.DataBindings.Add("Text", picSimulator, "RBPUBit");
+
             tmr0Label.DataBindings.Add("Text", picSimulator, "Timer");
+
             gieLabel.DataBindings.Add("Text", picSimulator, "GIEBit");
             eeieLabel.DataBindings.Add("Text", picSimulator, "EEIEBit");
             t0ieLabel.DataBindings.Add("Text", picSimulator, "T0IEBit");

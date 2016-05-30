@@ -772,6 +772,7 @@ namespace PicSimulator
             {
                 if (value != programCounter.ToString("X4"))
                 {
+                    //Console.Write("Value: " + value);
                     programCounter = Int32.Parse(value, System.Globalization.NumberStyles.HexNumber);
                     //Console.Write("Programmcounter: " + programCounter);
                 }
@@ -2614,6 +2615,27 @@ namespace PicSimulator
                     NotifyPropertyChanged("PCL");
                 }
                 
+            }
+        }
+
+        public string PCLATH
+        {
+            get
+            {
+                return (registerSet.GetRegister()[(int)RegisterType.PCLATH] & 0x1F).ToString("X2");
+            }
+            set
+            {
+                if (registerSet.GetRegister()[(int)RegisterType.PCLATH] == Int32.Parse(value) + 1)
+                {
+                    // do nothing
+                }
+                else
+                {
+                    registerSet.SetRegisterAtAddress((int)RegisterType.PCLATH, Int32.Parse(value) + 1);
+                    NotifyPropertyChanged("PCLATH");
+                }
+
             }
         }
 
