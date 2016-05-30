@@ -163,7 +163,7 @@ namespace PicSimulator
             wdtScaleLabel.DataBindings.Add("Text", picSimulator, "WDTScaler");
 
             quarzComboBox.DataSource = quarzFrequenzen;
-            quarzComboBox.SelectedIndex = 8;
+            quarzComboBox.SelectedIndex = 9;
 
 
             timeLabel.DataBindings.Add("Text", picSimulator, "CycleCounterDisplayed");

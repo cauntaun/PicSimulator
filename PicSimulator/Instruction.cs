@@ -491,6 +491,7 @@ namespace PicSimulator
         {
             picSim.TOBit = "1";
             picSim.PDBit = "1";
+            picSim.ResetWDT();
             // TODO reset Prescaler & WDT
             return 1;
         }
