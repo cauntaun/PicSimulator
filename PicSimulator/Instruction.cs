@@ -111,6 +111,11 @@ namespace PicSimulator
             {
                 picSim.GetRegisterSet().SetRegisterAtAddress(GetIndirectAddress(picSim, secondArgument), result);
             }
+            if (secondArgument == 0x02)
+            {
+                picSim.ProgramCounter = ((result - 1) | 0x100).ToString("X4");
+            }
+
             return 1;
         }
 
