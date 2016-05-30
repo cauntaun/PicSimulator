@@ -777,8 +777,17 @@ namespace PicSimulator
                     if (Int32.Parse(T0CSBit) == 0)
                     {
                         timer = value;
+                        if (timerdelay == -1)
+                        {
+                            Console.Write("Timerdelay war: -1 also + 1 fuer timer");
+                            timer += 1;
+                        }
                     } else
                     {
+                        if (value == 0)
+                        {
+                            timer = 0;
+                        }
                         if (Int32.Parse(T0SEBit) == 0)
                         {
                             // -4 => von 0 auf 1, low-to-high
@@ -793,13 +802,8 @@ namespace PicSimulator
                                 timer += 1;
                             }
                         }
-
                     }
-                    if (timerdelay == -1)
-                    {
-                        Console.Write("Timerdelay war: -1 also + 1 fuer timer");
-                        timer += 1;
-                    }
+                    
                     int scaler = 1;
                     if (Int32.Parse(PSABit) == 0)
                     {
