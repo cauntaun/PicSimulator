@@ -1649,11 +1649,13 @@ namespace PicSimulator
                         registerSet.ToggleBit((int)RegisterType.PORTB, 0);
                     }
                     NotifyPropertyChanged("RB0Bit");
+                    NotifyPropertyChanged("LATCH0Bit");
                 }
                 catch (FormatException)
                 {
                     registerSet.ToggleBit((int)RegisterType.PORTB, 0);
                     NotifyPropertyChanged("RB0Bit");
+                    NotifyPropertyChanged("LATCH0Bit");
                 }
             }
         }
@@ -1689,11 +1691,13 @@ namespace PicSimulator
                         registerSet.ToggleBit((int)RegisterType.PORTB, 1);
                     }
                     NotifyPropertyChanged("RB1Bit");
+                    NotifyPropertyChanged("LATCH1Bit");
                 }
                 catch (FormatException)
                 {
                     registerSet.ToggleBit((int)RegisterType.PORTB, 1);
                     NotifyPropertyChanged("RB1Bit");
+                    NotifyPropertyChanged("LATCH1Bit");
                 }
             }
         }
@@ -1729,11 +1733,13 @@ namespace PicSimulator
                         registerSet.ToggleBit((int)RegisterType.PORTB, 2);
                     }
                     NotifyPropertyChanged("RB2Bit");
+                    NotifyPropertyChanged("LATCH2Bit");
                 }
                 catch (FormatException)
                 {
                     registerSet.ToggleBit((int)RegisterType.PORTB, 2);
                     NotifyPropertyChanged("RB2Bit");
+                    NotifyPropertyChanged("LATCH2Bit");
                 }
             }
         }
@@ -1769,11 +1775,13 @@ namespace PicSimulator
                         registerSet.ToggleBit((int)RegisterType.PORTB, 3);
                     }
                     NotifyPropertyChanged("RB3Bit");
+                    NotifyPropertyChanged("LATCH3Bit");
                 }
                 catch (FormatException)
                 {
                     registerSet.ToggleBit((int)RegisterType.PORTB, 3);
                     NotifyPropertyChanged("RB3Bit");
+                    NotifyPropertyChanged("LATCH3Bit");
                 }
             }
         }
@@ -1809,11 +1817,13 @@ namespace PicSimulator
                         registerSet.ToggleBit((int)RegisterType.PORTB, 4);
                     }
                     NotifyPropertyChanged("RB4Bit");
+                    NotifyPropertyChanged("LATCH4Bit");
                 }
                 catch (FormatException)
                 {
                     registerSet.ToggleBit((int)RegisterType.PORTB, 4);
                     NotifyPropertyChanged("RB4Bit");
+                    NotifyPropertyChanged("LATCH4Bit");
                 }
             }
         }
@@ -1849,11 +1859,13 @@ namespace PicSimulator
                         registerSet.ToggleBit((int)RegisterType.PORTB, 5);
                     }
                     NotifyPropertyChanged("RB5Bit");
+                    NotifyPropertyChanged("LATCH5Bit");
                 }
                 catch (FormatException)
                 {
                     registerSet.ToggleBit((int)RegisterType.PORTB, 5);
                     NotifyPropertyChanged("RB5Bit");
+                    NotifyPropertyChanged("LATCH5Bit");
                 }
             }
         }
@@ -1889,11 +1901,13 @@ namespace PicSimulator
                         registerSet.ToggleBit((int)RegisterType.PORTB, 6);
                     }
                     NotifyPropertyChanged("RB6Bit");
+                    NotifyPropertyChanged("LATCH6Bit");
                 }
                 catch (FormatException)
                 {
                     registerSet.ToggleBit((int)RegisterType.PORTB, 6);
                     NotifyPropertyChanged("RB6Bit");
+                    NotifyPropertyChanged("LATCH6Bit");
                 }
             }
         }
@@ -1929,11 +1943,13 @@ namespace PicSimulator
                         registerSet.ToggleBit((int)RegisterType.PORTB, 7);
                     }
                     NotifyPropertyChanged("RB7Bit");
+                    NotifyPropertyChanged("LATCH7Bit");
                 }
                 catch (FormatException)
                 {
                     registerSet.ToggleBit((int)RegisterType.PORTB, 7);
                     NotifyPropertyChanged("RB7Bit");
+                    NotifyPropertyChanged("LATCH7Bit");
                 }
             }
         }
@@ -2289,11 +2305,13 @@ namespace PicSimulator
                         registerSet.ToggleBit((int)RegisterType.TRISB, 7);
                     }
                     NotifyPropertyChanged("TRISB7Bit");
+                    NotifyPropertyChanged("LATCH7Bit");
                 }
                 catch (FormatException)
                 {
                     registerSet.ToggleBit((int)RegisterType.TRISB, 7);
                     NotifyPropertyChanged("TRISB7Bit");
+                    NotifyPropertyChanged("LATCH7Bit");
                 }
             }
         }
@@ -2329,11 +2347,13 @@ namespace PicSimulator
                         registerSet.ToggleBit((int)RegisterType.TRISB, 6);
                     }
                     NotifyPropertyChanged("TRISB6Bit");
+                    NotifyPropertyChanged("LATCH6Bit");
                 }
                 catch (FormatException)
                 {
                     registerSet.ToggleBit((int)RegisterType.TRISB, 6);
                     NotifyPropertyChanged("TRISB6Bit");
+                    NotifyPropertyChanged("LATCH6Bit");
                 }
             }
         }
@@ -2369,11 +2389,13 @@ namespace PicSimulator
                         registerSet.ToggleBit((int)RegisterType.TRISB, 5);
                     }
                     NotifyPropertyChanged("TRISB5Bit");
+                    NotifyPropertyChanged("LATCH5Bit");
                 }
                 catch (FormatException)
                 {
                     registerSet.ToggleBit((int)RegisterType.TRISB, 5);
                     NotifyPropertyChanged("TRISB5Bit");
+                    NotifyPropertyChanged("LATCH5Bit");
                 }
             }
         }
@@ -2409,11 +2431,13 @@ namespace PicSimulator
                         registerSet.ToggleBit((int)RegisterType.TRISB, 4);
                     }
                     NotifyPropertyChanged("TRISB4Bit");
+                    NotifyPropertyChanged("LATCH4Bit");
                 }
                 catch (FormatException)
                 {
                     registerSet.ToggleBit((int)RegisterType.TRISB, 4);
                     NotifyPropertyChanged("TRISB4Bit");
+                    NotifyPropertyChanged("LATCH4Bit");
                 }
             }
         }
@@ -2449,11 +2473,13 @@ namespace PicSimulator
                         registerSet.ToggleBit((int)RegisterType.TRISB, 3);
                     }
                     NotifyPropertyChanged("TRISB3Bit");
+                    NotifyPropertyChanged("LATCH3Bit");
                 }
                 catch (FormatException)
                 {
                     registerSet.ToggleBit((int)RegisterType.TRISB, 3);
                     NotifyPropertyChanged("TRISB3Bit");
+                    NotifyPropertyChanged("LATCH3Bit");
                 }
             }
         }
@@ -2489,11 +2515,13 @@ namespace PicSimulator
                         registerSet.ToggleBit((int)RegisterType.TRISB, 2);
                     }
                     NotifyPropertyChanged("TRISB2Bit");
+                    NotifyPropertyChanged("LATCH2Bit");
                 }
                 catch (FormatException)
                 {
                     registerSet.ToggleBit((int)RegisterType.TRISB, 2);
                     NotifyPropertyChanged("TRISB2Bit");
+                    NotifyPropertyChanged("LATCH2Bit");
                 }
             }
         }
@@ -2529,11 +2557,13 @@ namespace PicSimulator
                         registerSet.ToggleBit((int)RegisterType.TRISB, 1);
                     }
                     NotifyPropertyChanged("TRISB1Bit");
+                    NotifyPropertyChanged("LATCH1Bit");
                 }
                 catch (FormatException)
                 {
                     registerSet.ToggleBit((int)RegisterType.TRISB, 1);
                     NotifyPropertyChanged("TRISB1Bit");
+                    NotifyPropertyChanged("LATCH1Bit");
                 }
             }
         }
@@ -2569,12 +2599,182 @@ namespace PicSimulator
                         registerSet.ToggleBit((int)RegisterType.TRISB, 0);
                     }
                     NotifyPropertyChanged("TRISB0Bit");
+                    NotifyPropertyChanged("LATCH0Bit");
                 }
                 catch (FormatException)
                 {
                     registerSet.ToggleBit((int)RegisterType.TRISB, 0);
                     NotifyPropertyChanged("TRISB0Bit");
+                    NotifyPropertyChanged("LATCH0Bit");
                 }
+            }
+        }
+
+        public string LATCH7Bit
+        {
+            get
+            {
+                int trisb = registerSet.GetRegister()[(int)RegisterType.TRISB];
+                int portb = registerSet.GetRegister()[(int)RegisterType.PORTB];
+                if (((trisb & portb) & (1 << 7)) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                // nothing to be done
+            }
+        }
+
+        public string LATCH6Bit
+        {
+            get
+            {
+                int trisb = registerSet.GetRegister()[(int)RegisterType.TRISB];
+                int portb = registerSet.GetRegister()[(int)RegisterType.PORTB];
+                if (((trisb & portb) & (1 << 6)) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                // nothing to be done
+            }
+        }
+
+        public string LATCH5Bit
+        {
+            get
+            {
+                int trisb = registerSet.GetRegister()[(int)RegisterType.TRISB];
+                int portb = registerSet.GetRegister()[(int)RegisterType.PORTB];
+                if (((trisb & portb) & (1 << 5)) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                // nothing to be done
+            }
+        }
+
+        public string LATCH4Bit
+        {
+            get
+            {
+                int trisb = registerSet.GetRegister()[(int)RegisterType.TRISB];
+                int portb = registerSet.GetRegister()[(int)RegisterType.PORTB];
+                if (((trisb & portb) & (1 << 4)) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                // nothing to be done
+            }
+        }
+
+        public string LATCH3Bit
+        {
+            get
+            {
+                int trisb = registerSet.GetRegister()[(int)RegisterType.TRISB];
+                int portb = registerSet.GetRegister()[(int)RegisterType.PORTB];
+                if (((trisb & portb) & (1 << 3)) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                // nothing to be done
+            }
+        }
+
+        public string LATCH2Bit
+        {
+            get
+            {
+                int trisb = registerSet.GetRegister()[(int)RegisterType.TRISB];
+                int portb = registerSet.GetRegister()[(int)RegisterType.PORTB];
+                if (((trisb & portb) & (1 << 2)) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                // nothing to be done
+            }
+        }
+
+        public string LATCH1Bit
+        {
+            get
+            {
+                int trisb = registerSet.GetRegister()[(int)RegisterType.TRISB];
+                int portb = registerSet.GetRegister()[(int)RegisterType.PORTB];
+                if (((trisb & portb) & (1 << 1)) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                // nothing to be done
+            }
+        }
+
+        public string LATCH0Bit
+        {
+            get
+            {
+                int trisb = registerSet.GetRegister()[(int)RegisterType.TRISB];
+                int portb = registerSet.GetRegister()[(int)RegisterType.PORTB];
+                if (((trisb & portb) & (1 << 0)) > 0)
+                {
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+            }
+            set
+            {
+                // nothing to be done
             }
         }
 

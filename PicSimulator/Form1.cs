@@ -147,7 +147,14 @@ namespace PicSimulator
             trisb6Label.DataBindings.Add("Text", picSimulator, "TRISB6Bit");
             trisb7Label.DataBindings.Add("Text", picSimulator, "TRISB7Bit");
 
-
+            latch0Label.DataBindings.Add("Text", picSimulator, "LATCH0Bit");
+            latch1Label.DataBindings.Add("Text", picSimulator, "LATCH1Bit");
+            latch2Label.DataBindings.Add("Text", picSimulator, "LATCH2Bit");
+            latch3Label.DataBindings.Add("Text", picSimulator, "LATCH3Bit");
+            latch4Label.DataBindings.Add("Text", picSimulator, "LATCH4Bit");
+            latch5Label.DataBindings.Add("Text", picSimulator, "LATCH5Bit");
+            latch6Label.DataBindings.Add("Text", picSimulator, "LATCH6Bit");
+            latch7Label.DataBindings.Add("Text", picSimulator, "LATCH7Bit");
 
             quarzFaktorLabel.DataBindings.Add("Text", picSimulator, "QuarzFaktor");
 
@@ -654,6 +661,11 @@ namespace PicSimulator
                 return true;
             }
             return false;
+        }
+
+        private void latch7Label_Click(object sender, EventArgs e)
+        {
+            //picSimulator.LATCH7Bit = "";
         }
     }
 }

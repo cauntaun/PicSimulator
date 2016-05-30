@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menueToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.dateiLadenToolStrip = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,15 +40,40 @@
             this.Sourcecode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_Clear = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.quarzFaktorLabel = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.quarzComboBox = new System.Windows.Forms.ComboBox();
             this.tmr0Label = new System.Windows.Forms.Label();
             this.timeLabel = new System.Windows.Forms.Label();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.latch7Label = new System.Windows.Forms.Label();
+            this.latch6Label = new System.Windows.Forms.Label();
+            this.latch5Label = new System.Windows.Forms.Label();
+            this.latch2Label = new System.Windows.Forms.Label();
+            this.latch4Label = new System.Windows.Forms.Label();
+            this.latch3Label = new System.Windows.Forms.Label();
+            this.latch1Label = new System.Windows.Forms.Label();
+            this.latch0Label = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label_time = new System.Windows.Forms.Label();
             this.pclLabel = new System.Windows.Forms.Label();
+            this.pclathLabel = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.pclLabel1 = new System.Windows.Forms.Label();
             this.pcLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.wLabel = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.irpLabel = new System.Windows.Forms.Label();
             this.rp1Label = new System.Windows.Forms.Label();
@@ -66,8 +91,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.wLabel = new System.Windows.Forms.Label();
             this.stackLabel = new System.Windows.Forms.Label();
             this.stackGridView = new System.Windows.Forms.DataGridView();
             this.stackColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,6 +107,7 @@
             this.runBtn = new System.Windows.Forms.Button();
             this.stopBtn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.interruptLabel = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label27 = new System.Windows.Forms.Label();
             this.rb0Label = new System.Windows.Forms.Label();
@@ -182,16 +206,11 @@
             this.breakpointGridView = new System.Windows.Forms.DataGridView();
             this.pcCell = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label47 = new System.Windows.Forms.Label();
-            this.quarzComboBox = new System.Windows.Forms.ComboBox();
-            this.label48 = new System.Windows.Forms.Label();
-            this.quarzFaktorLabel = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
             this.resetBtn = new System.Windows.Forms.Button();
-            this.interruptLabel = new System.Windows.Forms.Label();
-            this.pclathLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Lst)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stackGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageGridView)).BeginInit();
@@ -240,7 +259,7 @@
             // hilfeToolStrip
             // 
             this.hilfeToolStrip.Name = "hilfeToolStrip";
-            this.hilfeToolStrip.Size = new System.Drawing.Size(152, 22);
+            this.hilfeToolStrip.Size = new System.Drawing.Size(99, 22);
             this.hilfeToolStrip.Text = "Hilfe";
             this.hilfeToolStrip.Click += new System.EventHandler(this.hilfeToolStrip_Click);
             // 
@@ -271,14 +290,14 @@
             this.dataGridView_Lst.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Lst.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Sourcecode});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_Lst.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_Lst.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView_Lst.Location = new System.Drawing.Point(354, 264);
             this.dataGridView_Lst.MultiSelect = false;
             this.dataGridView_Lst.Name = "dataGridView_Lst";
@@ -307,12 +326,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label40);
             this.groupBox1.Controls.Add(this.label49);
             this.groupBox1.Controls.Add(this.quarzFaktorLabel);
             this.groupBox1.Controls.Add(this.label48);
             this.groupBox1.Controls.Add(this.quarzComboBox);
             this.groupBox1.Controls.Add(this.tmr0Label);
             this.groupBox1.Controls.Add(this.timeLabel);
+            this.groupBox1.Controls.Add(this.groupBox8);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.label_time);
             this.groupBox1.Controls.Add(this.pclLabel);
@@ -321,7 +342,6 @@
             this.groupBox1.Controls.Add(this.pclLabel1);
             this.groupBox1.Controls.Add(this.pcLabel);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.wLabel);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
@@ -329,7 +349,52 @@
             this.groupBox1.Size = new System.Drawing.Size(336, 231);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Spezialregister";
+            this.groupBox1.Text = "Extras";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(10, 36);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(0, 13);
+            this.label40.TabIndex = 17;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(172, 189);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(92, 13);
+            this.label49.TabIndex = 16;
+            this.label49.Text = "Schrittdauer in µs:";
+            // 
+            // quarzFaktorLabel
+            // 
+            this.quarzFaktorLabel.AutoSize = true;
+            this.quarzFaktorLabel.Location = new System.Drawing.Point(292, 189);
+            this.quarzFaktorLabel.Name = "quarzFaktorLabel";
+            this.quarzFaktorLabel.Size = new System.Drawing.Size(10, 13);
+            this.quarzFaktorLabel.TabIndex = 15;
+            this.quarzFaktorLabel.Text = "-";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(10, 160);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(79, 13);
+            this.label48.TabIndex = 14;
+            this.label48.Text = "Quarzfrequenz:";
+            // 
+            // quarzComboBox
+            // 
+            this.quarzComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.quarzComboBox.FormattingEnabled = true;
+            this.quarzComboBox.Location = new System.Drawing.Point(95, 157);
+            this.quarzComboBox.Name = "quarzComboBox";
+            this.quarzComboBox.Size = new System.Drawing.Size(121, 21);
+            this.quarzComboBox.TabIndex = 13;
+            this.quarzComboBox.SelectedIndexChanged += new System.EventHandler(this.quarzComboBox_SelectedIndexChanged);
             // 
             // tmr0Label
             // 
@@ -343,12 +408,182 @@
             // timeLabel
             // 
             this.timeLabel.AutoSize = true;
-            this.timeLabel.Location = new System.Drawing.Point(109, 189);
+            this.timeLabel.Location = new System.Drawing.Point(118, 189);
             this.timeLabel.Name = "timeLabel";
             this.timeLabel.Size = new System.Drawing.Size(10, 13);
             this.timeLabel.TabIndex = 12;
             this.timeLabel.Text = "-";
             this.timeLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.latch7Label);
+            this.groupBox8.Controls.Add(this.latch6Label);
+            this.groupBox8.Controls.Add(this.latch5Label);
+            this.groupBox8.Controls.Add(this.latch2Label);
+            this.groupBox8.Controls.Add(this.latch4Label);
+            this.groupBox8.Controls.Add(this.latch3Label);
+            this.groupBox8.Controls.Add(this.latch1Label);
+            this.groupBox8.Controls.Add(this.latch0Label);
+            this.groupBox8.Controls.Add(this.label52);
+            this.groupBox8.Controls.Add(this.label53);
+            this.groupBox8.Controls.Add(this.label55);
+            this.groupBox8.Controls.Add(this.label56);
+            this.groupBox8.Controls.Add(this.label57);
+            this.groupBox8.Controls.Add(this.label58);
+            this.groupBox8.Controls.Add(this.label59);
+            this.groupBox8.Controls.Add(this.label60);
+            this.groupBox8.Location = new System.Drawing.Point(10, 18);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(170, 65);
+            this.groupBox8.TabIndex = 4;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Latch";
+            // 
+            // latch7Label
+            // 
+            this.latch7Label.AutoSize = true;
+            this.latch7Label.Location = new System.Drawing.Point(14, 40);
+            this.latch7Label.Name = "latch7Label";
+            this.latch7Label.Size = new System.Drawing.Size(10, 13);
+            this.latch7Label.TabIndex = 4;
+            this.latch7Label.Text = "-";
+            this.latch7Label.Click += new System.EventHandler(this.latch7Label_Click);
+            // 
+            // latch6Label
+            // 
+            this.latch6Label.AutoSize = true;
+            this.latch6Label.Location = new System.Drawing.Point(32, 40);
+            this.latch6Label.Name = "latch6Label";
+            this.latch6Label.Size = new System.Drawing.Size(10, 13);
+            this.latch6Label.TabIndex = 4;
+            this.latch6Label.Text = "-";
+            // 
+            // latch5Label
+            // 
+            this.latch5Label.AutoSize = true;
+            this.latch5Label.Location = new System.Drawing.Point(51, 40);
+            this.latch5Label.Name = "latch5Label";
+            this.latch5Label.Size = new System.Drawing.Size(10, 13);
+            this.latch5Label.TabIndex = 4;
+            this.latch5Label.Text = "-";
+            // 
+            // latch2Label
+            // 
+            this.latch2Label.AutoSize = true;
+            this.latch2Label.Location = new System.Drawing.Point(108, 40);
+            this.latch2Label.Name = "latch2Label";
+            this.latch2Label.Size = new System.Drawing.Size(10, 13);
+            this.latch2Label.TabIndex = 4;
+            this.latch2Label.Text = "-";
+            // 
+            // latch4Label
+            // 
+            this.latch4Label.AutoSize = true;
+            this.latch4Label.Location = new System.Drawing.Point(70, 40);
+            this.latch4Label.Name = "latch4Label";
+            this.latch4Label.Size = new System.Drawing.Size(10, 13);
+            this.latch4Label.TabIndex = 4;
+            this.latch4Label.Text = "-";
+            // 
+            // latch3Label
+            // 
+            this.latch3Label.AutoSize = true;
+            this.latch3Label.Location = new System.Drawing.Point(89, 40);
+            this.latch3Label.Name = "latch3Label";
+            this.latch3Label.Size = new System.Drawing.Size(10, 13);
+            this.latch3Label.TabIndex = 4;
+            this.latch3Label.Text = "-";
+            // 
+            // latch1Label
+            // 
+            this.latch1Label.AutoSize = true;
+            this.latch1Label.Location = new System.Drawing.Point(127, 40);
+            this.latch1Label.Name = "latch1Label";
+            this.latch1Label.Size = new System.Drawing.Size(10, 13);
+            this.latch1Label.TabIndex = 4;
+            this.latch1Label.Text = "-";
+            // 
+            // latch0Label
+            // 
+            this.latch0Label.AutoSize = true;
+            this.latch0Label.Location = new System.Drawing.Point(146, 40);
+            this.latch0Label.Name = "latch0Label";
+            this.latch0Label.Size = new System.Drawing.Size(10, 13);
+            this.latch0Label.TabIndex = 4;
+            this.latch0Label.Text = "-";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(13, 18);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(13, 13);
+            this.label52.TabIndex = 3;
+            this.label52.Text = "7";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(32, 18);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(13, 13);
+            this.label53.TabIndex = 3;
+            this.label53.Text = "6";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(70, 18);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(13, 13);
+            this.label55.TabIndex = 3;
+            this.label55.Text = "4";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(146, 18);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(13, 13);
+            this.label56.TabIndex = 3;
+            this.label56.Text = "0";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(108, 18);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(13, 13);
+            this.label57.TabIndex = 3;
+            this.label57.Text = "2";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(51, 18);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(13, 13);
+            this.label58.TabIndex = 3;
+            this.label58.Text = "5";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(127, 18);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(13, 13);
+            this.label59.TabIndex = 3;
+            this.label59.Text = "1";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(89, 18);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(13, 13);
+            this.label60.TabIndex = 3;
+            this.label60.Text = "3";
             // 
             // label16
             // 
@@ -377,6 +612,15 @@
             this.pclLabel.Size = new System.Drawing.Size(10, 13);
             this.pclLabel.TabIndex = 10;
             this.pclLabel.Text = "-";
+            // 
+            // pclathLabel
+            // 
+            this.pclathLabel.AutoSize = true;
+            this.pclathLabel.Location = new System.Drawing.Point(67, 105);
+            this.pclathLabel.Name = "pclathLabel";
+            this.pclathLabel.Size = new System.Drawing.Size(10, 13);
+            this.pclathLabel.TabIndex = 9;
+            this.pclathLabel.Text = "-";
             // 
             // label8
             // 
@@ -414,6 +658,26 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "Program Counter:";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(6, 204);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(103, 24);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "W-Register";
+            // 
+            // wLabel
+            // 
+            this.wLabel.AutoSize = true;
+            this.wLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wLabel.Location = new System.Drawing.Point(132, 204);
+            this.wLabel.Name = "wLabel";
+            this.wLabel.Size = new System.Drawing.Size(16, 24);
+            this.wLabel.TabIndex = 1;
+            this.wLabel.Text = "-";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.irpLabel);
@@ -432,9 +696,9 @@
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Location = new System.Drawing.Point(6, 19);
+            this.groupBox2.Location = new System.Drawing.Point(215, 19);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(230, 65);
+            this.groupBox2.Size = new System.Drawing.Size(320, 65);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Status";
@@ -591,26 +855,6 @@
             this.label13.TabIndex = 3;
             this.label13.Text = "PD";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 204);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 24);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "W-Register";
-            // 
-            // wLabel
-            // 
-            this.wLabel.AutoSize = true;
-            this.wLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wLabel.Location = new System.Drawing.Point(137, 204);
-            this.wLabel.Name = "wLabel";
-            this.wLabel.Size = new System.Drawing.Size(16, 24);
-            this.wLabel.TabIndex = 1;
-            this.wLabel.Text = "-";
-            // 
             // stackLabel
             // 
             this.stackLabel.AutoSize = true;
@@ -754,12 +998,23 @@
             this.groupBox3.Controls.Add(this.groupBox6);
             this.groupBox3.Controls.Add(this.groupBox5);
             this.groupBox3.Controls.Add(this.groupBox4);
+            this.groupBox3.Controls.Add(this.groupBox2);
             this.groupBox3.Location = new System.Drawing.Point(354, 27);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(698, 231);
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Sonstiges";
+            this.groupBox3.Text = "Register";
+            // 
+            // interruptLabel
+            // 
+            this.interruptLabel.AutoSize = true;
+            this.interruptLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interruptLabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.interruptLabel.Location = new System.Drawing.Point(285, 206);
+            this.interruptLabel.Name = "interruptLabel";
+            this.interruptLabel.Size = new System.Drawing.Size(0, 16);
+            this.interruptLabel.TabIndex = 9;
             // 
             // groupBox7
             // 
@@ -1350,7 +1605,7 @@
             this.groupBox5.Controls.Add(this.label33);
             this.groupBox5.Controls.Add(this.label34);
             this.groupBox5.Controls.Add(this.label35);
-            this.groupBox5.Location = new System.Drawing.Point(215, 84);
+            this.groupBox5.Location = new System.Drawing.Point(215, 156);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(320, 65);
             this.groupBox5.TabIndex = 4;
@@ -1528,7 +1783,7 @@
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Controls.Add(this.label24);
-            this.groupBox4.Location = new System.Drawing.Point(215, 17);
+            this.groupBox4.Location = new System.Drawing.Point(215, 89);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(320, 65);
             this.groupBox4.TabIndex = 4;
@@ -1764,43 +2019,6 @@
             this.label47.TabIndex = 20;
             this.label47.Text = "BreakPoints:";
             // 
-            // quarzComboBox
-            // 
-            this.quarzComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.quarzComboBox.FormattingEnabled = true;
-            this.quarzComboBox.Location = new System.Drawing.Point(95, 157);
-            this.quarzComboBox.Name = "quarzComboBox";
-            this.quarzComboBox.Size = new System.Drawing.Size(121, 21);
-            this.quarzComboBox.TabIndex = 13;
-            this.quarzComboBox.SelectedIndexChanged += new System.EventHandler(this.quarzComboBox_SelectedIndexChanged);
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(10, 160);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(79, 13);
-            this.label48.TabIndex = 14;
-            this.label48.Text = "Quarzfrequenz:";
-            // 
-            // quarzFaktorLabel
-            // 
-            this.quarzFaktorLabel.AutoSize = true;
-            this.quarzFaktorLabel.Location = new System.Drawing.Point(292, 189);
-            this.quarzFaktorLabel.Name = "quarzFaktorLabel";
-            this.quarzFaktorLabel.Size = new System.Drawing.Size(10, 13);
-            this.quarzFaktorLabel.TabIndex = 15;
-            this.quarzFaktorLabel.Text = "-";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(172, 189);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(92, 13);
-            this.label49.TabIndex = 16;
-            this.label49.Text = "Schrittdauer in µs:";
-            // 
             // resetBtn
             // 
             this.resetBtn.Location = new System.Drawing.Point(1290, 486);
@@ -1810,25 +2028,6 @@
             this.resetBtn.Text = "Reset";
             this.resetBtn.UseVisualStyleBackColor = true;
             this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
-            // 
-            // interruptLabel
-            // 
-            this.interruptLabel.AutoSize = true;
-            this.interruptLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interruptLabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.interruptLabel.Location = new System.Drawing.Point(285, 206);
-            this.interruptLabel.Name = "interruptLabel";
-            this.interruptLabel.Size = new System.Drawing.Size(0, 16);
-            this.interruptLabel.TabIndex = 9;
-            // 
-            // pclathLabel
-            // 
-            this.pclathLabel.AutoSize = true;
-            this.pclathLabel.Location = new System.Drawing.Point(67, 105);
-            this.pclathLabel.Name = "pclathLabel";
-            this.pclathLabel.Size = new System.Drawing.Size(10, 13);
-            this.pclathLabel.TabIndex = 9;
-            this.pclathLabel.Text = "-";
             // 
             // Form1
             // 
@@ -1863,6 +2062,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Lst)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stackGridView)).EndInit();
@@ -2045,6 +2246,24 @@
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.Label interruptLabel;
         private System.Windows.Forms.Label pclathLabel;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Label latch7Label;
+        private System.Windows.Forms.Label latch6Label;
+        private System.Windows.Forms.Label latch5Label;
+        private System.Windows.Forms.Label latch2Label;
+        private System.Windows.Forms.Label latch4Label;
+        private System.Windows.Forms.Label latch3Label;
+        private System.Windows.Forms.Label latch1Label;
+        private System.Windows.Forms.Label latch0Label;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label60;
     }
 }
 
